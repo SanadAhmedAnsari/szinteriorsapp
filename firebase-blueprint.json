@@ -1,0 +1,121 @@
+{
+  "entities": {
+    "settings": {
+      "title": "Site Settings",
+      "description": "Global configuration for the website including theme, SEO, and contact details.",
+      "type": "object",
+      "properties": {
+        "primaryColor": { "type": "string", "description": "Primary brand color" },
+        "secondaryColor": { "type": "string", "description": "Secondary brand color" },
+        "fontFamily": { "type": "string", "description": "Primary font family" },
+        "siteName": { "type": "string", "description": "Name of the company" },
+        "siteDescription": { "type": "string", "description": "Meta description for the site" },
+        "address": { "type": "string", "description": "Office address" },
+        "email": { "type": "string", "description": "Contact email" },
+        "phone": { "type": "string", "description": "Contact phone number" },
+        "socialLinks": {
+          "type": "object",
+          "properties": {
+            "facebook": { "type": "string" },
+            "instagram": { "type": "string" },
+            "linkedin": { "type": "string" },
+            "youtube": { "type": "string" },
+            "pinterest": { "type": "string" }
+          }
+        }
+      }
+    },
+    "service": {
+      "title": "Service",
+      "description": "A service offered by the company.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "icon": { "type": "string", "description": "Lucide icon name" },
+        "image": { "type": "string" },
+        "order": { "type": "number" }
+      },
+      "required": ["title", "description"]
+    },
+    "project": {
+      "title": "Project",
+      "description": "A portfolio project.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "location": { "type": "string" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "gallery": { "type": "array", "items": { "type": "string" } },
+        "featured": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "category", "image"]
+    },
+    "blogPost": {
+      "title": "Blog Post",
+      "description": "A news or educational article.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "slug": { "type": "string" },
+        "content": { "type": "string" },
+        "excerpt": { "type": "string" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "author": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "published": { "type": "boolean" },
+        "publishedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "slug", "content"]
+    },
+    "testimonial": {
+      "title": "Testimonial",
+      "description": "Client review and rating.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "content": { "type": "string" },
+        "rating": { "type": "number" },
+        "image": { "type": "string" }
+      },
+      "required": ["name", "content", "rating"]
+    },
+    "message": {
+      "title": "Contact Message",
+      "description": "Form submission from the contact page.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "message"]
+    },
+    "user": {
+      "title": "Admin User",
+      "description": "User with administrative access.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/settings/site": { "schema": "settings", "description": "Global site settings" },
+    "/services/{serviceId}": { "schema": "service", "description": "List of services" },
+    "/projects/{projectId}": { "schema": "project", "description": "Portfolio projects" },
+    "/blog/{postId}": { "schema": "blogPost", "description": "Blog articles" },
+    "/testimonials/{testimonialId}": { "schema": "testimonial", "description": "Client testimonials" },
+    "/messages/{messageId}": { "schema": "message", "description": "Contact form submissions" },
+    "/users/{userId}": { "schema": "user", "description": "Admin users" }
+  }
+}
