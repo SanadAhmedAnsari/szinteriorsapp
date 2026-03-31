@@ -11,6 +11,7 @@ const navLinks = [
   { name: 'Projects', path: '/projects' },
   { name: 'Blog', path: '/blog' },
   { name: 'Testimonials', path: '/testimonials' },
+  { name: 'Videos', path: '/videos' },
   { name: 'Contact', path: '/contact' },
 ];
 

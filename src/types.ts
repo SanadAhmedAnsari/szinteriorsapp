@@ -68,3 +68,13 @@ export interface ContactMessage {
   message: string;
   createdAt: string;
 }
+
+export interface VideoContent {
+  id: string;
+  title: string;
+  description: string;
+  videoUrl: string;
+  type: 'project' | 'tutorial';
+  thumbnail: string;
+  createdAt: string;
+}

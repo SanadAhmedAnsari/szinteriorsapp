@@ -107,6 +107,20 @@
         "role": { "type": "string", "enum": ["admin"] }
       },
       "required": ["email", "role"]
+    },
+    "videoContent": {
+      "title": "Video Content",
+      "description": "Reels or YouTube videos for projects or tutorials.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "videoUrl": { "type": "string", "description": "YouTube or Reel URL" },
+        "type": { "type": "string", "enum": ["project", "tutorial"] },
+        "thumbnail": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "videoUrl", "type"]
     }
   },
   "firestore": {
@@ -116,6 +130,7 @@
     "/blog/{postId}": { "schema": "blogPost", "description": "Blog articles" },
     "/testimonials/{testimonialId}": { "schema": "testimonial", "description": "Client testimonials" },
     "/messages/{messageId}": { "schema": "message", "description": "Contact form submissions" },
-    "/users/{userId}": { "schema": "user", "description": "Admin users" }
+    "/users/{userId}": { "schema": "user", "description": "Admin users" },
+    "/videos/{videoId}": { "schema": "videoContent", "description": "Video reels and tutorials" }
   }
 }

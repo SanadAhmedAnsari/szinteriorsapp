@@ -19,6 +19,7 @@ import Projects from './pages/Projects';
 import Blog from './pages/Blog';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
+import Videos from './pages/Videos';
 
 // Admin Pages
 import AdminLogin from './pages/Admin/Login';
@@ -33,6 +34,7 @@ import ThemeSettings from './pages/Admin/ThemeSettings';
 import SEOSettings from './pages/Admin/SEOSettings';
 import MediaLibrary from './pages/Admin/MediaLibrary';
 import PageEditor from './pages/Admin/PageEditor';
+import AdminVideos from './pages/Admin/Videos';
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -70,6 +72,7 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/videos" element={<Videos />} />
         </Route>
 
         {/* Admin Routes */}
@@ -89,6 +92,7 @@ export default function App() {
           <Route path="seo" element={<SEOSettings />} />
           <Route path="media" element={<MediaLibrary />} />
           <Route path="pages" element={<PageEditor />} />
+          <Route path="videos" element={<AdminVideos />} />
           {/* Add more admin sub-routes here */}
         </Route>
       </Routes>

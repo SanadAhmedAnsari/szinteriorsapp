@@ -13,13 +13,15 @@ import {
   Star,
   Globe,
   Palette,
-  Layout
+  Layout,
+  Video
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import { cn } from '../../lib/utils';
 import { toast } from 'sonner';
+import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
 
 const adminLinks = [
   { name: 'Overview', path: '/admin', icon: LayoutDashboard },
@@ -30,6 +32,7 @@ const adminLinks = [
   { name: 'Blog', path: '/admin/blog', icon: FileText },
   { name: 'Testimonials', path: '/admin/testimonials', icon: Star },
   { name: 'Messages', path: '/admin/messages', icon: MessageSquare },
+  { name: 'Videos & Reels', path: '/admin/videos', icon: Video },
   { name: 'Site Settings', path: '/admin/settings', icon: Settings },
   { name: 'Theme & Style', path: '/admin/theme', icon: Palette },
   { name: 'SEO Settings', path: '/admin/seo', icon: Globe },
@@ -39,6 +42,33 @@ export default function AdminLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
+  const lastMessageId = useRef<string | null>(null);
+
+  useEffect(() => {
+    // Real-time notification for new messages
+    const q = query(collection(db, 'messages'), orderBy('createdAt', 'desc'), limit(1));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      if (!snapshot.empty) {
+        const newMessage = snapshot.docs[0];
+        const messageId = newMessage.id;
+        
+        // Only notify if it's a new message (not the one we saw on initial load)
+        if (lastMessageId.current && lastMessageId.current !== messageId) {
+          const data = newMessage.data();
+          toast.info(`New Message from ${data.name}`, {
+            description: data.message.substring(0, 50) + '...',
+            action: {
+              label: 'View',
+              onClick: () => navigate('/admin/messages')
+            }
+          });
+        }
+        lastMessageId.current = messageId;
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
 
   const handleLogout = async () => {
     try {
