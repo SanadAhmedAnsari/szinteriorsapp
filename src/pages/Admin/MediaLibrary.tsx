@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useFirestore } from '../../hooks/useFirestore';
-import { db } from '../../firebase';
+import { db, storage } from '../../firebase';
 import { collection, addDoc, deleteDoc, doc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { toast } from 'sonner';
-import { Plus, Trash2, Copy, Image as ImageIcon, Search, X } from 'lucide-react';
+import { Plus, Trash2, Copy, Image as ImageIcon, Search, X, Upload, Loader2 } from 'lucide-react';
 
 interface MediaItem {
   id: string;
@@ -19,6 +20,35 @@ export default function MediaLibrary() {
   const [newUrl, setNewUrl] = useState('');
   const [newName, setNewName] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsUploading(true);
+    try {
+      const storageRef = ref(storage, `media/${Date.now()}_${file.name}`);
+      const snapshot = await uploadBytes(storageRef, file);
+      const url = await getDownloadURL(snapshot.ref);
+      
+      await addDoc(collection(db, 'media'), {
+        url,
+        name: file.name,
+        type: 'image',
+        createdAt: new Date().toISOString(),
+      });
+      
+      toast.success('File uploaded and added to library');
+    } catch (error) {
+      console.error('Upload error:', error);
+      toast.error('Failed to upload file');
+    } finally {
+      setIsUploading(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  };
 
   const handleAdd = async () => {
     if (!newUrl || !newName) {
@@ -69,13 +99,30 @@ export default function MediaLibrary() {
           <h1 className="text-4xl font-light text-stone-900">Media Library</h1>
           <p className="mt-2 text-stone-500 text-sm uppercase tracking-widest">Manage your website's visual assets</p>
         </div>
-        <button
-          onClick={() => setIsAdding(true)}
-          className="flex items-center space-x-3 bg-stone-900 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-stone-800"
-        >
-          <Plus size={18} />
-          <span>Add New Asset</span>
-        </button>
+        <div className="flex items-center space-x-4">
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileUpload}
+            className="hidden"
+            accept="image/*"
+          />
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            disabled={isUploading}
+            className="flex items-center space-x-3 bg-stone-100 px-8 py-4 text-xs font-bold uppercase tracking-widest text-stone-900 transition-all hover:bg-stone-200 disabled:opacity-50"
+          >
+            {isUploading ? <Loader2 size={18} className="animate-spin" /> : <Upload size={18} />}
+            <span>{isUploading ? 'Uploading...' : 'Upload File'}</span>
+          </button>
+          <button
+            onClick={() => setIsAdding(true)}
+            className="flex items-center space-x-3 bg-stone-900 px-8 py-4 text-xs font-bold uppercase tracking-widest text-white transition-all hover:bg-stone-800"
+          >
+            <Plus size={18} />
+            <span>Add via URL</span>
+          </button>
+        </div>
       </div>
 
       <div className="flex items-center space-x-4 bg-white p-4 rounded-2xl border border-stone-100 shadow-sm">

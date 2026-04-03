@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { CheckCircle2, Award, Users, Target, Rocket } from 'lucide-react';
+import { CheckCircle2, Award, Users, Target, Rocket, Instagram, Linkedin } from 'lucide-react';
 import { usePageContent } from '../hooks/usePageContent';
 
 const DEFAULT_ABOUT_CONTENT = {
@@ -7,6 +7,10 @@ const DEFAULT_ABOUT_CONTENT = {
   introText: 'Founded in Bhopal, SZ Interiors & Construction has grown into an international agency known for its commitment to quality and innovation.',
   mission: 'To transform our clients\' visions into reality through exceptional design and superior craftsmanship.',
   vision: 'To be the global leader in luxury interior design and sustainable construction solutions.',
+  founderName: 'Syed Zaid',
+  founderRole: 'Founder & Principal Architect',
+  founderBio: 'With a passion for architecture and a keen eye for detail, Syed Zaid leads the team in creating spaces that are both functional and breathtaking.',
+  founderImage: 'https://i.pravatar.cc/600?u=zaid',
 };
 
 export default function About() {
@@ -21,10 +25,10 @@ export default function About() {
   }
 
   return (
-    <div className="pt-32 pb-32">
+    <div className="pb-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <div className="mb-32 text-center">
+        <div className="mb-32 text-center pt-20">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,6 +67,34 @@ export default function About() {
                 className="h-full w-full object-cover"
                 referrerPolicy="no-referrer"
               />
+            </div>
+          </div>
+        </div>
+
+        {/* Founder Section */}
+        <div className="mb-32 bg-stone-900 rounded-[3rem] overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div className="h-[500px] lg:h-auto">
+              <img
+                src={content.founderImage}
+                alt={content.founderName}
+                className="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="p-12 lg:p-20 flex flex-col justify-center space-y-8 text-white">
+              <div className="space-y-2">
+                <span className="text-xs font-bold uppercase tracking-[0.4em] text-stone-500">The Visionary</span>
+                <h2 className="text-4xl font-light md:text-5xl">{content.founderName}</h2>
+                <p className="text-sm uppercase tracking-widest text-stone-400">{content.founderRole}</p>
+              </div>
+              <p className="text-lg leading-relaxed text-stone-300 font-light italic">
+                "{content.founderBio}"
+              </p>
+              <div className="pt-4 flex space-x-6">
+                <a href="#" className="text-stone-500 hover:text-white transition-colors"><Instagram size={24} /></a>
+                <a href="#" className="text-stone-500 hover:text-white transition-colors"><Linkedin size={24} /></a>
+              </div>
             </div>
           </div>
         </div>
@@ -113,30 +145,8 @@ export default function About() {
             ))}
           </div>
         </div>
-
-        {/* Team Section Placeholder */}
-        <div className="text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">The People</span>
-          <h2 className="mt-4 text-4xl font-light text-stone-900 mb-20">Our Leadership Team</h2>
-          <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { name: 'Syed Zaid', role: 'Founder & Principal Architect', img: 'https://i.pravatar.cc/300?u=zaid' },
-              { name: 'Ananya Verma', role: 'Head of Interior Design', img: 'https://i.pravatar.cc/300?u=ananya' },
-              { name: 'Vikram Singh', role: 'Project Director', img: 'https://i.pravatar.cc/300?u=vikram' },
-            ].map((member, idx) => (
-              <div key={idx} className="space-y-6">
-                <div className="aspect-square overflow-hidden rounded-3xl grayscale hover:grayscale-0 transition-all duration-500">
-                  <img src={member.img} alt={member.name} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-stone-900">{member.name}</h4>
-                  <p className="text-xs uppercase tracking-widest text-stone-500">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
 }
+

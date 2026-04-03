@@ -36,6 +36,10 @@ const PAGE_TEMPLATES: { [key: string]: PageContent } = {
       introText: { type: 'textarea', label: 'Intro Text', value: 'Founded in Bhopal, SZ Interiors & Construction has grown into an international agency known for its commitment to quality and innovation.' },
       mission: { type: 'textarea', label: 'Our Mission', value: 'To transform our clients\' visions into reality through exceptional design and superior craftsmanship.' },
       vision: { type: 'textarea', label: 'Our Vision', value: 'To be the global leader in luxury interior design and sustainable construction solutions.' },
+      founderName: { type: 'text', label: 'Founder Name', value: 'Syed Zaid' },
+      founderRole: { type: 'text', label: 'Founder Role', value: 'Founder & Principal Architect' },
+      founderBio: { type: 'textarea', label: 'Founder Bio', value: 'With a passion for architecture and a keen eye for detail, Syed Zaid leads the team in creating spaces that are both functional and breathtaking.' },
+      founderImage: { type: 'image', label: 'Founder Image URL', value: 'https://i.pravatar.cc/600?u=zaid' },
     }
   }
 };
