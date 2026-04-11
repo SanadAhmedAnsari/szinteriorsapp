@@ -54,7 +54,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <div className="pt-32 pb-32">
+    <div className="pb-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-20 text-center">
           <motion.span

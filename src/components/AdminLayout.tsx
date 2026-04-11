@@ -18,8 +18,8 @@ import {
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { signOut } from 'firebase/auth';
-import { auth, db } from '../../firebase';
-import { cn } from '../../lib/utils';
+import { auth, db } from '../firebase';
+import { cn } from '../lib/utils';
 import { toast } from 'sonner';
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
 

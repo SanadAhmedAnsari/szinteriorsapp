@@ -63,11 +63,11 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-stone-600" />
-                <span>Arera Colony, Bhopal, Madhya Pradesh, India</span>
+                <span>10, Patwa Market, Near Bharat Talkies, Bhopal, Madhya Pradesh, India</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="shrink-0 text-stone-600" />
-                <span>+91 98765 43210</span>
+                <span>+91 78933 65987</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="shrink-0 text-stone-600" />

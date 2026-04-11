@@ -40,7 +40,7 @@ export default function Home() {
             referrerPolicy="no-referrer"
           />
         </div>
-        <div className="relative z-10 flex h-full items-center justify-center px-4 text-center">
+        <div className="relative z-10 flex h-full items-center justify-center px-4 text-center pt-32 md:pt-40">
           <div className="max-w-4xl">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
@@ -109,7 +109,8 @@ export default function Home() {
               <div className="aspect-[4/5] overflow-hidden rounded-2xl">
                 <img
                   src="https://images.unsplash.com/photo-1616486341351-7963a69f8222?auto=format&fit=crop&q=80&w=1000"
-                  alt="Interior Design Process"
+                  alt="Best interior designer in Bhopal - Design Process"
+                  loading="lazy"
                   className="h-full w-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -117,7 +118,8 @@ export default function Home() {
               <div className="absolute -bottom-10 -right-10 hidden h-64 w-64 overflow-hidden rounded-2xl border-8 border-white shadow-2xl md:block">
                 <img
                   src="https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=500"
-                  alt="Construction Site"
+                  alt="Construction contractor Madhya Pradesh - Site Work"
+                  loading="lazy"
                   className="h-full w-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -158,14 +160,14 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-20 text-center">
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">Our Expertise</span>
-            <h2 className="mt-4 text-4xl font-light text-stone-900 md:text-5xl">Comprehensive Solutions</h2>
+            <h2 className="mt-4 text-4xl font-light text-stone-900 md:text-5xl">Comprehensive <span className="italic font-serif">Solutions</span></h2>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { title: 'Residential Design', desc: 'Custom luxury interiors for villas and apartments.', icon: 'Home' },
-              { title: 'Commercial Design', desc: 'Innovative office and retail spaces that inspire.', icon: 'Building' },
-              { title: 'Construction', desc: 'High-quality construction with international standards.', icon: 'Hammer' },
-              { title: 'Turnkey Solutions', desc: 'End-to-end management from concept to completion.', icon: 'Key' },
+              { title: 'Residential Design', desc: 'Custom luxury interiors for villas and apartments. Pinterest-inspired home designs.', icon: 'Home' },
+              { title: 'Commercial Design', desc: 'Innovative office and retail spaces that inspire. Modern office design Indore.', icon: 'Building' },
+              { title: 'Construction', desc: 'High-quality construction with international standards. Thekedar in Bhopal.', icon: 'Hammer' },
+              { title: 'Turnkey Solutions', desc: 'End-to-end management from concept to completion. Carpenter & Plumbing solutions.', icon: 'Key' },
             ].map((service, idx) => (
               <div key={idx} className="group border border-stone-100 p-10 transition-all hover:bg-stone-50 hover:shadow-xl">
                 <div className="mb-8 flex h-16 w-16 items-center justify-center bg-stone-900 text-white transition-transform group-hover:scale-110">
@@ -196,14 +198,15 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {[
-              { title: 'The Royal Villa', loc: 'Arera Colony, Bhopal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000' },
-              { title: 'Modern Office Hub', loc: 'MP Nagar, Bhopal', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000' },
+              { title: 'The Royal Villa', loc: 'Arera Colony, Bhopal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000', slug: 'interior-designer-in-bhopal-luxury-villa' },
+              { title: 'Modern Office Hub', loc: 'MP Nagar, Bhopal', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000', slug: 'modular-kitchen-bhopal-modern-design' },
             ].map((project, idx) => (
-              <Link key={idx} to="/projects" className="group block space-y-6">
+              <Link key={idx} to={`/projects/${project.slug}`} className="group block space-y-6">
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src={project.img}
-                    alt={project.title}
+                    alt={`${project.title} - False ceiling experts Bhopal`}
+                    loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                   />
@@ -211,6 +214,40 @@ export default function Home() {
                 <div>
                   <h3 className="text-2xl font-light tracking-tight">{project.title}</h3>
                   <p className="text-sm uppercase tracking-widest text-stone-500">{project.loc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Journal Preview */}
+      <section className="py-32 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between space-y-6 md:space-y-0">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">The Journal</span>
+              <h2 className="mt-4 text-4xl font-light md:text-5xl">Design <span className="italic font-serif">Journal</span></h2>
+            </div>
+            <Link to="/journal" className="text-sm font-bold uppercase tracking-widest text-stone-900 border-b border-stone-200 pb-2 hover:border-stone-900 transition-all">
+              Explore Journal
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+            {blogPosts.slice(0, 3).map((post) => (
+              <Link key={post.id} to={`/journal/${post.slug}`} className="group block space-y-6">
+                <div className="aspect-[16/10] overflow-hidden rounded-2xl">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div className="space-y-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">{post.category}</span>
+                  <h3 className="text-xl font-light leading-tight text-stone-900 group-hover:text-stone-500 transition-colors">{post.title}</h3>
                 </div>
               </Link>
             ))}

@@ -7,9 +7,9 @@ const DEFAULT_ABOUT_CONTENT = {
   introText: 'Founded in Bhopal, SZ Interiors & Construction has grown into an international agency known for its commitment to quality and innovation.',
   mission: 'To transform our clients\' visions into reality through exceptional design and superior craftsmanship.',
   vision: 'To be the global leader in luxury interior design and sustainable construction solutions.',
-  founderName: 'Syed Zaid',
-  founderRole: 'Founder & Principal Architect',
-  founderBio: 'With a passion for architecture and a keen eye for detail, Syed Zaid leads the team in creating spaces that are both functional and breathtaking.',
+  founderName: 'Zainab Khan',
+  founderRole: 'Founder & Principal Designer',
+  founderBio: 'With a passion for designer and a keen eye for detail, Zainab Khan leads the team in creating spaces that are both functional and breathtaking.',
   founderImage: 'https://i.pravatar.cc/600?u=zaid',
 };
 
@@ -28,7 +28,7 @@ export default function About() {
     <div className="pb-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <div className="mb-32 text-center pt-20">
+        <div className="mb-32 text-center">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

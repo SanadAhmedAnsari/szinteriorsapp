@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './firebase';
 import { Toaster } from 'sonner';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Components
 import Layout from './components/Layout';
-import AdminLayout from './components/Admin/AdminLayout';
+import AdminLayout from './components/AdminLayout';
 import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/ThemeProvider';
 import { SEO } from './components/SEO';
@@ -16,10 +17,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
-import Blog from './pages/Blog';
+import Journal from './pages/Journal';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
-import Videos from './pages/Videos';
 
 // Admin Pages
 import AdminLogin from './pages/Admin/Login';
@@ -58,46 +58,48 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <ThemeProvider>
-        <SEO />
-        <Router>
-          <Toaster position="top-center" richColors />
-          <Routes>
-        {/* Public Routes */}
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/videos" element={<Videos />} />
-        </Route>
+      <HelmetProvider>
+        <ThemeProvider>
+          <SEO />
+          <Router>
+            <Toaster position="top-center" richColors />
+            <Routes>
+              {/* Public Routes */}
+              <Route element={<Layout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:slug" element={<Projects />} />
+                <Route path="/journal" element={<Journal />} />
+                <Route path="/journal/:slug" element={<Journal />} />
+                <Route path="/testimonials" element={<Testimonials />} />
+                <Route path="/contact" element={<Contact />} />
+              </Route>
 
-        {/* Admin Routes */}
-        <Route path="/admin/login" element={user ? <Navigate to="/admin" /> : <AdminLogin />} />
-        <Route
-          path="/admin/*"
-          element={user ? <AdminLayout /> : <Navigate to="/admin/login" />}
-        >
-          <Route index element={<AdminDashboard />} />
-          <Route path="messages" element={<AdminMessages />} />
-          <Route path="settings" element={<AdminSettings />} />
-          <Route path="services" element={<AdminServices />} />
-          <Route path="projects" element={<AdminProjects />} />
-          <Route path="blog" element={<AdminBlog />} />
-          <Route path="testimonials" element={<AdminTestimonials />} />
-          <Route path="theme" element={<ThemeSettings />} />
-          <Route path="seo" element={<SEOSettings />} />
-          <Route path="media" element={<MediaLibrary />} />
-          <Route path="pages" element={<PageEditor />} />
-          <Route path="videos" element={<AdminVideos />} />
-          {/* Add more admin sub-routes here */}
-        </Route>
-      </Routes>
-    </Router>
-    </ThemeProvider>
+              {/* Admin Routes */}
+              <Route path="/admin/login" element={user ? <Navigate to="/admin" /> : <AdminLogin />} />
+              <Route
+                path="/admin/*"
+                element={user ? <AdminLayout /> : <Navigate to="/admin/login" />}
+              >
+                <Route index element={<AdminDashboard />} />
+                <Route path="messages" element={<AdminMessages />} />
+                <Route path="settings" element={<AdminSettings />} />
+                <Route path="services" element={<AdminServices />} />
+                <Route path="projects" element={<AdminProjects />} />
+                <Route path="blog" element={<AdminBlog />} />
+                <Route path="testimonials" element={<AdminTestimonials />} />
+                <Route path="theme" element={<ThemeSettings />} />
+                <Route path="seo" element={<SEOSettings />} />
+                <Route path="media" element={<MediaLibrary />} />
+                <Route path="pages" element={<PageEditor />} />
+                <Route path="videos" element={<AdminVideos />} />
+              </Route>
+            </Routes>
+          </Router>
+        </ThemeProvider>
+      </HelmetProvider>
     </ErrorBoundary>
   );
 }

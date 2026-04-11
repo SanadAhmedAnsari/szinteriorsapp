@@ -8,9 +8,10 @@ import { db } from '../firebase';
 import { toast } from 'sonner';
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Name is required'),
+  name: z.string().min(1, 'Name is required'),
   email: z.string().email('Invalid email address'),
-  phone: z.string().min(10, 'Invalid phone number'),
+  phone: z.string().min(10, 'Contact number is required (min 10 digits)'),
+  service: z.string().min(1, 'Please select a service'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
@@ -24,6 +25,9 @@ export default function Contact() {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    defaultValues: {
+      service: '',
+    }
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -41,7 +45,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-32 pb-32">
+    <div className="pb-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-20 text-center">
           <motion.span
@@ -119,7 +123,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Full Name</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Full Name *</label>
                   <input
                     {...register('name')}
                     className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
@@ -138,14 +142,30 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Phone Number</label>
-                <input
-                  {...register('phone')}
-                  className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
-                  placeholder="+91 00000 00000"
-                />
-                {errors.phone && <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.phone.message}</p>}
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Phone Number *</label>
+                  <input
+                    {...register('phone')}
+                    className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
+                    placeholder="+91 00000 00000"
+                  />
+                  {errors.phone && <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.phone.message}</p>}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">What are you looking for? *</label>
+                  <select
+                    {...register('service')}
+                    className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled>Select a service</option>
+                    <option value="Interior Designing">Interior Designing</option>
+                    <option value="Consultation">Consultation</option>
+                    <option value="3D Visualisation">3D Visualisation</option>
+                    <option value="Architecture">Architecture</option>
+                  </select>
+                  {errors.service && <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.service.message}</p>}
+                </div>
               </div>
 
               <div className="space-y-2">

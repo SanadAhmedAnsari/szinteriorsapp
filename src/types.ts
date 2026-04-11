@@ -28,6 +28,7 @@ export interface Service {
 export interface Project {
   id: string;
   title: string;
+  slug: string;
   description: string;
   location: string;
   category: string;
@@ -72,6 +73,7 @@ export interface ContactMessage {
 export interface VideoContent {
   id: string;
   title: string;
+  slug: string;
   description: string;
   videoUrl: string;
   type: 'project' | 'tutorial';

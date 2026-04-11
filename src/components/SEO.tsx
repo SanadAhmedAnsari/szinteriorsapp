@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
+import { Helmet } from 'react-helmet-async';
+import { generateSchema, SEO_KEYWORDS } from '../utils/seoData';
 
 interface SEOSettings {
   metaTitle: string;
@@ -12,9 +14,9 @@ interface SEOSettings {
 }
 
 const DEFAULT_SEO: SEOSettings = {
-  metaTitle: 'SZ Interiors & Construction | Luxury Interior Design Bhopal',
-  metaDescription: 'SZ Interiors & Construction is a premier interior design and construction agency in Bhopal, India.',
-  keywords: 'interior design, construction, bhopal',
+  metaTitle: 'SZ Interiors & Construction | Best Interior Designer in Bhopal & Indore',
+  metaDescription: 'SZ Interiors & Construction is a premier interior design and construction agency in Bhopal, Madhya Pradesh. Thekedar for Pinterest-inspired homes.',
+  keywords: 'interior design, construction, bhopal, indore, thekedar, carpenter solution, false ceiling experts',
   ogImage: '',
   googleAnalyticsId: '',
   searchConsoleId: '',
@@ -22,6 +24,7 @@ const DEFAULT_SEO: SEOSettings = {
 
 export function SEO() {
   const [seo, setSeo] = useState<SEOSettings>(DEFAULT_SEO);
+  const [schema, setSchema] = useState<any>(null);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(doc(db, 'settings', 'seo'), (doc) => {
@@ -29,20 +32,9 @@ export function SEO() {
         const data = doc.data() as SEOSettings;
         setSeo({ ...DEFAULT_SEO, ...data });
         
-        // Update document title
-        document.title = data.metaTitle || DEFAULT_SEO.metaTitle;
-        
-        // Update meta tags
-        updateMetaTag('description', data.metaDescription || DEFAULT_SEO.metaDescription);
-        updateMetaTag('keywords', data.keywords || DEFAULT_SEO.keywords);
-        
-        // OG tags
-        updateMetaTag('og:title', data.metaTitle || DEFAULT_SEO.metaTitle, 'property');
-        updateMetaTag('og:description', data.metaDescription || DEFAULT_SEO.metaDescription, 'property');
-        if (data.ogImage) {
-          updateMetaTag('og:image', data.ogImage, 'property');
-        }
-        
+        // Generate Organization Schema
+        setSchema(generateSchema('Organization', {}));
+
         // Analytics (simplified injection)
         if (data.googleAnalyticsId && !window.location.hostname.includes('localhost')) {
           injectGA(data.googleAnalyticsId);
@@ -53,17 +45,31 @@ export function SEO() {
     return () => unsubscribe();
   }, []);
 
-  return null; // This component doesn't render anything
-}
+  return (
+    <Helmet>
+      <title>{seo.metaTitle}</title>
+      <meta name="description" content={seo.metaDescription} />
+      <meta name="keywords" content={`${seo.keywords}, ${SEO_KEYWORDS.primary.join(', ')}, ${SEO_KEYWORDS.colloquial.join(', ')}`} />
+      
+      {/* Open Graph */}
+      <meta property="og:title" content={seo.metaTitle} />
+      <meta property="og:description" content={seo.metaDescription} />
+      <meta property="og:type" content="website" />
+      {seo.ogImage && <meta property="og:image" content={seo.ogImage} /> }
 
-function updateMetaTag(name: string, content: string, attr: 'name' | 'property' = 'name') {
-  let element = document.querySelector(`meta[${attr}="${name}"]`);
-  if (!element) {
-    element = document.createElement('meta');
-    element.setAttribute(attr, name);
-    document.head.appendChild(element);
-  }
-  element.setAttribute('content', content);
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={seo.metaTitle} />
+      <meta name="twitter:description" content={seo.metaDescription} />
+
+      {/* JSON-LD Schema */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
+    </Helmet>
+  );
 }
 
 function injectGA(id: string) {
