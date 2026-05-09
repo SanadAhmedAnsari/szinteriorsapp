@@ -29,7 +29,7 @@ export default function AdminLogin() {
             <LayoutDashboard size={40} />
           </div>
           <h1 className="text-3xl font-light text-stone-900">Admin Dashboard</h1>
-          <p className="text-stone-500 text-sm uppercase tracking-widest">SZ Interiors & Construction</p>
+          <p className="text-stone-500 text-sm uppercase tracking-widest">Apka Interior Wala</p>
         </div>
 
         <div className="bg-white p-12 rounded-[2rem] shadow-xl space-y-8">

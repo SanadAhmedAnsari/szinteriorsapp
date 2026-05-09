@@ -14,9 +14,9 @@ interface SEOSettings {
 }
 
 const DEFAULT_SEO: SEOSettings = {
-  metaTitle: 'SZ Interiors & Construction | Best Interior Designer in Bhopal & Indore',
-  metaDescription: 'SZ Interiors & Construction is a premier interior design and construction agency in Bhopal, Madhya Pradesh. Thekedar for Pinterest-inspired homes.',
-  keywords: 'interior design, construction, bhopal, indore, thekedar, carpenter solution, false ceiling experts',
+  metaTitle: 'Apka Interior Wala | Best Interior Designer in Bhopal & Indore | Affordable Interior firm',
+  metaDescription: 'Apka Interior Wala is the best company/firm for interior design and construction in Bhopal, Indore, and Madhya Pradesh. Affordable and high-quality Pinterest-inspired solutions.',
+  keywords: 'best interior, interior design, construction, bhopal, indore, thekedar, carpenter solution, false ceiling experts, best company for interior',
   ogImage: '',
   googleAnalyticsId: '',
   searchConsoleId: '',
@@ -51,9 +51,13 @@ export function SEO() {
       <meta name="description" content={seo.metaDescription} />
       <meta name="keywords" content={`${seo.keywords}, ${SEO_KEYWORDS.primary.join(', ')}, ${SEO_KEYWORDS.colloquial.join(', ')}`} />
       
+      {/* Canonical URL */}
+      <link rel="canonical" href="https://apkainteriorwala.com" />
+      
       {/* Open Graph */}
       <meta property="og:title" content={seo.metaTitle} />
       <meta property="og:description" content={seo.metaDescription} />
+      <meta property="og:url" content="https://apkainteriorwala.com" />
       <meta property="og:type" content="website" />
       {seo.ogImage && <meta property="og:image" content={seo.ogImage} /> }
 

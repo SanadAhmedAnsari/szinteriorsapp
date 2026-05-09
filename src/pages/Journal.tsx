@@ -30,8 +30,8 @@ export default function Journal() {
   return (
     <div className="pb-32">
       <Helmet>
-        <title>Journal | SZ Interiors & Construction - Design Insights & Tutorials</title>
-        <meta name="description" content="Explore our hybrid journal featuring Pinterest-inspired home designs, construction tips, and interior design tutorials in Bhopal." />
+        <title>Journal | Apka Interior Wala - Design Insights & Tutorials</title>
+        <meta name="description" content="Explore our hybrid journal featuring Pinterest-inspired home designs, construction tips, and affordable interior design tutorials in Bhopal by Apka Interior Wala." />
       </Helmet>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -4,7 +4,7 @@ import { usePageContent } from '../hooks/usePageContent';
 
 const DEFAULT_ABOUT_CONTENT = {
   introTitle: 'Our Journey of Excellence',
-  introText: 'Founded in Bhopal, SZ Interiors & Construction has grown into an international agency known for its commitment to quality and innovation.',
+  introText: 'Founded in Bhopal, Apka Interior Wala has grown into an international agency known for its commitment to quality and innovation.',
   mission: 'To transform our clients\' visions into reality through exceptional design and superior craftsmanship.',
   vision: 'To be the global leader in luxury interior design and sustainable construction solutions.',
   founderName: 'Zainab Khan',
@@ -124,7 +124,7 @@ export default function About() {
         {/* Why Choose Us */}
         <div className="mb-32">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-light text-stone-900">Why Choose SZ Interiors?</h2>
+            <h2 className="text-4xl font-light text-stone-900">Why Choose Apka Interior Wala?</h2>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[

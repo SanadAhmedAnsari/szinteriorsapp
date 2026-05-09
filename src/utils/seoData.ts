@@ -9,23 +9,31 @@ export const SEO_KEYWORDS = {
     'Best interior designer in Indore',
     'Construction contractor Madhya Pradesh',
     'Luxury home renovation Bhopal',
-    'Modern office design Indore'
+    'Modern office design Indore',
+    'Best interior',
+    'Best company for interior',
+    'Best firm for interior',
+    'Affordable and best interior solutions in bhopal',
+    'Best interior designer in India'
   ],
   colloquial: [
+    'Apka Interior Wala',
+    'Interior Wala Bhopal',
     'Thekedar in Bhopal',
     'Theka construction',
     'Carpenter solution Bhopal',
     'Plumbing solution Bhopal',
     'False ceiling experts',
-    'Pinterest-inspired home designs'
+    'Pinterest-inspired home designs',
+    'Best thekedar for interior'
   ]
 };
 
 export const PROJECT_SLUGS = {
-  'project-1': 'interior-designer-in-bhopal-luxury-villa',
-  'project-2': 'modular-kitchen-bhopal-modern-design',
-  'project-3': 'false-ceiling-experts-bhopal-office',
-  'project-4': 'construction-contractor-madhya-pradesh-residence'
+  'project-1': 'best-interior-designer-in-bhopal-luxury-villa',
+  'project-2': 'modular-kitchen-bhopal-affordable-interiors',
+  'project-3': 'false-ceiling-experts-bhopal-best-firm',
+  'project-4': 'construction-contractor-madhya-pradesh-best-company'
 };
 
 export const generateSchema = (type: 'Organization' | 'Project' | 'Article', data: any) => {
@@ -37,9 +45,9 @@ export const generateSchema = (type: 'Organization' | 'Project' | 'Article', dat
   if (type === 'Organization') {
     return {
       ...baseSchema,
-      "name": "SZ Interiors & Construction",
-      "url": window.location.origin,
-      "logo": `${window.location.origin}/logo.png`,
+      "name": "Apka Interior Wala",
+      "url": "https://apkainteriorwala.com",
+      "logo": "https://apkainteriorwala.com/logo.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-7893365987",
@@ -74,11 +82,11 @@ export const generateSchema = (type: 'Organization' | 'Project' | 'Article', dat
       "image": data.image,
       "author": {
         "@type": "Person",
-        "name": data.author || "SZ Interiors"
+        "name": data.author || "Apka Interior Wala"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "SZ Interiors & Construction"
+        "name": "Apka Interior Wala"
       },
       "datePublished": data.publishedAt
     };

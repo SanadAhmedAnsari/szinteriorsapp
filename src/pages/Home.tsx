@@ -10,7 +10,7 @@ const DEFAULT_HOME_CONTENT = {
   heroSubtitle: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.',
   heroImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1920',
   aboutTitle: 'Excellence in Design & Construction',
-  aboutText: 'With over a decade of experience, SZ Interiors & Construction has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.',
+  aboutText: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.',
 };
 
 export default function Home() {
@@ -126,7 +126,7 @@ export default function Home() {
               </div>
             </div>
             <div className="space-y-8">
-              <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">About SZ Interiors</span>
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">About Apka Interior Wala</span>
               <h2 className="text-4xl font-light leading-tight text-stone-900 md:text-5xl">
                 {content.aboutTitle}
               </h2>
@@ -261,7 +261,7 @@ export default function Home() {
           <Quote size={64} className="mx-auto mb-12 text-stone-200" />
           <div className="space-y-12">
             <p className="text-2xl font-light italic leading-relaxed text-stone-800 md:text-3xl">
-              "SZ Interiors transformed our house into a home that reflects our personality perfectly. Their attention to detail and commitment to quality is truly world-class."
+              "Apka Interior Wala transformed our house into a home that reflects our personality perfectly. Their attention to detail and commitment to quality is truly world-class."
             </p>
             <div>
               <div className="mx-auto mb-4 h-16 w-16 overflow-hidden rounded-full">

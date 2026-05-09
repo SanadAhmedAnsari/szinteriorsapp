@@ -92,8 +92,8 @@ export default function AdminLayout() {
         <div className="flex h-full flex-col">
           <div className="flex items-center justify-between px-8 py-10">
             <Link to="/admin" className="flex items-center space-x-3">
-              <div className="flex h-10 w-10 items-center justify-center bg-white text-stone-900 font-bold text-xl rounded-lg">
-                SZ
+              <div className="flex h-10 w-12 items-center justify-center bg-white text-stone-900 font-bold text-xl rounded-lg px-2">
+                AIW
               </div>
               <span className="text-lg font-bold tracking-tighter">ADMIN PANEL</span>
             </Link>

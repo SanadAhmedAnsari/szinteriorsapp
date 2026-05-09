@@ -12,7 +12,7 @@ export async function seedDatabase() {
       heroSubtitle: { value: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.' },
       heroImage: { value: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1920' },
       aboutTitle: { value: 'Excellence in Design & Construction' },
-      aboutText: { value: 'With over a decade of experience, SZ Interiors & Construction has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.' },
+      aboutText: { value: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.' },
     }
   });
 
@@ -20,7 +20,7 @@ export async function seedDatabase() {
   batch.set(aboutRef, {
     sections: {
       introTitle: { value: 'Our Journey of Excellence' },
-      introText: { value: 'Founded in Bhopal, SZ Interiors & Construction has grown into an international agency known for its commitment to quality and innovation.' },
+      introText: { value: 'Founded in Bhopal, Apka Interior Wala has grown into an international agency known for its commitment to quality and innovation.' },
       mission: { value: 'To transform our clients\' visions into reality through exceptional design and superior craftsmanship.' },
       vision: { value: 'To be the global leader in luxury interior design and sustainable construction solutions.' },
     }
@@ -29,9 +29,9 @@ export async function seedDatabase() {
   // 2. Seed Settings
   const seoRef = doc(db, 'settings', 'seo');
   batch.set(seoRef, {
-    metaTitle: 'SZ Interiors & Construction | Luxury Interior Design Bhopal',
-    metaDescription: 'SZ Interiors & Construction is a premier interior design and construction agency in Bhopal, India, offering luxury residential and commercial solutions.',
-    keywords: 'interior design bhopal, construction agency india, luxury home interiors, commercial interior design',
+    metaTitle: 'Apka Interior Wala | Best Interior Designer in Bhopal & Indore | Affordable Interior firm',
+    metaDescription: 'Apka Interior Wala is the best company/firm for interior design and construction in Bhopal, India, offering affordable luxury residential and commercial solutions.',
+    keywords: 'best interior, interior design bhopal, construction agency india, luxury home interiors, commercial interior design, best company for interior',
     ogImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200',
     googleAnalyticsId: '',
     searchConsoleId: '',
@@ -50,14 +50,14 @@ export async function seedDatabase() {
 
   const siteRef = doc(db, 'settings', 'site');
   batch.set(siteRef, {
-    companyName: 'SZ Interiors & Construction',
-    email: 'info@szinteriors.com',
-    phone: '+91 98765 43210',
-    address: 'Arera Colony, Bhopal, Madhya Pradesh, India',
+    companyName: 'Apka Interior Wala',
+    email: 'info@apkainteriorwala.com',
+    phone: '+91 78933 65987',
+    address: '10, Patwa Market, Near Bharat Talkies, Bhopal, Madhya Pradesh, India',
     socials: {
-      instagram: 'https://instagram.com/szinteriors',
-      facebook: 'https://facebook.com/szinteriors',
-      linkedin: 'https://linkedin.com/company/szinteriors',
+      instagram: 'https://instagram.com/apkainteriorwala',
+      facebook: 'https://facebook.com/apkainteriorwala',
+      linkedin: 'https://linkedin.com/company/apkainteriorwala',
       youtube: 'https://youtube.com/szinteriors',
     }
   });

@@ -82,7 +82,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">Our Office</h4>
-                  <p className="mt-2 text-stone-600">Arera Colony, Bhopal, Madhya Pradesh 462016, India</p>
+                  <p className="mt-2 text-stone-600">10, Patwa Market, Near Bharat Talkies, Bhopal, Madhya Pradesh 462016, India</p>
                 </div>
               </div>
 
@@ -91,8 +91,8 @@ export default function Contact() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">Phone</h4>
-                  <p className="mt-2 text-stone-600">+91 98765 43210</p>
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">Phone / WhatsApp</h4>
+                  <p className="mt-2 text-stone-600">+91 78933 65987</p>
                 </div>
               </div>
 
@@ -102,7 +102,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">Email</h4>
-                  <p className="mt-2 text-stone-600">info@szinteriors.com</p>
+                  <p className="mt-2 text-stone-600">info@apkainteriorwala.com</p>
                 </div>
               </div>
             </div>

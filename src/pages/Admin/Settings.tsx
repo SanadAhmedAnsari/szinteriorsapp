@@ -23,10 +23,10 @@ export default function AdminSettings() {
             primaryColor: '#1c1917',
             secondaryColor: '#78716c',
             fontFamily: 'Inter',
-            siteName: 'SZ Interiors & Construction',
+            siteName: 'Apka Interior Wala',
             siteDescription: "Bhopal's premier international interior design and construction agency.",
             address: 'Arera Colony, Bhopal, Madhya Pradesh, India',
-            email: 'info@szinteriors.com',
+            email: 'info@apkainteriorwala.com',
             phone: '+91 98765 43210',
             socialLinks: {
               facebook: '',

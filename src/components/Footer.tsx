@@ -9,20 +9,20 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center bg-white text-stone-950 font-bold text-xl">
-                SZ
+              <div className="flex h-10 w-14 items-center justify-center bg-white text-stone-950 font-bold text-lg">
+                AIW
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold leading-none tracking-tighter text-white">
-                  SZ INTERIORS
+                  APKA INTERIOR
                 </span>
                 <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-500">
-                  & CONSTRUCTION
+                  WALA
                 </span>
               </div>
             </Link>
             <p className="text-sm leading-relaxed">
-              Bhopal's premier international interior design and construction agency. We create luxurious spaces that inspire and endure.
+              Bhopal's premier international interior design and construction agency. Providing affordable and best interior solutions in India.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
@@ -39,8 +39,7 @@ export default function Footer() {
               <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link to="/projects" className="hover:text-white transition-colors">Our Projects</Link></li>
-              <li><Link to="/blog" className="hover:text-white transition-colors">Latest News</Link></li>
-              <li><Link to="/videos" className="hover:text-white transition-colors">Videos & Reels</Link></li>
+              <li><Link to="/journal" className="hover:text-white transition-colors">Design Journal</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -71,14 +70,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="shrink-0 text-stone-600" />
-                <span>info@szinteriors.com</span>
+                <span>info@apkainteriorwala.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-20 border-t border-stone-900 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-[10px] font-medium uppercase tracking-widest">
-          <p>© 2026 SZ Interiors & Construction – All Rights Reserved</p>
+          <p>© 2026 Apka Interior Wala – All Rights Reserved</p>
           <div className="flex space-x-8">
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
