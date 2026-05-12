@@ -13,9 +13,18 @@ export default function AdminLogin() {
     try {
       await signInWithPopup(auth, provider);
       toast.success('Logged in successfully');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Login error:', error);
-      toast.error('Failed to log in. Please ensure you have admin access.');
+      const errorMessage = error.message || 'Unknown error';
+      if (error.code === 'auth/popup-blocked') {
+        toast.error('Login popup was blocked by your browser. Please allow popups or open this app in a new tab.', {
+          duration: 10000,
+        });
+      } else if (error.code === 'auth/cancelled-by-user') {
+        toast.error('Login was cancelled. Please try again.');
+      } else {
+        toast.error(`Failed to log in: ${errorMessage}. Please ensure you have admin access and your browser allows popups.`);
+      }
     } finally {
       setLoading(false);
     }

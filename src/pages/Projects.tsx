@@ -9,10 +9,51 @@ import { Helmet } from 'react-helmet-async';
 const categories = ['All', 'Residential', 'Commercial', 'Construction', 'Renovation'];
 
 const projects = [
-  { id: 'project-1', title: 'The Royal Villa', slug: 'interior-designer-in-bhopal-luxury-villa', category: 'Residential', loc: 'Arera Colony, Bhopal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', desc: 'Best interior designer in Bhopal for luxury villas and high-end residential spaces.' },
-  { id: 'project-2', title: 'Modern Office Hub', slug: 'modular-kitchen-bhopal-modern-design', category: 'Commercial', loc: 'MP Nagar, Bhopal', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800', desc: 'Modular kitchen Bhopal experts delivering modern office hubs and commercial interiors.' },
-  { id: 'project-3', title: 'Luxury Penthouse', slug: 'false-ceiling-experts-bhopal-office', category: 'Residential', loc: 'Gulmohar, Bhopal', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800', desc: 'False ceiling experts in Bhopal creating breathtaking luxury penthouses.' },
-  { id: 'project-4', title: 'Retail Emporium', slug: 'construction-contractor-madhya-pradesh-residence', category: 'Commercial', loc: 'DB Mall Area, Bhopal', img: 'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=800', desc: 'Construction contractor Madhya Pradesh for retail emporiums and commercial spaces.' },
+  { 
+    id: 'project-horizon', 
+    title: 'The Horizon - Modern Luxury Villa', 
+    slug: 'modern-luxury-villa-construction-bhopal', 
+    category: 'Construction', 
+    loc: 'Arera Colony, Bhopal', 
+    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200', 
+    desc: 'Breathtaking multi-story villa construction with stone cladding and glass balconies. A flagship construction project in Bhopal showcasing international standards.' 
+  },
+  { 
+    id: 'project-blue-kitchen', 
+    title: 'Blue Heaven - Modular Kitchen Transformation', 
+    slug: 'modular-kitchen-before-after-bhopal', 
+    category: 'Renovation', 
+    loc: 'Gulmohar, Bhopal', 
+    img: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1200', 
+    desc: 'Complete kitchen renovation showcasing a stunning before-and-after transformation with modular light blue cabinetry and designer tiling.' 
+  },
+  { 
+    id: 'project-one6ne', 
+    title: 'ONE 6NE - Commercial Landmark', 
+    slug: 'commercial-building-interior-design-bhopal', 
+    category: 'Commercial', 
+    loc: 'MP Nagar, Bhopal', 
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200', 
+    desc: 'Dynamic commercial building interior and exterior design featuring geometric facades and modern workspace planning.' 
+  },
+  { 
+    id: 'project-regal', 
+    title: 'Regal Residences - Luxury Interiors', 
+    slug: 'luxury-home-interiors-false-ceiling-bhopal', 
+    category: 'Residential', 
+    loc: 'Koh-e-Fiza, Bhopal', 
+    img: 'https://images.unsplash.com/photo-1616486341351-7963a69f8222?auto=format&fit=crop&q=80&w=1200', 
+    desc: 'Sophisticated residential interiors featuring premium wardrobes, designer false ceilings, and bespoke mirrored partitions.' 
+  },
+  { 
+    id: 'project-sleek-kitchen', 
+    title: 'Sleek Kitchen - Grey & Wood Finish', 
+    slug: 'modern-kitchen-designer-bhopal', 
+    category: 'Residential', 
+    loc: 'Indore Highway, Bhopal', 
+    img: 'https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&q=80&w=1200', 
+    desc: 'Real completion of a gourmet kitchen with sleek grey and wood finishes, marble flooring, and designer pendant lighting.' 
+  },
 ];
 
 export default function Projects() {

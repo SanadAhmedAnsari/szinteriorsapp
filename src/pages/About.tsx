@@ -63,7 +63,7 @@ export default function About() {
             <div className="aspect-[4/5] overflow-hidden rounded-3xl">
               <img
                 src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000"
-                alt="Our Studio"
+                alt="Our Studio - Bespoke Interiors"
                 className="h-full w-full object-cover"
                 referrerPolicy="no-referrer"
               />

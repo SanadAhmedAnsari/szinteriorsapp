@@ -7,7 +7,7 @@ const services = [
     title: 'Residential Interior Design',
     desc: 'Creating luxurious, personalized living spaces that reflect your unique style and personality. From modern apartments to classic villas.',
     icon: Home,
-    image: 'https://images.unsplash.com/photo-1616486341351-7963a69f8222?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800',
   },
   {
     title: 'Commercial Interior Design',
@@ -17,19 +17,19 @@ const services = [
   },
   {
     title: 'Turnkey Interior Solutions',
-    desc: 'End-to-end management of your interior project. We handle everything from design and procurement to installation and final styling.',
+    desc: 'End-to-end management of your project, ensuring a stress-free experience from conception to handover.',
     icon: Key,
-    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1556912177-33bab55d57d7?auto=format&fit=crop&q=80&w=800',
   },
   {
     title: 'Construction Services',
-    desc: 'High-quality civil construction with international standards. We build structures that are durable, sustainable, and aesthetically pleasing.',
+    desc: 'Professional construction management and execution for residential and commercial projects, maintaining high quality and safety.',
     icon: Hammer,
     image: 'https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800',
   },
   {
     title: 'Renovation & Remodeling',
-    desc: 'Breathe new life into your existing spaces. We specialize in complete home and office transformations that add value and style.',
+    desc: 'Giving new life to existing spaces through creative remodeling and high-quality renovation work.',
     icon: Paintbrush,
     image: 'https://images.unsplash.com/photo-1581850518616-bcb8188c4436?auto=format&fit=crop&q=80&w=800',
   },
@@ -37,7 +37,7 @@ const services = [
     title: 'Space Planning',
     desc: 'Optimizing your floor plan for maximum efficiency and flow. We ensure every square foot of your space is utilized effectively.',
     icon: Ruler,
-    image: 'https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=800',
   },
   {
     title: 'Project Management',
