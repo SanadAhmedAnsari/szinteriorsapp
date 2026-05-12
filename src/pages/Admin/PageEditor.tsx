@@ -25,7 +25,7 @@ const PAGE_TEMPLATES: { [key: string]: PageContent } = {
       heroSubtitle: { type: 'textarea', label: 'Hero Subtitle', value: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.' },
       heroImage: { type: 'image', label: 'Hero Image URL', value: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80' },
       aboutTitle: { type: 'text', label: 'About Section Title', value: 'Excellence in Design & Construction' },
-      aboutText: { type: 'textarea', label: 'About Section Text', value: 'With over a decade of experience, SZ Interiors & Construction has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.' },
+      aboutText: { type: 'textarea', label: 'About Section Text', value: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.' },
     }
   },
   about: {
@@ -33,7 +33,7 @@ const PAGE_TEMPLATES: { [key: string]: PageContent } = {
     title: 'About Page',
     sections: {
       introTitle: { type: 'text', label: 'Intro Title', value: 'Our Journey of Excellence' },
-      introText: { type: 'textarea', label: 'Intro Text', value: 'Founded in Bhopal, SZ Interiors & Construction has grown into an international agency known for its commitment to quality and innovation.' },
+      introText: { type: 'textarea', label: 'Intro Text', value: 'Founded in Bhopal, Apka Interior Wala has grown into an international agency known for its commitment to quality and innovation.' },
       mission: { type: 'textarea', label: 'Our Mission', value: 'To transform our clients\' visions into reality through exceptional design and superior craftsmanship.' },
       vision: { type: 'textarea', label: 'Our Vision', value: 'To be the global leader in luxury interior design and sustainable construction solutions.' },
       founderName: { type: 'text', label: 'Founder Name', value: 'Syed Zaid' },

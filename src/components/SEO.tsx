@@ -14,7 +14,7 @@ interface SEOSettings {
 }
 
 const DEFAULT_SEO: SEOSettings = {
-  metaTitle: 'Apka Interior Wala | Best Interior Designer in Bhopal & Indore | Affordable Interior firm',
+  metaTitle: 'Apka Interior Wala | Best Interiors & Construction Bhopal',
   metaDescription: 'Apka Interior Wala is the best company/firm for interior design and construction in Bhopal, Indore, and Madhya Pradesh. Affordable and high-quality Pinterest-inspired solutions.',
   keywords: 'best interior, interior design, construction, bhopal, indore, thekedar, carpenter solution, false ceiling experts, best company for interior',
   ogImage: '',

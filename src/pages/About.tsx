@@ -7,9 +7,9 @@ const DEFAULT_ABOUT_CONTENT = {
   introText: 'Founded in Bhopal, Apka Interior Wala has grown into an international agency known for its commitment to quality and innovation.',
   mission: 'To transform our clients\' visions into reality through exceptional design and superior craftsmanship.',
   vision: 'To be the global leader in luxury interior design and sustainable construction solutions.',
-  founderName: 'Zainab Khan',
-  founderRole: 'Founder & Principal Designer',
-  founderBio: 'With a passion for designer and a keen eye for detail, Zainab Khan leads the team in creating spaces that are both functional and breathtaking.',
+  founderName: 'Syed Zaid',
+  founderRole: 'Founder & Principal Architect',
+  founderBio: 'With a passion for architecture and a keen eye for detail, Syed Zaid leads the team in creating spaces that are both functional and breathtaking.',
   founderImage: 'https://i.pravatar.cc/600?u=zaid',
 };
 
