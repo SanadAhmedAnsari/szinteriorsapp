@@ -11,6 +11,9 @@ const DEFAULT_HOME_CONTENT = {
   heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920',
   aboutTitle: 'Excellence in Design & Construction',
   aboutText: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.',
+  aboutImage1: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000',
+  aboutImage2: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=500',
+  ctaImage: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1920',
 };
 
 export default function Home() {
@@ -108,7 +111,7 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-[4/5] overflow-hidden rounded-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000"
+                  src={content.aboutImage1}
                   alt="Best interior designer in Bhopal - Design Process"
                   loading="lazy"
                   className="h-full w-full object-cover"
@@ -117,7 +120,7 @@ export default function Home() {
               </div>
               <div className="absolute -bottom-10 -right-10 hidden h-64 w-64 overflow-hidden rounded-2xl border-8 border-white shadow-2xl md:block">
                 <img
-                  src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=500"
+                  src={content.aboutImage2}
                   alt="Construction contractor Madhya Pradesh - Site Work"
                   loading="lazy"
                   className="h-full w-full object-cover"
@@ -280,7 +283,7 @@ export default function Home() {
           <div className="relative overflow-hidden bg-stone-900 px-8 py-24 text-center text-white rounded-3xl">
             <div className="absolute inset-0 opacity-20">
               <img
-                src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1920"
+                src={content.ctaImage}
                 alt="Construction"
                 className="h-full w-full object-cover"
                 referrerPolicy="no-referrer"

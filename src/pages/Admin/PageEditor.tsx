@@ -23,9 +23,12 @@ const PAGE_TEMPLATES: { [key: string]: PageContent } = {
     sections: {
       heroTitle: { type: 'text', label: 'Hero Title', value: 'Crafting Spaces That Tell Your Story' },
       heroSubtitle: { type: 'textarea', label: 'Hero Subtitle', value: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.' },
-      heroImage: { type: 'image', label: 'Hero Image URL', value: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80' },
+      heroImage: { type: 'image', label: 'Hero Image URL', value: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920' },
       aboutTitle: { type: 'text', label: 'About Section Title', value: 'Excellence in Design & Construction' },
       aboutText: { type: 'textarea', label: 'About Section Text', value: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.' },
+      aboutImage1: { type: 'image', label: 'Intro Section Image 1', value: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000' },
+      aboutImage2: { type: 'image', label: 'Intro Section Image 2', value: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=500' },
+      ctaImage: { type: 'image', label: 'CTA Background Image', value: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1920' },
     }
   },
   about: {
@@ -40,6 +43,7 @@ const PAGE_TEMPLATES: { [key: string]: PageContent } = {
       founderRole: { type: 'text', label: 'Founder Role', value: 'Founder & Principal Architect' },
       founderBio: { type: 'textarea', label: 'Founder Bio', value: 'With a passion for architecture and a keen eye for detail, Syed Zaid leads the team in creating spaces that are both functional and breathtaking.' },
       founderImage: { type: 'image', label: 'Founder Image URL', value: 'https://i.pravatar.cc/600?u=zaid' },
+      introImage: { type: 'image', label: 'Intro Section Image', value: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000' },
     }
   }
 };

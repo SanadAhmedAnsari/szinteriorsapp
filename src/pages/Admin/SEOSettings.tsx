@@ -8,7 +8,7 @@ export default function SEOSettings() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [seo, setSeo] = useState({
-    metaTitle: 'Apka Interior Wala | Best Interior Designer in Bhopal & Indore | Affordable Interior firm',
+    metaTitle: 'Apka Interior Wala | Best Interiors & Construction Bhopal',
     metaDescription: 'Apka Interior Wala is the best company/firm for interior design and construction in Bhopal, India, offering affordable luxury residential and commercial solutions.',
     keywords: 'best interior, interior design bhopal, construction agency india, luxury home interiors, commercial interior design, best company for interior',
     ogImage: '',

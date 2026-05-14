@@ -7,10 +7,11 @@ const DEFAULT_ABOUT_CONTENT = {
   introText: 'Founded in Bhopal, Apka Interior Wala has grown into an international agency known for its commitment to quality and innovation.',
   mission: 'To transform our clients\' visions into reality through exceptional design and superior craftsmanship.',
   vision: 'To be the global leader in luxury interior design and sustainable construction solutions.',
-  founderName: 'Syed Zaid',
+  founderName: 'Zainab Khan',
   founderRole: 'Founder & Principal Architect',
-  founderBio: 'With a passion for architecture and a keen eye for detail, Syed Zaid leads the team in creating spaces that are both functional and breathtaking.',
+  founderBio: 'With a passion for architecture and a keen eye for detail, Zainab Khan leads the team in creating spaces that are both functional and breathtaking.',
   founderImage: 'https://i.pravatar.cc/600?u=zaid',
+  introImage: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000',
 };
 
 export default function About() {
@@ -62,7 +63,7 @@ export default function About() {
           <div className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-3xl">
               <img
-                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000"
+                src={content.introImage}
                 alt="Our Studio - Bespoke Interiors"
                 className="h-full w-full object-cover"
                 referrerPolicy="no-referrer"
