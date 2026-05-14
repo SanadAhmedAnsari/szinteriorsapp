@@ -30,6 +30,14 @@ export function SEO() {
     const unsubscribe = onSnapshot(doc(db, 'settings', 'seo'), (doc) => {
       if (doc.exists()) {
         const data = doc.data() as SEOSettings;
+        // Clean data: prevent old branding from showing up if it still exists in Firestore
+        if (data.metaTitle && data.metaTitle.includes('SZ')) {
+          data.metaTitle = data.metaTitle.replace('SZ Interiors & Construction', 'Apka Interior Wala')
+                                       .replace('SZ Interiors', 'Apka Interior Wala');
+        }
+        if (data.metaDescription && data.metaDescription.includes('SZ')) {
+           data.metaDescription = data.metaDescription.replace('SZ Interiors', 'Apka Interior Wala');
+        }
         setSeo({ ...DEFAULT_SEO, ...data });
         
         // Generate Organization Schema

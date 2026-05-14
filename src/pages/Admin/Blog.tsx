@@ -17,7 +17,7 @@ export default function AdminBlog() {
     excerpt: '',
     category: 'Design Tips',
     image: '',
-    author: 'Syed Zaid',
+    author: 'Zainab Khan',
     published: true,
   });
 
@@ -44,7 +44,7 @@ export default function AdminBlog() {
       }
       setEditingId(null);
       setIsAdding(false);
-      setFormData({ title: '', slug: '', content: '', excerpt: '', category: 'Design Tips', image: '', author: 'Syed Zaid', published: true });
+      setFormData({ title: '', slug: '', content: '', excerpt: '', category: 'Design Tips', image: '', author: 'Zainab Khan', published: true });
     } catch (error) {
       toast.error('Failed to save post');
     }
