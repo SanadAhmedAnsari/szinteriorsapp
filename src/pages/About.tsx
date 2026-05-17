@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
-import { CheckCircle2, Award, Users, Target, Rocket, Instagram, Linkedin } from 'lucide-react';
+import { CheckCircle2, Target, Rocket, Instagram, Linkedin } from 'lucide-react';
 import { usePageContent } from '../hooks/usePageContent';
+import { useSiteSettings } from '../hooks/useSiteSettings';
 
 const DEFAULT_ABOUT_CONTENT = {
   introTitle: 'Our Journey of Excellence',
@@ -16,6 +17,7 @@ const DEFAULT_ABOUT_CONTENT = {
 
 export default function About() {
   const { content, loading } = usePageContent('about', DEFAULT_ABOUT_CONTENT);
+  const { socials } = useSiteSettings();
 
   if (loading) {
     return (
@@ -93,8 +95,8 @@ export default function About() {
                 "{content.founderBio}"
               </p>
               <div className="pt-4 flex space-x-6">
-                <a href="#" className="text-stone-500 hover:text-white transition-colors"><Instagram size={24} /></a>
-                <a href="#" className="text-stone-500 hover:text-white transition-colors"><Linkedin size={24} /></a>
+                <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-colors"><Instagram size={24} /></a>
+                <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-colors"><Linkedin size={24} /></a>
               </div>
             </div>
           </div>

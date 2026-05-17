@@ -201,8 +201,8 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {[
-              { title: 'The Horizon Villa', loc: 'Arera Colony, Bhopal', img: '/images/horizon-villa-day.jpg', slug: 'interior-designer-in-bhopal-luxury-villa' },
-              { title: 'ONE 6NE - Commercial Hub', loc: 'MP Nagar, Bhopal', img: '/images/one6ne-commercial-1.jpg', slug: 'modular-kitchen-bhopal-modern-design' },
+              { title: 'The Horizon Villa', loc: 'Arera Colony, Bhopal', img: '/images/horizon-villa-day.jpg', slug: 'modern-luxury-villa-construction-bhopal' },
+              { title: 'ONE 6NE - Commercial Hub', loc: 'MP Nagar, Bhopal', img: '/images/one6ne-commercial-1.jpg', slug: 'commercial-building-interior-design-bhopal' },
             ].map((project, idx) => (
               <Link key={idx} to={`/projects/${project.slug}`} className="group block space-y-6">
                 <div className="aspect-[16/10] overflow-hidden">

@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
+import { useSiteSettings } from '../hooks/useSiteSettings';
 
 export default function Footer() {
+  const { phone, email, address, socials } = useSiteSettings();
+
   return (
     <footer className="bg-stone-950 pt-20 pb-10 text-stone-400">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -25,10 +28,10 @@ export default function Footer() {
               Bhopal's premier international interior design and construction agency. Providing affordable and best interior solutions in India.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-white transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-white transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
-              <a href="#" className="hover:text-white transition-colors"><Youtube size={20} /></a>
+              <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
+              <a href={socials.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
+              <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+              <a href={socials.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Youtube size={20} /></a>
             </div>
           </div>
 
@@ -62,15 +65,15 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-stone-600" />
-                <span>10, Patwa Market, Near Bharat Talkies, Bhopal, Madhya Pradesh, India</span>
+                <span>{address}</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone size={18} className="shrink-0 text-stone-600" />
-                <span>+91 78933 65987</span>
+                <span>{phone}</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={18} className="shrink-0 text-stone-600" />
-                <span>info@apkainteriorwala.com</span>
+                <span>{email}</span>
               </li>
             </ul>
           </div>

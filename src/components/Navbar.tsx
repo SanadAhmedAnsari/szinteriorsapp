@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Clock, Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
+import { useSiteSettings } from '../hooks/useSiteSettings';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -14,18 +15,19 @@ const navLinks = [
   { name: 'Contact', path: '/contact' },
 ];
 
-const socialLinks = [
-  { icon: Instagram, url: '#' },
-  { icon: Youtube, url: '#' },
-  { icon: Linkedin, url: '#' },
-  { icon: Facebook, url: '#' },
-];
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
+  const { phone, socials } = useSiteSettings();
+
+  const socialLinks = [
+    { icon: Instagram, url: socials.instagram },
+    { icon: Youtube, url: socials.youtube },
+    { icon: Linkedin, url: socials.linkedin },
+    { icon: Facebook, url: socials.facebook },
+  ];
 
   useEffect(() => {
     setIsOpen(false);
@@ -35,20 +37,15 @@ export default function Navbar() {
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
         if (window.scrollY > lastScrollY && window.scrollY > 100) {
-          // if scroll down, hide the navbar
           setIsVisible(false);
         } else {
-          // if scroll up, show the navbar
           setIsVisible(true);
         }
-        // remember current page location to use next time
         setLastScrollY(window.scrollY);
       }
     };
 
     window.addEventListener('scroll', controlNavbar);
-
-    // cleanup function
     return () => {
       window.removeEventListener('scroll', controlNavbar);
     };
@@ -86,7 +83,7 @@ export default function Navbar() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Call Us Now</p>
-                  <p className="text-sm font-bold text-stone-900">+91 78933 65987</p>
+                  <p className="text-sm font-bold text-stone-900">{phone}</p>
                 </div>
               </div>
 
@@ -121,7 +118,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main Navigation Bar (Old Style) */}
+      {/* Main Navigation Bar */}
       <nav className="absolute top-full left-0 w-full bg-stone-900/60 py-4 text-white backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -144,7 +141,7 @@ export default function Navbar() {
             {/* Social Links */}
             <div className="hidden md:flex items-center space-x-4">
               {socialLinks.map((social, i) => (
-                <a key={i} href={social.url} className="hover:text-white transition-colors">
+                <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   <social.icon size={14} />
                 </a>
               ))}
@@ -188,4 +185,3 @@ export default function Navbar() {
     </header>
   );
 }
-

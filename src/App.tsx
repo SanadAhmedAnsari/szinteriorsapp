@@ -19,6 +19,7 @@ import Services from './pages/Services';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Journal from './pages/Journal';
+import JournalDetail from './pages/JournalDetail';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
 
@@ -73,7 +74,7 @@ export default function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/projects/:slug" element={<ProjectDetail />} />
                 <Route path="/journal" element={<Journal />} />
-                <Route path="/journal/:slug" element={<Journal />} />
+                <Route path="/journal/:slug" element={<JournalDetail />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/contact" element={<Contact />} />
               </Route>

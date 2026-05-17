@@ -5,6 +5,7 @@ import { db } from '../../firebase';
 import { collection, addDoc, updateDoc, deleteDoc, doc, serverTimestamp } from 'firebase/firestore';
 import { toast } from 'sonner';
 import { Plus, Trash2, Edit2, Save, X, FileText, User, Tag, Calendar } from 'lucide-react';
+import { slugify } from '../../lib/utils';
 
 export default function AdminBlog() {
   const { data: posts, loading } = useFirestore<BlogPost>('blog', []);
@@ -99,7 +100,7 @@ export default function AdminBlog() {
                 <label className="text-xs font-bold uppercase tracking-widest text-stone-400">Post Title</label>
                 <input
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value, slug: e.target.value.toLowerCase().replace(/ /g, '-') })}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value, slug: slugify(e.target.value) })}
                   className="w-full border-b border-stone-200 py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
                   placeholder="e.g. Top 10 Interior Design Trends"
                 />

@@ -117,7 +117,7 @@ export default function Contact() {
                     Email
                   </h4>
                   <p className="mt-2 text-stone-600">
-                    apkainteriorwala@gmail.com
+                    info@apkainteriorwala.com
                   </p>
                 </div>
               </div>

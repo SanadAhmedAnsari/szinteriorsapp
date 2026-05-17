@@ -1,12 +1,10 @@
 import { motion } from 'motion/react';
-import { 
-  Briefcase, 
-  Image as ImageIcon, 
-  FileText, 
-  MessageSquare, 
-  TrendingUp, 
-  Users, 
-  Eye, 
+import {
+  Briefcase,
+  Image as ImageIcon,
+  FileText,
+  MessageSquare,
+  Users,
   ArrowUpRight,
   Settings,
   Database
@@ -16,6 +14,7 @@ import { Service, Project, BlogPost, ContactMessage } from '../../types';
 import { Link } from 'react-router-dom';
 import { seedDatabase } from '../../lib/seed';
 import { toast } from 'sonner';
+import { cn } from '../../lib/utils';
 
 export default function AdminDashboard() {
   const { data: services } = useFirestore<Service>('services');
@@ -118,8 +117,8 @@ export default function AdminDashboard() {
           <h2 className="text-2xl font-light">Quick Actions</h2>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { name: 'Add Project', path: '/admin/projects/new', icon: ImageIcon },
-              { name: 'New Blog Post', path: '/admin/blog/new', icon: FileText },
+              { name: 'Add Project', path: '/admin/projects', icon: ImageIcon },
+              { name: 'New Blog Post', path: '/admin/blog', icon: FileText },
               { name: 'Update Services', path: '/admin/services', icon: Briefcase },
               { name: 'Site Settings', path: '/admin/settings', icon: Settings },
             ].map((action, idx) => (
@@ -139,7 +138,3 @@ export default function AdminDashboard() {
   );
 }
 
-// Helper function for class names
-function cn(...inputs: any[]) {
-  return inputs.filter(Boolean).join(' ');
-}
