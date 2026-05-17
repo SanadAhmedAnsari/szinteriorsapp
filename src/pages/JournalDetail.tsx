@@ -1,9 +1,14 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Calendar, User, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import ReactMarkdown from 'react-markdown';
 import { useFirestore } from '../hooks/useFirestore';
 import { BlogPost } from '../types';
+
+function readingTime(content: string): number {
+  return Math.max(1, Math.ceil(content.split(/\s+/).length / 200));
+}
 
 export default function JournalDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -20,11 +25,37 @@ export default function JournalDetail() {
   const post = posts.find((p) => p.slug === slug);
   if (!post) return <Navigate to="/journal" replace />;
 
+  const mins = readingTime(post.content);
+  const canonical = `https://apkainteriorwala.com/journal/${post.slug}`;
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image,
+    datePublished: post.publishedAt,
+    author: { '@type': 'Person', name: post.author },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Apka Interior Wala',
+      logo: { '@type': 'ImageObject', url: 'https://apkainteriorwala.com/favicon.ico' },
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  };
+
   return (
     <div className="pb-32">
       <Helmet>
         <title>{post.title} | Apka Interior Wala Journal</title>
         <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={post.image} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonical} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       {/* Hero */}
@@ -75,12 +106,10 @@ export default function JournalDetail() {
                 day: 'numeric',
               })}
             </span>
-            {post.tags?.length > 0 && (
-              <span className="flex items-center gap-2">
-                <Tag size={14} />
-                {post.tags.join(', ')}
-              </span>
-            )}
+            <span className="flex items-center gap-2">
+              <Clock size={14} />
+              {mins} min read
+            </span>
           </div>
         </div>
 
@@ -96,16 +125,52 @@ export default function JournalDetail() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="mt-12 prose-custom"
+          className="mt-12"
         >
-          {post.content.split('\n\n').map((paragraph, idx) => (
-            <p
-              key={idx}
-              className="mt-6 text-lg leading-relaxed text-stone-700 whitespace-pre-line"
-            >
-              {paragraph}
-            </p>
-          ))}
+          <ReactMarkdown
+            components={{
+              h2: ({ children }) => (
+                <h2 className="mt-12 mb-4 text-2xl font-light text-stone-900 border-b border-stone-100 pb-3">
+                  {children}
+                </h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="mt-8 mb-3 text-lg font-semibold text-stone-800">
+                  {children}
+                </h3>
+              ),
+              p: ({ children }) => (
+                <p className="mt-5 text-lg leading-relaxed text-stone-700">
+                  {children}
+                </p>
+              ),
+              ul: ({ children }) => (
+                <ul className="mt-5 space-y-2 pl-6 list-disc marker:text-stone-400">
+                  {children}
+                </ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="mt-5 space-y-2 pl-6 list-decimal marker:text-stone-400">
+                  {children}
+                </ol>
+              ),
+              li: ({ children }) => (
+                <li className="text-lg leading-relaxed text-stone-700">
+                  {children}
+                </li>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold text-stone-900">{children}</strong>
+              ),
+              blockquote: ({ children }) => (
+                <blockquote className="my-8 border-l-4 border-stone-300 pl-6 italic text-stone-500">
+                  {children}
+                </blockquote>
+              ),
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
         </motion.div>
 
         {/* Tags */}
@@ -132,7 +197,7 @@ export default function JournalDetail() {
             to="/contact"
             className="mt-8 inline-block bg-white px-10 py-4 text-sm font-bold uppercase tracking-widest text-stone-900 transition-all hover:bg-stone-100 rounded-full"
           >
-            Book a Consultation
+            Book a Free Consultation
           </Link>
         </div>
       </div>

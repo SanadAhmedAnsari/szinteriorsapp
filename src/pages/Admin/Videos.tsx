@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { useFirestore } from '../../hooks/useFirestore';
 import { VideoContent } from '../../types';
 import { Plus, Trash2, Edit2, ExternalLink } from 'lucide-react';
+import { PlatformBadge } from '../../components/VideoEmbed';
 import { collection, addDoc, deleteDoc, doc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { toast } from 'sonner';
@@ -100,8 +101,9 @@ export default function AdminVideos() {
                   className="h-full w-full object-cover"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-stone-900">
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <PlatformBadge url={video.videoUrl} />
+                  <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-widest text-stone-900">
                     {video.type}
                   </span>
                 </div>
@@ -185,8 +187,13 @@ export default function AdminVideos() {
                       value={formData.videoUrl}
                       onChange={(e) => setFormData({ ...formData, videoUrl: e.target.value })}
                       className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
-                      placeholder="YouTube or Instagram URL"
+                      placeholder="https://youtube.com/watch?v=... or https://instagram.com/reel/..."
                     />
+                    {formData.videoUrl && (
+                      <div className="pt-1">
+                        <PlatformBadge url={formData.videoUrl} />
+                      </div>
+                    )}
                   </div>
                 </div>
 
