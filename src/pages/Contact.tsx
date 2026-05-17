@@ -123,13 +123,17 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="aspect-video w-full bg-stone-100 grayscale overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=800"
-                alt="Map Placeholder"
-                className="h-full w-full object-cover opacity-50"
-                referrerPolicy="no-referrer"
+            {/* Google Maps Embed */}
+            <div className="aspect-video w-full overflow-hidden rounded-2xl">
+              <iframe
+                title="Apka Interior Wala Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3665.520308959436!2d77.4099801!3d23.260536599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c692be59dd1d1%3A0x5f5d8a0d6331442d!2sApka%20Interior%20Wala%20Design%20Studio!5e0!3m2!1sen!2sin!4v1779017060946!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>

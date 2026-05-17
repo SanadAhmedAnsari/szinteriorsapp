@@ -1,5 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './firebase';
 import { Toaster } from 'sonner';
@@ -64,6 +70,7 @@ export default function App() {
         <ThemeProvider>
           <SEO />
           <Router>
+            <ScrollToTop />
             <Toaster position="top-center" richColors />
             <Routes>
               {/* Public Routes */}
