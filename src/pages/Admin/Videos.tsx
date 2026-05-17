@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { useFirestore } from '../../hooks/useFirestore';
 import { VideoContent } from '../../types';
 import { Plus, Trash2, Edit2, ExternalLink } from 'lucide-react';
@@ -18,7 +18,7 @@ export default function AdminVideos() {
     thumbnail: '',
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
       if (editingVideo) {

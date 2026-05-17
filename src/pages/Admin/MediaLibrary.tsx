@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, type ChangeEvent } from 'react';
 import { useFirestore } from '../../hooks/useFirestore';
 import { db, storage } from '../../firebase';
 import { collection, addDoc, deleteDoc, doc } from 'firebase/firestore';
@@ -23,7 +23,7 @@ export default function MediaLibrary() {
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 

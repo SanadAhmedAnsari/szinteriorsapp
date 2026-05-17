@@ -4,16 +4,16 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { toast } from 'sonner';
 import { Save, FileText, Layout, Type, Image as ImageIcon } from 'lucide-react';
 
+interface SectionDef {
+  type: 'text' | 'textarea' | 'image';
+  label: string;
+  value: string;
+}
+
 interface PageContent {
   id: string;
   title: string;
-  sections: {
-    [key: string]: {
-      type: 'text' | 'textarea' | 'image';
-      label: string;
-      value: string;
-    };
-  };
+  sections: Record<string, SectionDef>;
 }
 
 const PAGE_TEMPLATES: { [key: string]: PageContent } = {
@@ -123,7 +123,7 @@ export default function PageEditor() {
       ) : (
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2 space-y-10">
-            {Object.entries(pageData.sections).map(([key, section]) => (
+            {(Object.entries(pageData.sections) as [string, SectionDef][]).map(([key, section]) => (
               <div key={key} className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-stone-100 space-y-4">
                 <div className="flex items-center space-x-3 text-stone-400">
                   {section.type === 'image' ? <ImageIcon size={16} /> : <Type size={16} />}

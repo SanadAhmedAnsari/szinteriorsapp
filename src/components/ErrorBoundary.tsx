@@ -12,23 +12,24 @@ interface State {
 }
 
 export default class ErrorBoundary extends Component<Props, State> {
-  public state: State = {
-    hasError: false,
-    error: null,
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+    this.handleReset = this.handleReset.bind(this);
+  }
 
-  public static getDerivedStateFromError(error: Error): State {
+  static getDerivedStateFromError(error: Error): State {
     return { hasError: true, error };
   }
 
-  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Uncaught error:', error, errorInfo);
   }
 
-  private handleReset = () => {
+  private handleReset() {
     this.setState({ hasError: false, error: null });
     window.location.reload();
-  };
+  }
 
   public render() {
     if (this.state.hasError) {
