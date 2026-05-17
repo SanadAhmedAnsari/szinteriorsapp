@@ -7,11 +7,12 @@ interface SiteSettingsData {
   phone: string;
   email: string;
   address: string;
-  socials: {
+  socialLinks: {
     instagram: string;
     facebook: string;
     linkedin: string;
     youtube: string;
+    pinterest: string;
   };
 }
 
@@ -20,11 +21,12 @@ const DEFAULTS: SiteSettingsData = {
   phone: '+91 78933 65987',
   email: 'info@apkainteriorwala.com',
   address: '10, Patwa Market, Near Bharat Talkies, Bhopal, Madhya Pradesh, India',
-  socials: {
+  socialLinks: {
     instagram: 'https://instagram.com/apkainteriorwala',
     facebook: 'https://facebook.com/apkainteriorwala',
     linkedin: 'https://linkedin.com/company/apkainteriorwala',
     youtube: 'https://youtube.com/szinteriors',
+    pinterest: '',
   },
 };
 

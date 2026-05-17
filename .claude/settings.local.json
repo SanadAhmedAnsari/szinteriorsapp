@@ -3,7 +3,9 @@
     "allow": [
       "Bash(npx tsc *)",
       "Bash(npm run *)",
-      "Bash(npx kill-port *)"
+      "Bash(npx kill-port *)",
+      "Bash(npx eslint *)",
+      "Bash(cd C:\\\\Users\\\\sanad\\\\ApkaInteriorWalaWebsite\\\\szinteriorsapp *)"
     ]
   }
 }

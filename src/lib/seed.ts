@@ -59,11 +59,12 @@ export async function seedDatabase() {
     email: 'info@apkainteriorwala.com',
     phone: '+91 78933 65987',
     address: '10, Patwa Market, Near Bharat Talkies, Bhopal, Madhya Pradesh, India',
-    socials: {
+    socialLinks: {
       instagram: 'https://instagram.com/apkainteriorwala',
       facebook: 'https://facebook.com/apkainteriorwala',
       linkedin: 'https://linkedin.com/company/apkainteriorwala',
       youtube: 'https://youtube.com/szinteriors',
+      pinterest: '',
     },
   });
 

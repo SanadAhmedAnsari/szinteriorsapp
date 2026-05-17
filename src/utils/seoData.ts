@@ -29,13 +29,6 @@ export const SEO_KEYWORDS = {
   ]
 };
 
-export const PROJECT_SLUGS = {
-  'project-1': 'best-interior-designer-in-bhopal-luxury-villa',
-  'project-2': 'modular-kitchen-bhopal-affordable-interiors',
-  'project-3': 'false-ceiling-experts-bhopal-best-firm',
-  'project-4': 'construction-contractor-madhya-pradesh-best-company'
-};
-
 export const generateSchema = (type: 'Organization' | 'Project' | 'Article', data: any) => {
   const baseSchema = {
     "@context": "https://schema.org",

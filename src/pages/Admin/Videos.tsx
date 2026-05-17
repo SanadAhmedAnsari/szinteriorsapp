@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useFirestore } from '../../hooks/useFirestore';
 import { VideoContent } from '../../types';
-import { Plus, Trash2, Edit2, Play, Video, ExternalLink } from 'lucide-react';
+import { Plus, Trash2, Edit2, ExternalLink } from 'lucide-react';
 import { collection, addDoc, deleteDoc, doc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { toast } from 'sonner';

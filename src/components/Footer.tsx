@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube } from 'luc
 import { useSiteSettings } from '../hooks/useSiteSettings';
 
 export default function Footer() {
-  const { phone, email, address, socials } = useSiteSettings();
+  const { phone, email, address, socialLinks } = useSiteSettings();
 
   return (
     <footer className="bg-stone-950 pt-20 pb-10 text-stone-400">
@@ -28,10 +28,10 @@ export default function Footer() {
               Bhopal's premier international interior design and construction agency. Providing affordable and best interior solutions in India.
             </p>
             <div className="flex space-x-4">
-              <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
-              <a href={socials.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
-              <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
-              <a href={socials.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Youtube size={20} /></a>
+              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+              <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Youtube size={20} /></a>
             </div>
           </div>
 

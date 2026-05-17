@@ -17,7 +17,7 @@ const DEFAULT_ABOUT_CONTENT = {
 
 export default function About() {
   const { content, loading } = usePageContent('about', DEFAULT_ABOUT_CONTENT);
-  const { socials } = useSiteSettings();
+  const { socialLinks } = useSiteSettings();
 
   if (loading) {
     return (
@@ -95,8 +95,8 @@ export default function About() {
                 "{content.founderBio}"
               </p>
               <div className="pt-4 flex space-x-6">
-                <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-colors"><Instagram size={24} /></a>
-                <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-colors"><Linkedin size={24} /></a>
+                <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-colors"><Instagram size={24} /></a>
+                <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-stone-500 hover:text-white transition-colors"><Linkedin size={24} /></a>
               </div>
             </div>
           </div>

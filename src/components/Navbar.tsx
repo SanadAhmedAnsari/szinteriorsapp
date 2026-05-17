@@ -20,13 +20,13 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
-  const { phone, socials } = useSiteSettings();
+  const { phone, socialLinks } = useSiteSettings();
 
-  const socialLinks = [
-    { icon: Instagram, url: socials.instagram },
-    { icon: Youtube, url: socials.youtube },
-    { icon: Linkedin, url: socials.linkedin },
-    { icon: Facebook, url: socials.facebook },
+  const socialIcons = [
+    { icon: Instagram, url: socialLinks.instagram },
+    { icon: Youtube, url: socialLinks.youtube },
+    { icon: Linkedin, url: socialLinks.linkedin },
+    { icon: Facebook, url: socialLinks.facebook },
   ];
 
   useEffect(() => {
@@ -140,7 +140,7 @@ export default function Navbar() {
 
             {/* Social Links */}
             <div className="hidden md:flex items-center space-x-4">
-              {socialLinks.map((social, i) => (
+              {socialIcons.map((social, i) => (
                 <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   <social.icon size={14} />
                 </a>
