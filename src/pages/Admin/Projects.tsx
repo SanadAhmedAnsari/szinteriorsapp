@@ -5,6 +5,7 @@ import { db } from '../../firebase';
 import { collection, addDoc, updateDoc, deleteDoc, doc, serverTimestamp } from 'firebase/firestore';
 import { toast } from 'sonner';
 import { Plus, Trash2, Edit2, Save, X, ImageIcon, MapPin, Tag } from 'lucide-react';
+import { slugify } from '../../lib/utils';
 
 export default function AdminProjects() {
   const { data: projects, loading } = useFirestore<Project>('projects', []);
@@ -12,12 +13,15 @@ export default function AdminProjects() {
   const [isAdding, setIsAdding] = useState(false);
   const [formData, setFormData] = useState<Partial<Project>>({
     title: '',
+    slug: '',
     description: '',
     location: '',
     category: 'Residential',
     image: '',
+    gallery: [],
     featured: false,
   });
+  const [galleryInput, setGalleryInput] = useState('');
 
   const handleSave = async () => {
     if (!formData.title || !formData.image) {
@@ -25,23 +29,35 @@ export default function AdminProjects() {
       return;
     }
 
+    const gallery = galleryInput
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    const slug = formData.slug || slugify(formData.title!);
+
     try {
       if (editingId) {
         await updateDoc(doc(db, 'projects', editingId), {
           ...formData,
+          slug,
+          gallery,
           updatedAt: serverTimestamp(),
         });
         toast.success('Project updated');
       } else {
         await addDoc(collection(db, 'projects'), {
           ...formData,
+          slug,
+          gallery,
           createdAt: new Date().toISOString(),
         });
         toast.success('Project added');
       }
       setEditingId(null);
       setIsAdding(false);
-      setFormData({ title: '', description: '', location: '', category: 'Residential', image: '', featured: false });
+      setFormData({ title: '', slug: '', description: '', location: '', category: 'Residential', image: '', gallery: [], featured: false });
+      setGalleryInput('');
     } catch (error) {
       toast.error('Failed to save project');
     }
@@ -61,6 +77,7 @@ export default function AdminProjects() {
   const startEdit = (project: Project) => {
     setEditingId(project.id);
     setFormData(project);
+    setGalleryInput((project.gallery || []).join(', '));
     setIsAdding(true);
   };
 
@@ -96,9 +113,25 @@ export default function AdminProjects() {
                 <label className="text-xs font-bold uppercase tracking-widest text-stone-400">Project Title</label>
                 <input
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) => {
+                    const title = e.target.value;
+                    setFormData((prev) => ({
+                      ...prev,
+                      title,
+                      slug: editingId ? prev.slug : slugify(title),
+                    }));
+                  }}
                   className="w-full border-b border-stone-200 py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
                   placeholder="e.g. The Royal Villa"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-stone-400">URL Slug (auto-generated)</label>
+                <input
+                  value={formData.slug}
+                  onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
+                  className="w-full border-b border-stone-200 py-3 text-stone-500 font-mono text-sm focus:border-stone-900 focus:outline-none transition-colors"
+                  placeholder="the-royal-villa"
                 />
               </div>
               <div className="grid grid-cols-2 gap-6">
@@ -153,7 +186,7 @@ export default function AdminProjects() {
                   value={formData.image}
                   onChange={(e) => setFormData({ ...formData, image: e.target.value })}
                   className="w-full border-b border-stone-200 py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
-                  placeholder="https://images.unsplash.com/..."
+                  placeholder="https://... or /images/filename.jpg"
                 />
               </div>
               {formData.image && (
@@ -161,6 +194,19 @@ export default function AdminProjects() {
                   <img src={formData.image} alt="Preview" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
                 </div>
               )}
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-stone-400">
+                  Gallery Images <span className="normal-case text-stone-300">(comma-separated URLs)</span>
+                </label>
+                <textarea
+                  value={galleryInput}
+                  onChange={(e) => setGalleryInput(e.target.value)}
+                  rows={3}
+                  className="w-full border-b border-stone-200 py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors resize-none text-sm"
+                  placeholder="/images/photo1.jpg, /images/photo2.jpg, ..."
+                />
+                <p className="text-[11px] text-stone-400">First image is shown largest. Leave empty to use the main image only.</p>
+              </div>
             </div>
           </div>
           <div className="flex justify-end space-x-4">

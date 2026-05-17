@@ -1,81 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Filter, ExternalLink, MapPin } from 'lucide-react';
-import { Link, useParams } from 'react-router-dom';
+import { ExternalLink, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useScrollSEO } from '../hooks/useScrollSEO';
-import { PROJECT_SLUGS, SEO_KEYWORDS } from '../utils/seoData';
+import { SEO_KEYWORDS } from '../utils/seoData';
 import { Helmet } from 'react-helmet-async';
+import { useFirestore } from '../hooks/useFirestore';
+import { Project } from '../types';
+import { orderBy } from 'firebase/firestore';
 
 const categories = ['All', 'Residential', 'Commercial', 'Construction', 'Renovation'];
 
-const projects = [
-  {
-    id: 'project-horizon',
-    title: 'The Horizon - Modern Luxury Villa',
-    slug: 'modern-luxury-villa-construction-bhopal',
-    category: 'Construction',
-    loc: 'Arera Colony, Bhopal',
-    img: '/images/horizon-villa-day.jpg',
-    desc: 'Breathtaking multi-story villa construction with stone cladding and glass balconies. A flagship construction project in Bhopal showcasing international standards.'
-  },
-  {
-    id: 'project-blue-kitchen',
-    title: 'Blue Heaven - Modular Kitchen Transformation',
-    slug: 'modular-kitchen-before-after-bhopal',
-    category: 'Renovation',
-    loc: 'Gulmohar, Bhopal',
-    img: '/images/blue-kitchen-renovation.jpg',
-    desc: 'Complete kitchen renovation showcasing a stunning before-and-after transformation with modular light blue cabinetry and designer tiling.'
-  },
-  {
-    id: 'project-one6ne',
-    title: 'ONE 6NE - Commercial Landmark',
-    slug: 'commercial-building-interior-design-bhopal',
-    category: 'Commercial',
-    loc: 'MP Nagar, Bhopal',
-    img: '/images/one6ne-commercial-1.jpg',
-    desc: 'Dynamic commercial building interior and exterior design featuring geometric facades and modern workspace planning.'
-  },
-  {
-    id: 'project-regal',
-    title: 'Regal Residences - Luxury Interiors',
-    slug: 'luxury-home-interiors-false-ceiling-bhopal',
-    category: 'Residential',
-    loc: 'Koh-e-Fiza, Bhopal',
-    img: '/images/living-room-partition.jpg',
-    desc: 'Sophisticated residential interiors featuring premium wardrobes, designer false ceilings, and bespoke mirrored partitions.'
-  },
-  {
-    id: 'project-sleek-kitchen',
-    title: 'Sleek Kitchen - Grey & Wood Finish',
-    slug: 'modern-kitchen-designer-bhopal',
-    category: 'Residential',
-    loc: 'Indore Highway, Bhopal',
-    img: '/images/grey-wood-kitchen.jpg',
-    desc: 'Real completion of a gourmet kitchen with sleek grey and wood finishes, marble flooring, and designer pendant lighting.'
-  },
-];
-
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const { slug } = useParams();
-  
+  const { data: projects, loading } = useFirestore<Project>('projects', [orderBy('createdAt', 'desc')]);
+
   // Vertical Scroll SEO Trick
   useScrollSEO('.project-section');
 
-  // Scroll to project if slug is present in URL
-  useEffect(() => {
-    if (slug) {
-      const element = document.getElementById(slug);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, [slug]);
-
-  const filteredProjects = activeCategory === 'All' 
-    ? projects 
-    : projects.filter(p => p.category === activeCategory);
+  const filteredProjects = activeCategory === 'All'
+    ? projects
+    : projects.filter((p) => p.category === activeCategory);
 
   return (
     <div className="pb-32">
@@ -121,10 +66,17 @@ export default function Projects() {
         </div>
 
         {/* Vertical Carousel for SEO & UX */}
+        {loading ? (
+          <div className="flex justify-center py-32">
+            <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-stone-900" />
+          </div>
+        ) : filteredProjects.length === 0 ? (
+          <div className="py-32 text-center text-stone-400">No projects found.</div>
+        ) : (
         <div className="space-y-32">
           {filteredProjects.map((project, idx) => (
-            <section 
-              key={project.id} 
+            <section
+              key={project.id}
               id={project.slug}
               className="project-section grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[70vh]"
             >
@@ -136,7 +88,7 @@ export default function Projects() {
               >
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] shadow-2xl">
                   <img
-                    src={project.img}
+                    src={project.image}
                     alt={`${project.title} - ${SEO_KEYWORDS.colloquial[idx % SEO_KEYWORDS.colloquial.length]}`}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-1000 hover:scale-110"
@@ -159,33 +111,36 @@ export default function Projects() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-2 text-stone-500">
                     <MapPin size={16} />
-                    <span className="text-xs font-bold uppercase tracking-widest">{project.loc}</span>
+                    <span className="text-xs font-bold uppercase tracking-widest">{project.location}</span>
                   </div>
                   <h3 className="text-4xl md:text-5xl font-light text-stone-900 leading-tight">
                     {project.title}
                   </h3>
                 </div>
-                
+
                 <p className="text-lg text-stone-600 leading-relaxed font-light">
-                  {project.desc}
+                  {project.description}
                 </p>
 
-                <div className="pt-8">
-                  <Link 
-                    to={`/projects/${project.slug}`}
-                    className="group inline-flex items-center space-x-4 text-xs font-bold uppercase tracking-[0.3em] text-stone-900"
-                    aria-label={`View details for ${project.title} - ${SEO_KEYWORDS.primary[0]}`}
-                  >
-                    <span className="border-b-2 border-stone-900 pb-1 group-hover:border-stone-400 transition-colors">Explore Project</span>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 group-hover:bg-stone-900 group-hover:text-white transition-all">
-                      <ExternalLink size={16} />
-                    </div>
-                  </Link>
-                </div>
+                {project.slug && (
+                  <div className="pt-8">
+                    <Link
+                      to={`/projects/${project.slug}`}
+                      className="group inline-flex items-center space-x-4 text-xs font-bold uppercase tracking-[0.3em] text-stone-900"
+                      aria-label={`View details for ${project.title}`}
+                    >
+                      <span className="border-b-2 border-stone-900 pb-1 group-hover:border-stone-400 transition-colors">Explore Project</span>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 group-hover:bg-stone-900 group-hover:text-white transition-all">
+                        <ExternalLink size={16} />
+                      </div>
+                    </Link>
+                  </div>
+                )}
               </motion.div>
             </section>
           ))}
         </div>
+        )}
 
         {/* CTA */}
         <div className="mt-40 text-center bg-stone-50 rounded-[4rem] p-20 md:p-32">

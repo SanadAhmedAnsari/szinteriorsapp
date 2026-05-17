@@ -17,6 +17,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
+import ProjectDetail from './pages/ProjectDetail';
 import Journal from './pages/Journal';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
@@ -70,7 +71,7 @@ export default function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:slug" element={<Projects />} />
+                <Route path="/projects/:slug" element={<ProjectDetail />} />
                 <Route path="/journal" element={<Journal />} />
                 <Route path="/journal/:slug" element={<Journal />} />
                 <Route path="/testimonials" element={<Testimonials />} />
