@@ -10,12 +10,12 @@ export async function seedDatabase() {
     sections: {
       heroTitle:    { value: 'Crafting Spaces That Tell Your Story' },
       heroSubtitle: { value: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.' },
-      heroImage:    { value: '/images/horizon-villa-day.jpg' },
+      heroImage:    { value: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920' },
       aboutTitle:   { value: 'Excellence in Design & Construction' },
       aboutText:    { value: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.' },
       aboutImage1:  { value: '/images/residential-hallway.jpg' },
       aboutImage2:  { value: '/images/bedroom-render-2.png' },
-      ctaImage:     { value: '/images/horizon-villa-night.jpg' },
+      ctaImage:     { value: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1920' },
     },
   });
 

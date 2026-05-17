@@ -8,12 +8,12 @@ import { usePageContent } from '../hooks/usePageContent';
 const DEFAULT_HOME_CONTENT = {
   heroTitle: 'Crafting Spaces That Tell Your Story',
   heroSubtitle: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.',
-  heroImage: '/images/horizon-villa-day.jpg',
+  heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920',
   aboutTitle: 'Excellence in Design & Construction',
   aboutText: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.',
   aboutImage1: '/images/residential-hallway.jpg',
   aboutImage2: '/images/bedroom-render-2.png',
-  ctaImage: '/images/horizon-villa-night.jpg',
+  ctaImage: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1920',
 };
 
 export default function Home() {
