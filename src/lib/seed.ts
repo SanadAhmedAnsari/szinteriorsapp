@@ -10,7 +10,7 @@ export async function seedDatabase() {
     sections: {
       heroTitle: { value: 'Crafting Spaces That Tell Your Story' },
       heroSubtitle: { value: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.' },
-      heroImage: { value: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1920' },
+      heroImage: { value: '/images/horizon-villa-day.jpg' },
       aboutTitle: { value: 'Excellence in Design & Construction' },
       aboutText: { value: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.' },
     }
@@ -32,7 +32,7 @@ export async function seedDatabase() {
     metaTitle: 'Apka Interior Wala | Best Interiors & Construction Bhopal',
     metaDescription: 'Apka Interior Wala is the best company/firm for interior design and construction in Bhopal, India, offering affordable luxury residential and commercial solutions.',
     keywords: 'best interior, interior design bhopal, construction agency india, luxury home interiors, commercial interior design, best company for interior',
-    ogImage: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200',
+    ogImage: '/images/horizon-villa-day.jpg',
     googleAnalyticsId: '',
     searchConsoleId: '',
     robotsTxt: 'User-agent: *\nAllow: /',
@@ -77,8 +77,8 @@ export async function seedDatabase() {
 
   // 4. Seed Projects
   const seedProjects = [
-    { title: 'The Horizon', category: 'Construction', loc: 'Bhopal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200', slug: 'modern-luxury-villa-construction-bhopal', desc: 'Modern luxury villa.' },
-    { title: 'Blue Heaven', category: 'Renovation', loc: 'Gulmohar', img: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1200', slug: 'modular-kitchen-before-after-bhopal', desc: 'Kitchen transformation.' }
+    { title: 'The Horizon', category: 'Construction', loc: 'Bhopal', img: '/images/horizon-villa-day.jpg', slug: 'modern-luxury-villa-construction-bhopal', desc: 'Modern luxury villa.' },
+    { title: 'Blue Heaven', category: 'Renovation', loc: 'Gulmohar', img: '/images/blue-kitchen-renovation.jpg', slug: 'modular-kitchen-before-after-bhopal', desc: 'Kitchen transformation.' }
   ];
 
   seedProjects.forEach(project => {
@@ -88,7 +88,7 @@ export async function seedDatabase() {
 
   // 5. Seed Journal
   const seedJournal = [
-    { title: '10 Tips for Modern Kitchens', category: 'Design', excerpt: 'How to design a functional kitchen.', image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1200', slug: '10-tips-modern-kitchens', publishedAt: new Date().toISOString() }
+    { title: '10 Tips for Modern Kitchens', category: 'Design', excerpt: 'How to design a functional kitchen.', image: '/images/grey-wood-kitchen.jpg', slug: '10-tips-modern-kitchens', publishedAt: new Date().toISOString() }
   ];
 
   seedJournal.forEach(post => {

@@ -10,8 +10,8 @@ const DEFAULT_ABOUT_CONTENT = {
   founderName: 'Zainab Khan',
   founderRole: 'Founder & Principal Architect',
   founderBio: 'With a passion for architecture and a keen eye for detail, Zainab Khan leads the team in creating spaces that are both functional and breathtaking.',
-  founderImage: 'https://i.pravatar.cc/600?u=zaid',
-  introImage: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000',
+  founderImage: '/images/founder-zainab-khan.jpeg',
+  introImage: '/images/living-room-partition.jpg',
 };
 
 export default function About() {

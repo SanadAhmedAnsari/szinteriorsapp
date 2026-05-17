@@ -8,12 +8,12 @@ import { usePageContent } from '../hooks/usePageContent';
 const DEFAULT_HOME_CONTENT = {
   heroTitle: 'Crafting Spaces That Tell Your Story',
   heroSubtitle: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.',
-  heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920',
+  heroImage: '/images/horizon-villa-day.jpg',
   aboutTitle: 'Excellence in Design & Construction',
   aboutText: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.',
-  aboutImage1: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1000',
-  aboutImage2: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&q=80&w=500',
-  ctaImage: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1920',
+  aboutImage1: '/images/residential-hallway.jpg',
+  aboutImage2: '/images/bedroom-render-2.png',
+  ctaImage: '/images/horizon-villa-night.jpg',
 };
 
 export default function Home() {
@@ -201,8 +201,8 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {[
-              { title: 'The Royal Villa', loc: 'Arera Colony, Bhopal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000', slug: 'interior-designer-in-bhopal-luxury-villa' },
-              { title: 'Modern Office Hub', loc: 'MP Nagar, Bhopal', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000', slug: 'modular-kitchen-bhopal-modern-design' },
+              { title: 'The Horizon Villa', loc: 'Arera Colony, Bhopal', img: '/images/horizon-villa-day.jpg', slug: 'interior-designer-in-bhopal-luxury-villa' },
+              { title: 'ONE 6NE - Commercial Hub', loc: 'MP Nagar, Bhopal', img: '/images/one6ne-commercial-1.jpg', slug: 'modular-kitchen-bhopal-modern-design' },
             ].map((project, idx) => (
               <Link key={idx} to={`/projects/${project.slug}`} className="group block space-y-6">
                 <div className="aspect-[16/10] overflow-hidden">

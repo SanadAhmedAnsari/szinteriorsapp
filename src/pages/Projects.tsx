@@ -9,50 +9,50 @@ import { Helmet } from 'react-helmet-async';
 const categories = ['All', 'Residential', 'Commercial', 'Construction', 'Renovation'];
 
 const projects = [
-  { 
-    id: 'project-horizon', 
-    title: 'The Horizon - Modern Luxury Villa', 
-    slug: 'modern-luxury-villa-construction-bhopal', 
-    category: 'Construction', 
-    loc: 'Arera Colony, Bhopal', 
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200', 
-    desc: 'Breathtaking multi-story villa construction with stone cladding and glass balconies. A flagship construction project in Bhopal showcasing international standards.' 
+  {
+    id: 'project-horizon',
+    title: 'The Horizon - Modern Luxury Villa',
+    slug: 'modern-luxury-villa-construction-bhopal',
+    category: 'Construction',
+    loc: 'Arera Colony, Bhopal',
+    img: '/images/horizon-villa-day.jpg',
+    desc: 'Breathtaking multi-story villa construction with stone cladding and glass balconies. A flagship construction project in Bhopal showcasing international standards.'
   },
-  { 
-    id: 'project-blue-kitchen', 
-    title: 'Blue Heaven - Modular Kitchen Transformation', 
-    slug: 'modular-kitchen-before-after-bhopal', 
-    category: 'Renovation', 
-    loc: 'Gulmohar, Bhopal', 
-    img: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1200', 
-    desc: 'Complete kitchen renovation showcasing a stunning before-and-after transformation with modular light blue cabinetry and designer tiling.' 
+  {
+    id: 'project-blue-kitchen',
+    title: 'Blue Heaven - Modular Kitchen Transformation',
+    slug: 'modular-kitchen-before-after-bhopal',
+    category: 'Renovation',
+    loc: 'Gulmohar, Bhopal',
+    img: '/images/blue-kitchen-renovation.jpg',
+    desc: 'Complete kitchen renovation showcasing a stunning before-and-after transformation with modular light blue cabinetry and designer tiling.'
   },
-  { 
-    id: 'project-one6ne', 
-    title: 'ONE 6NE - Commercial Landmark', 
-    slug: 'commercial-building-interior-design-bhopal', 
-    category: 'Commercial', 
-    loc: 'MP Nagar, Bhopal', 
-    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200', 
-    desc: 'Dynamic commercial building interior and exterior design featuring geometric facades and modern workspace planning.' 
+  {
+    id: 'project-one6ne',
+    title: 'ONE 6NE - Commercial Landmark',
+    slug: 'commercial-building-interior-design-bhopal',
+    category: 'Commercial',
+    loc: 'MP Nagar, Bhopal',
+    img: '/images/one6ne-commercial-1.jpg',
+    desc: 'Dynamic commercial building interior and exterior design featuring geometric facades and modern workspace planning.'
   },
-  { 
-    id: 'project-regal', 
-    title: 'Regal Residences - Luxury Interiors', 
-    slug: 'luxury-home-interiors-false-ceiling-bhopal', 
-    category: 'Residential', 
-    loc: 'Koh-e-Fiza, Bhopal', 
-    img: 'https://images.unsplash.com/photo-1616486341351-7963a69f8222?auto=format&fit=crop&q=80&w=1200', 
-    desc: 'Sophisticated residential interiors featuring premium wardrobes, designer false ceilings, and bespoke mirrored partitions.' 
+  {
+    id: 'project-regal',
+    title: 'Regal Residences - Luxury Interiors',
+    slug: 'luxury-home-interiors-false-ceiling-bhopal',
+    category: 'Residential',
+    loc: 'Koh-e-Fiza, Bhopal',
+    img: '/images/living-room-partition.jpg',
+    desc: 'Sophisticated residential interiors featuring premium wardrobes, designer false ceilings, and bespoke mirrored partitions.'
   },
-  { 
-    id: 'project-sleek-kitchen', 
-    title: 'Sleek Kitchen - Grey & Wood Finish', 
-    slug: 'modern-kitchen-designer-bhopal', 
-    category: 'Residential', 
-    loc: 'Indore Highway, Bhopal', 
-    img: 'https://images.unsplash.com/photo-1588854337236-6889d631faa8?auto=format&fit=crop&q=80&w=1200', 
-    desc: 'Real completion of a gourmet kitchen with sleek grey and wood finishes, marble flooring, and designer pendant lighting.' 
+  {
+    id: 'project-sleek-kitchen',
+    title: 'Sleek Kitchen - Grey & Wood Finish',
+    slug: 'modern-kitchen-designer-bhopal',
+    category: 'Residential',
+    loc: 'Indore Highway, Bhopal',
+    img: '/images/grey-wood-kitchen.jpg',
+    desc: 'Real completion of a gourmet kitchen with sleek grey and wood finishes, marble flooring, and designer pendant lighting.'
   },
 ];
 
