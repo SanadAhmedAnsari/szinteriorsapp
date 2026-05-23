@@ -1,0 +1,21 @@
+{
+  "name": "Apka Interior Wala",
+  "short_name": "Apka Interior",
+  "description": "Premium interior design and construction firm based in Bhopal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
