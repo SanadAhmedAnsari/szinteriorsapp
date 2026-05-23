@@ -14,7 +14,7 @@ export default function ProjectDetail() {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-stone-50">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-stone-900" />
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary" />
       </div>
     );
   }
@@ -135,7 +135,7 @@ export default function ProjectDetail() {
         </div>
 
         {/* CTA */}
-        <div className="mt-32 bg-stone-900 rounded-[3rem] p-12 md:p-20 text-center text-white">
+        <div className="mt-32 bg-primary rounded-theme p-12 md:p-20 text-center text-white">
           <h2 className="text-3xl font-light md:text-4xl">Want a Similar Space?</h2>
           <p className="mt-4 text-stone-400">
             Let us bring the same quality and vision to your project.

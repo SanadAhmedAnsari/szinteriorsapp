@@ -26,7 +26,7 @@ export default function Home() {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-stone-50">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-stone-900"></div>
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary"></div>
       </div>
     );
   }
@@ -173,7 +173,7 @@ export default function Home() {
               { title: 'Turnkey Solutions', desc: 'End-to-end management from concept to completion. Carpenter & Plumbing solutions.', icon: 'Key' },
             ].map((service, idx) => (
               <div key={idx} className="group border border-stone-100 p-10 transition-all hover:bg-stone-50 hover:shadow-xl">
-                <div className="mb-8 flex h-16 w-16 items-center justify-center bg-stone-900 text-white transition-transform group-hover:scale-110">
+                <div className="mb-8 flex h-16 w-16 items-center justify-center bg-primary text-white transition-transform group-hover:scale-110">
                   <ChevronRight size={32} />
                 </div>
                 <h3 className="mb-4 text-xl font-bold text-stone-900">{service.title}</h3>
@@ -188,7 +188,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-32 bg-stone-900 text-white">
+      <section className="py-32 bg-primary text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between space-y-6 md:space-y-0">
             <div>
@@ -280,7 +280,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-32 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden bg-stone-900 px-8 py-24 text-center text-white rounded-3xl">
+          <div className="relative overflow-hidden bg-primary px-8 py-24 text-center text-white rounded-theme">
             <div className="absolute inset-0 opacity-20">
               <img
                 src={content.ctaImage}

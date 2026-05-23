@@ -17,7 +17,7 @@ export default function JournalDetail() {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-stone-50">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-stone-900" />
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary" />
       </div>
     );
   }
@@ -188,7 +188,7 @@ export default function JournalDetail() {
         )}
 
         {/* CTA */}
-        <div className="mt-24 bg-stone-900 rounded-[3rem] p-12 text-center text-white">
+        <div className="mt-24 bg-primary rounded-theme p-12 text-center text-white">
           <h2 className="text-2xl font-light md:text-3xl">Ready to Transform Your Space?</h2>
           <p className="mt-4 text-stone-400 text-sm">
             Get a free consultation from Bhopal's premier interior design team.

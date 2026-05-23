@@ -63,7 +63,7 @@ export default function Testimonials() {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-stone-50">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-stone-900" />
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary" />
       </div>
     );
   }
@@ -104,7 +104,7 @@ export default function Testimonials() {
                   <Star
                     key={i}
                     size={16}
-                    className={i < testimonial.rating ? 'fill-stone-900 text-stone-900' : 'text-stone-200'}
+                    className={i < testimonial.rating ? 'fill-primary text-primary' : 'text-stone-200'}
                   />
                 ))}
               </div>
@@ -132,7 +132,7 @@ export default function Testimonials() {
         </div>
 
         {/* CTA */}
-        <div className="mt-32 text-center bg-stone-900 p-12 md:p-24 rounded-[3rem] text-white">
+        <div className="mt-32 text-center bg-primary p-12 md:p-24 rounded-theme text-white">
           <h2 className="text-3xl font-light mb-8">Join Our List of Satisfied Clients</h2>
           <p className="text-stone-400 mb-12 max-w-2xl mx-auto">
             Experience the difference of working with Bhopal's premier design and construction agency.

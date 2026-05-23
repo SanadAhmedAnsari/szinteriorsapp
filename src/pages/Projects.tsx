@@ -56,7 +56,7 @@ export default function Projects() {
               onClick={() => setActiveCategory(cat)}
               className={`px-8 py-3 text-xs font-bold uppercase tracking-widest transition-all rounded-full ${
                 activeCategory === cat 
-                  ? 'bg-stone-900 text-white' 
+                  ? 'bg-primary text-white'
                   : 'bg-stone-100 text-stone-500 hover:bg-stone-200'
               }`}
             >
@@ -68,7 +68,7 @@ export default function Projects() {
         {/* Vertical Carousel for SEO & UX */}
         {loading ? (
           <div className="flex justify-center py-32">
-            <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-stone-900" />
+            <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary" />
           </div>
         ) : filteredProjects.length === 0 ? (
           <div className="py-32 text-center text-stone-400">No projects found.</div>
@@ -86,7 +86,7 @@ export default function Projects() {
                 viewport={{ once: true, margin: "-100px" }}
                 className={idx % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}
               >
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[3rem] shadow-2xl">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-theme shadow-2xl">
                   <img
                     src={project.image}
                     alt={`${project.title} - ${SEO_KEYWORDS.colloquial[idx % SEO_KEYWORDS.colloquial.length]}`}
@@ -130,7 +130,7 @@ export default function Projects() {
                       aria-label={`View details for ${project.title}`}
                     >
                       <span className="border-b-2 border-stone-900 pb-1 group-hover:border-stone-400 transition-colors">Explore Project</span>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 group-hover:bg-stone-900 group-hover:text-white transition-all">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 group-hover:bg-primary group-hover:text-white transition-all">
                         <ExternalLink size={16} />
                       </div>
                     </Link>
@@ -150,7 +150,7 @@ export default function Projects() {
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-stone-900 px-16 py-6 text-sm font-bold uppercase tracking-widest text-white transition-all hover:bg-stone-800 rounded-full"
+            className="inline-block bg-primary px-16 py-6 text-sm font-bold uppercase tracking-widest text-white transition-all hover:opacity-90 rounded-button"
           >
             Start Your Project
           </Link>

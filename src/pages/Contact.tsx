@@ -236,7 +236,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group flex w-full items-center justify-center space-x-3 bg-stone-900 py-5 text-sm font-bold uppercase tracking-widest text-white transition-all hover:bg-stone-800 disabled:opacity-50"
+                className="group flex w-full items-center justify-center space-x-3 bg-primary py-5 text-sm font-bold uppercase tracking-widest text-white transition-all hover:opacity-90 disabled:opacity-50 rounded-button"
               >
                 <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                 {!isSubmitting && (

@@ -62,7 +62,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 group">
-              <div className="flex h-12 w-14 items-center justify-center bg-stone-900 text-white font-bold text-xl transition-transform group-hover:scale-105">
+              <div className="flex h-12 w-14 items-center justify-center bg-primary text-white font-bold text-xl transition-transform group-hover:scale-105">
                 AIW
               </div>
               <div className="flex flex-col">
@@ -99,7 +99,7 @@ export default function Navbar() {
 
               <Link
                 to="/contact"
-                className="bg-stone-900 px-8 py-4 text-[11px] font-bold uppercase tracking-widest text-white transition-all hover:bg-stone-800 rounded-sm"
+                className="bg-primary px-8 py-4 text-[11px] font-bold uppercase tracking-widest text-white transition-all hover:opacity-90 rounded-button"
               >
                 Request a quote
               </Link>
@@ -119,7 +119,7 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation Bar */}
-      <nav className="absolute top-full left-0 w-full bg-stone-900/60 py-4 text-white backdrop-blur-md">
+      <nav className="absolute top-full left-0 w-full bg-primary/60 py-4 text-white backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Desktop Nav */}
@@ -156,7 +156,7 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-stone-900 overflow-hidden"
+              className="lg:hidden bg-primary overflow-hidden"
             >
               <div className="flex flex-col space-y-4 px-4 py-8">
                 {navLinks.map((link) => (

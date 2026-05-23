@@ -94,7 +94,7 @@ export default function Services() {
                 />
               </div>
               <div className="flex-grow p-10 space-y-6">
-                <div className="flex h-12 w-12 items-center justify-center bg-stone-900 text-white rounded-xl">
+                <div className="flex h-12 w-12 items-center justify-center bg-primary text-white rounded-xl">
                   <service.icon size={24} />
                 </div>
                 <h3 className="text-2xl font-bold text-stone-900">{service.title}</h3>
@@ -113,7 +113,7 @@ export default function Services() {
         </div>
 
         {/* Process Section */}
-        <div className="mt-40 bg-stone-900 rounded-[3rem] p-12 md:p-24 text-white">
+        <div className="mt-40 bg-primary rounded-theme p-12 md:p-24 text-white">
           <div className="max-w-3xl mx-auto text-center mb-20">
             <h2 className="text-4xl font-light mb-8">Our Working Process</h2>
             <p className="text-stone-400">We follow a systematic approach to ensure every project is delivered with perfection.</p>

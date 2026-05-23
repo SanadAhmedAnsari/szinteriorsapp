@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { db } from '../../firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { toast } from 'sonner';
-import { Save, Globe, Search, Share2, Code } from 'lucide-react';
+import { Save, Globe, Search, Share2 } from 'lucide-react';
 
 export default function SEOSettings() {
   const [loading, setLoading] = useState(true);
@@ -12,8 +12,6 @@ export default function SEOSettings() {
     metaDescription: 'Apka Interior Wala is the best company/firm for interior design and construction in Bhopal, India, offering affordable luxury residential and commercial solutions.',
     keywords: 'best interior, interior design bhopal, construction agency india, luxury home interiors, commercial interior design, best company for interior',
     ogImage: '',
-    googleAnalyticsId: '',
-    searchConsoleId: '',
     robotsTxt: 'User-agent: *\nAllow: /',
   });
 
@@ -91,31 +89,6 @@ export default function SEOSettings() {
             </div>
           </section>
 
-          <section className="space-y-6">
-            <div className="flex items-center space-x-3 text-stone-900">
-              <Code size={20} />
-              <h2 className="text-lg font-bold tracking-tight">Analytics & Tracking</h2>
-            </div>
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-stone-400">Google Analytics ID</label>
-                <input
-                  value={seo.googleAnalyticsId}
-                  onChange={(e) => setSeo({ ...seo, googleAnalyticsId: e.target.value })}
-                  className="w-full border-b border-stone-200 py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
-                  placeholder="G-XXXXXXXXXX"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-stone-400">Search Console ID</label>
-                <input
-                  value={seo.searchConsoleId}
-                  onChange={(e) => setSeo({ ...seo, searchConsoleId: e.target.value })}
-                  className="w-full border-b border-stone-200 py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
-                />
-              </div>
-            </div>
-          </section>
         </div>
 
         <div className="space-y-10">

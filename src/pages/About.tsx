@@ -32,7 +32,7 @@ export default function About() {
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-stone-50">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-stone-900"></div>
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary"></div>
       </div>
     );
   }
@@ -90,7 +90,7 @@ export default function About() {
         </div>
 
         {/* Founder Section */}
-        <div className="mb-32 bg-stone-900 rounded-[3rem] overflow-hidden">
+        <div className="mb-32 bg-primary rounded-theme overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="h-[500px] lg:h-auto">
               <img
@@ -136,13 +136,13 @@ export default function About() {
         {/* Mission & Vision */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 mb-32">
           <div className="bg-stone-50 p-12 rounded-3xl space-y-6">
-            <div className="h-12 w-12 bg-stone-900 text-white flex items-center justify-center rounded-xl">
+            <div className="h-12 w-12 bg-primary text-white flex items-center justify-center rounded-xl">
               <Target size={24} />
             </div>
             <h3 className="text-2xl font-bold text-stone-900">Our Mission</h3>
             <p className="text-stone-600 leading-relaxed">{content.mission}</p>
           </div>
-          <div className="bg-stone-900 p-12 rounded-3xl space-y-6 text-white">
+          <div className="bg-primary p-12 rounded-3xl space-y-6 text-white">
             <div className="h-12 w-12 bg-white text-stone-900 flex items-center justify-center rounded-xl">
               <Rocket size={24} />
             </div>
