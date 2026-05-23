@@ -76,20 +76,57 @@ export const generateSchema = (type: 'Organization' | 'Project' | 'Article', dat
   if (type === 'Organization') {
     return {
       ...baseSchema,
+      "@type": "InteriorDesignStudio",
       "name": "Apka Interior Wala",
       "url": "https://apkainteriorwala.com",
-      "logo": "https://apkainteriorwala.com/logo.png",
+      "logo": "https://apkainteriorwala.com/favicon.png",
+      "image": [
+        "https://apkainteriorwala.com/images/marble-kitchen.jpg",
+        "https://apkainteriorwala.com/images/living-room-partition.jpg",
+        "https://apkainteriorwala.com/images/bedroom-render.jpg"
+      ],
+      "telephone": "+91-7893365987",
+      "email": "info@apkainteriorwala.com",
+      "priceRange": "₹₹",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Cash, Bank Transfer, UPI",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop No. 10, Patwa Market, Near Bharat Talkies",
+        "addressLocality": "Bhopal",
+        "addressRegion": "Madhya Pradesh",
+        "postalCode": "462001",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.2605,
+        "longitude": 77.4103
+      },
+      "hasMap": "https://maps.google.com/?q=Patwa+Market+Near+Bharat+Talkies+Bhopal",
+      "areaServed": [
+        { "@type": "City", "name": "Bhopal" },
+        { "@type": "City", "name": "Indore" },
+        { "@type": "AdministrativeArea", "name": "Madhya Pradesh" }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "10:00",
+          "closes": "19:00"
+        }
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-7893365987",
-        "contactType": "customer service"
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi"]
       },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bhopal",
-        "addressRegion": "MP",
-        "addressCountry": "IN"
-      }
+      "sameAs": [
+        "https://www.instagram.com/apka_interior_wala_bhopal/"
+      ]
     };
   }
 

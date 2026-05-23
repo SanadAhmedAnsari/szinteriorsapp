@@ -70,8 +70,8 @@ export default function App() {
     <ErrorBoundary>
       <HelmetProvider>
         <ThemeProvider>
-          <SEO />
           <Router>
+            <SEO />
             <ScrollToTop />
             <Toaster position="top-center" richColors />
             <Routes>
