@@ -1,9 +1,4 @@
 export interface SiteSettings {
-  primaryColor: string;
-  secondaryColor: string;
-  fontFamily: string;
-  siteName: string;
-  siteDescription: string;
   address: string;
   email: string;
   phone: string;
