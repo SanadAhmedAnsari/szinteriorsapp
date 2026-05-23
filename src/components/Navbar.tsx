@@ -61,18 +61,9 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-3 group">
-              <div className="flex h-12 w-14 items-center justify-center bg-primary text-white font-bold text-xl transition-transform group-hover:scale-105">
-                AIW
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold leading-none tracking-tighter text-stone-900">
-                  APKA INTERIOR
-                </span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-500">
-                  WALA
-                </span>
-              </div>
+            <Link to="/" className="flex items-center space-x-3 group transition-transform group-hover:scale-105">
+              <img src="/favicon.png" alt="Apka Interior Wala logo" className="h-12 w-auto object-contain" />
+              <img src="/logo-text.png" alt="Apka Interior Wala" className="h-8 w-auto object-contain" />
             </Link>
 
             {/* Contact Info (Desktop) */}

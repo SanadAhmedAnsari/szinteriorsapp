@@ -28,6 +28,8 @@ import Journal from './pages/Journal';
 import JournalDetail from './pages/JournalDetail';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 // Admin Pages
 import AdminLogin from './pages/Admin/Login';
@@ -84,6 +86,8 @@ export default function App() {
                 <Route path="/journal/:slug" element={<JournalDetail />} />
                 <Route path="/testimonials" element={<Testimonials />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
               </Route>
 
               {/* Admin Routes */}

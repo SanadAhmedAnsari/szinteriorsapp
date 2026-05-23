@@ -11,18 +11,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="space-y-6">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="flex h-10 w-14 items-center justify-center bg-white text-stone-950 font-bold text-lg">
-                AIW
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold leading-none tracking-tighter text-white">
-                  APKA INTERIOR
-                </span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-stone-500">
-                  WALA
-                </span>
-              </div>
+            <Link to="/" className="flex items-center space-x-3">
+              <img src="/favicon.png" alt="Apka Interior Wala logo" className="h-10 w-auto object-contain" />
+              <img src="/logo-text.png" alt="Apka Interior Wala" className="h-7 w-auto object-contain" />
             </Link>
             <p className="text-sm leading-relaxed">
               Bhopal's premier international interior design and construction agency. Providing affordable and best interior solutions in India.
