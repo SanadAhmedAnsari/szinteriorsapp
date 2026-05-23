@@ -4,16 +4,56 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import fs from 'fs';
 
-// Define your static page paths
-const paths = [
-  '',
-  '/about',
-  '/services',
-  '/projects',
-  '/journal',
-  '/testimonials',
-  '/contact'
+// Static routes with their SEO metadata for pre-rendering
+const routes: { path: string; title: string; description: string }[] = [
+  {
+    path: '',
+    title: 'Apka Interior Wala | Interior Design & Construction Bhopal',
+    description: 'Premium interior design and construction firm in Bhopal. Modular kitchens, false ceilings, custom furniture & turnkey solutions. Free consultation available.',
+  },
+  {
+    path: '/about',
+    title: 'About Us | Apka Interior Wala Bhopal',
+    description: 'Learn about Apka Interior Wala — Bhopal\'s premier interior design and construction firm. Meet our founder and discover our journey of excellence.',
+  },
+  {
+    path: '/services',
+    title: 'Our Services | Interior Design & Construction Bhopal',
+    description: 'Residential & commercial interior design, modular kitchens, false ceilings, construction, renovation, and turnkey solutions in Bhopal, Madhya Pradesh.',
+  },
+  {
+    path: '/projects',
+    title: 'Portfolio | Best Interior Designer in Bhopal & Indore',
+    description: 'Explore our portfolio of luxury residential and commercial interior design projects across Bhopal and Madhya Pradesh.',
+  },
+  {
+    path: '/journal',
+    title: 'Design Journal | Interior Design Tips & Ideas Bhopal',
+    description: 'Expert interior design tips, modular kitchen guides, false ceiling costs, and construction advice from Apka Interior Wala, Bhopal.',
+  },
+  {
+    path: '/testimonials',
+    title: 'Client Reviews | Apka Interior Wala Bhopal',
+    description: 'Read what our clients say about Apka Interior Wala — Bhopal\'s most trusted interior design and construction firm.',
+  },
+  {
+    path: '/contact',
+    title: 'Contact Us | Apka Interior Wala Bhopal',
+    description: 'Get in touch with Apka Interior Wala for a free interior design consultation in Bhopal. Call +91 78933 65987 or visit us at Patwa Market.',
+  },
+  {
+    path: '/privacy',
+    title: 'Privacy Policy | Apka Interior Wala Bhopal',
+    description: 'Privacy Policy of Apka Interior Wala, Bhopal. Learn how we collect, use, and protect your personal information.',
+  },
+  {
+    path: '/terms',
+    title: 'Terms of Service | Apka Interior Wala Bhopal',
+    description: 'Terms of Service for Apka Interior Wala, Bhopal. Read the terms governing use of our website and interior design & construction services.',
+  },
 ];
+
+const paths = routes.map((r) => r.path);
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
@@ -57,6 +97,32 @@ export default defineConfig(({ mode }) => {
           } catch (err) {
             console.error('❌ Error writing sitemap files:', err);
           }
+        }
+      },
+      // Pre-render static HTML shells for each route so Googlebot
+      // sees real titles and meta tags without executing JavaScript
+      {
+        name: 'prerender-html-shells',
+        closeBundle() {
+          const distDir = path.resolve(process.cwd(), 'dist');
+          const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+
+          routes.forEach(({ path: routePath, title, description }) => {
+            if (routePath === '') return; // root index.html already exists
+
+            const html = template
+              .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
+              .replace(
+                /<meta name="description" content=".*?"\s*\/>/,
+                `<meta name="description" content="${description}" />`
+              );
+
+            const dir = path.join(distDir, routePath);
+            fs.mkdirSync(dir, { recursive: true });
+            fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+          });
+
+          console.log(`✅ Pre-rendered ${routes.length - 1} HTML shells\n`);
         }
       }
     ],
