@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { Quote, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -70,6 +71,11 @@ export default function Testimonials() {
 
   return (
     <div className="pb-32">
+      <Helmet>
+        <title>Client Reviews | Apka Interior Wala Bhopal</title>
+        <meta name="description" content="Read what our clients say about Apka Interior Wala — Bhopal's most trusted interior design and construction firm." />
+        <link rel="canonical" href="https://apkainteriorwala.com/testimonials" />
+      </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-20 text-center">
           <motion.span

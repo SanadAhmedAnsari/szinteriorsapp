@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from "motion/react";
 import {
   CheckCircle2,
@@ -39,6 +40,11 @@ export default function About() {
 
   return (
     <div className="pb-32">
+      <Helmet>
+        <title>About Us | Apka Interior Wala Bhopal</title>
+        <meta name="description" content="Learn about Apka Interior Wala — Bhopal's premier interior design and construction firm. Meet our founder and discover our journey of excellence." />
+        <link rel="canonical" href="https://apkainteriorwala.com/about" />
+      </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="mb-32 text-center">

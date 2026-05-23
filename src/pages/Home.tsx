@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { ArrowRight, ChevronRight, Star, Quote, Phone, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -33,6 +34,11 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
+      <Helmet>
+        <title>Apka Interior Wala | Interior Design &amp; Construction Bhopal</title>
+        <meta name="description" content="Premium interior design and construction firm in Bhopal. Modular kitchens, false ceilings, custom furniture & turnkey solutions. Free consultation available." />
+        <link rel="canonical" href="https://apkainteriorwala.com" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0 z-0">

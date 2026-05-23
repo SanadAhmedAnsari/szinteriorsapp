@@ -110,12 +110,20 @@ export default defineConfig(({ mode }) => {
           routes.forEach(({ path: routePath, title, description }) => {
             if (routePath === '') return; // root index.html already exists
 
-            const html = template
+            const canonical = `https://apkainteriorwala.com${routePath}`;
+            let html = template
               .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
               .replace(
                 /<meta name="description" content=".*?"\s*\/>/,
                 `<meta name="description" content="${description}" />`
               );
+
+            // Inject canonical — replace if exists, otherwise insert before </head>
+            if (html.includes('rel="canonical"')) {
+              html = html.replace(/<link rel="canonical"[^>]*\/?>/, `<link rel="canonical" href="${canonical}" />`);
+            } else {
+              html = html.replace('</head>', `  <link rel="canonical" href="${canonical}" />\n  </head>`);
+            }
 
             const dir = path.join(distDir, routePath);
             fs.mkdirSync(dir, { recursive: true });

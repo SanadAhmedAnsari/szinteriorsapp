@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from "motion/react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -46,6 +47,11 @@ export default function Contact() {
 
   return (
     <div className="pb-32">
+      <Helmet>
+        <title>Contact Us | Apka Interior Wala Bhopal</title>
+        <meta name="description" content="Get in touch with Apka Interior Wala for a free interior design consultation in Bhopal. Call +91 78933 65987 or visit us at Patwa Market." />
+        <link rel="canonical" href="https://apkainteriorwala.com/contact" />
+      </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-20 text-center">
           <motion.span

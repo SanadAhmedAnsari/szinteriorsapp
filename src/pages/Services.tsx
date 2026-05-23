@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { Home, Building, Key, Hammer, Paintbrush, Ruler, Users, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -56,6 +57,11 @@ const services = [
 export default function Services() {
   return (
     <div className="pb-32">
+      <Helmet>
+        <title>Our Services | Interior Design &amp; Construction Bhopal</title>
+        <meta name="description" content="Residential & commercial interior design, modular kitchens, false ceilings, construction, renovation, and turnkey solutions in Bhopal, Madhya Pradesh." />
+        <link rel="canonical" href="https://apkainteriorwala.com/services" />
+      </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-32 text-center">
           <motion.span
