@@ -87,7 +87,7 @@ export default function About() {
             <div className="aspect-[4/5] overflow-hidden rounded-3xl">
               <img
                 src={content.introImage}
-                alt="Our Studio - Bespoke Interiors"
+                alt="Apka Interior Wala studio - bespoke interior design in Bhopal"
                 className="h-full w-full object-cover"
                 referrerPolicy="no-referrer"
               />

@@ -133,12 +133,24 @@ export const generateSchema = (type: 'Organization' | 'Project' | 'Article', dat
   if (type === 'Project') {
     return {
       ...baseSchema,
+      "@type": "CreativeWork",
       "name": data.title,
       "description": data.description,
       "image": data.image,
-      "location": {
+      "locationCreated": {
         "@type": "Place",
-        "name": data.location || "Bhopal"
+        "name": data.location || "Bhopal",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": data.location || "Bhopal",
+          "addressRegion": "Madhya Pradesh",
+          "addressCountry": "IN"
+        }
+      },
+      "creator": {
+        "@type": "LocalBusiness",
+        "name": "Apka Interior Wala",
+        "url": "https://apkainteriorwala.com"
       }
     };
   }

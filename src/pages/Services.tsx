@@ -94,7 +94,7 @@ export default function Services() {
               <div className="aspect-video overflow-hidden">
                 <img
                   src={service.image}
-                  alt={service.title}
+                  alt={`${service.title} in Bhopal, Madhya Pradesh - Apka Interior Wala`}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />

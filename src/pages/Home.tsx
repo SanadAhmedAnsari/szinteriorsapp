@@ -44,7 +44,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <img
             src={content.heroImage}
-            alt="Luxury Interior"
+            alt="Luxury interior design living room - Apka Interior Wala Bhopal"
             className="h-full w-full object-cover brightness-[0.4]"
             referrerPolicy="no-referrer"
           />
@@ -274,7 +274,7 @@ export default function Home() {
             </p>
             <div>
               <div className="mx-auto mb-4 h-16 w-16 overflow-hidden rounded-full">
-                <img src="https://i.pravatar.cc/150?u=1" alt="Client" referrerPolicy="no-referrer" />
+                <img src="https://i.pravatar.cc/150?u=1" alt="Rajesh Sharma - satisfied interior design client, Bhopal" referrerPolicy="no-referrer" />
               </div>
               <h4 className="text-lg font-bold text-stone-900">Rajesh Sharma</h4>
               <p className="text-xs font-medium uppercase tracking-widest text-stone-500">Homeowner, Bhopal</p>
@@ -290,7 +290,7 @@ export default function Home() {
             <div className="absolute inset-0 opacity-20">
               <img
                 src={content.ctaImage}
-                alt="Construction"
+                alt="Construction and interior design work in progress - Apka Interior Wala Bhopal"
                 className="h-full w-full object-cover"
                 referrerPolicy="no-referrer"
               />

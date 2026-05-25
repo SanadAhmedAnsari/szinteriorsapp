@@ -24,18 +24,52 @@ export default function ProjectDetail() {
 
   const galleryImages = project.gallery?.length ? project.gallery : [project.image];
 
+  const canonicalUrl = `https://apkainteriorwala.com/projects/${project.slug}`;
+  const projectSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.title,
+    description: project.description,
+    image: project.image,
+    dateCreated: project.createdAt,
+    locationCreated: {
+      '@type': 'Place',
+      name: project.location || 'Bhopal',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: project.location || 'Bhopal',
+        addressRegion: 'Madhya Pradesh',
+        addressCountry: 'IN',
+      },
+    },
+    creator: {
+      '@type': 'LocalBusiness',
+      name: 'Apka Interior Wala',
+      url: 'https://apkainteriorwala.com',
+    },
+  };
+
   return (
     <div className="pb-32">
       <Helmet>
-        <title>{project.title} | Apka Interior Wala</title>
-        <meta name="description" content={project.description} />
+        <title>{project.title} | Interior Designer {project.location} | Apka Interior Wala</title>
+        <meta
+          name="description"
+          content={`${project.description.slice(0, 130).trimEnd()}… See this ${project.category.toLowerCase()} project by Apka Interior Wala in ${project.location}.`}
+        />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={`${project.title} | Apka Interior Wala`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={project.image} />
+        <script type="application/ld+json">{JSON.stringify(projectSchema)}</script>
       </Helmet>
 
       {/* Hero */}
       <div className="relative h-[70vh] w-full overflow-hidden">
         <img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} - ${project.category} interior design in ${project.location}`}
           className="h-full w-full object-cover brightness-[0.45]"
         />
         <div className="absolute inset-0 flex flex-col justify-end px-6 pb-16 sm:px-12 lg:px-24">
@@ -124,7 +158,7 @@ export default function ProjectDetail() {
               >
                 <img
                   src={img}
-                  alt={`${project.title} - photo ${idx + 1}`}
+                  alt={`${project.title} - ${project.category} gallery image ${idx + 1}, ${project.location}`}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
@@ -157,7 +191,7 @@ export default function ProjectDetail() {
         >
           <img
             src={lightboxImg}
-            alt="Gallery"
+            alt={`${project.title} - ${project.category} project by Apka Interior Wala, ${project.location}`}
             className="max-h-[90vh] max-w-[90vw] object-contain rounded-xl"
           />
           <button

@@ -80,7 +80,7 @@ export function SEO() {
       {/* Open Graph */}
       <meta property="og:title" content={seo.metaTitle} />
       <meta property="og:description" content={seo.metaDescription} />
-      <meta property="og:url" content={DOMAIN} />
+      <meta property="og:url" content={`${DOMAIN}${pathname}`} />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={ogImage} />
 
