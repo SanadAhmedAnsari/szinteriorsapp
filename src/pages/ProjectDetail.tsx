@@ -1,6 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, MapPin, Tag, Calendar, Maximize2 } from 'lucide-react';
+import { ArrowLeft, MapPin, Tag, Calendar, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useFirestore } from '../hooks/useFirestore';
@@ -9,6 +9,7 @@ import { Project } from '../types';
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const { data: projects, loading } = useFirestore<Project>('projects');
 
   if (loading) {
@@ -49,6 +50,31 @@ export default function ProjectDetail() {
     },
   };
 
+  const faqs = [
+    {
+      question: `How long does a ${project.category.toLowerCase()} project like this take?`,
+      answer: `A ${project.category.toLowerCase()} project of this scale in ${project.location} typically takes 8–12 weeks from design sign-off to final handover. This includes material procurement, site preparation, and phased execution. We provide a detailed timeline at the start and give regular progress updates throughout.`,
+    },
+    {
+      question: `What was the scope of work for the ${project.title} project?`,
+      answer: project.description,
+    },
+    {
+      question: `Does Apka Interior Wala take on ${project.category.toLowerCase()} projects in ${project.location}?`,
+      answer: `Yes, we work across ${project.location} and all of Madhya Pradesh. From residential interiors and modular kitchens to false ceilings and full turnkey construction, our team handles everything end-to-end. Call +91 78933 65987 for a free site visit and estimate.`,
+    },
+  ];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer },
+    })),
+  };
+
   return (
     <div className="pb-32">
       <Helmet>
@@ -63,6 +89,7 @@ export default function ProjectDetail() {
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={project.image} />
         <script type="application/ld+json">{JSON.stringify(projectSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       {/* Hero */}
@@ -164,6 +191,33 @@ export default function ProjectDetail() {
                   referrerPolicy="no-referrer"
                 />
               </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <div className="mt-24 max-w-3xl">
+          <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">
+            Frequently Asked Questions
+          </span>
+          <div className="mt-8 divide-y divide-stone-100">
+            {faqs.map((faq, i) => (
+              <div key={i} className="py-5">
+                <button
+                  className="flex w-full items-center justify-between gap-4 text-left"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                >
+                  <span className="text-base font-medium text-stone-900">{faq.question}</span>
+                  <ChevronDown
+                    size={18}
+                    className={`shrink-0 text-stone-400 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openFaq === i && (
+                  <p className="mt-4 text-sm leading-relaxed text-stone-600">{faq.answer}</p>
+                )}
+              </div>
             ))}
           </div>
         </div>
