@@ -64,6 +64,8 @@ export default function JournalDetail() {
           src={post.image}
           alt={post.title}
           className="h-full w-full object-cover brightness-[0.4]"
+          fetchPriority="high"
+          loading="eager"
         />
         <div className="absolute inset-0 flex flex-col justify-end px-6 pb-16 sm:px-12 lg:px-24">
           <motion.div
