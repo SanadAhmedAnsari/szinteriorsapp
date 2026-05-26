@@ -11,8 +11,10 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './components/ThemeProvider';
 import { SEO } from './components/SEO';
 
-// Public pages — loaded on demand per route
-const Home = lazy(() => import('./pages/Home'));
+// Home is a static import — it's the entry point, lazy-loading it creates an FCP waterfall
+import Home from './pages/Home';
+
+// All other public pages — loaded on demand per route
 const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const Projects = lazy(() => import('./pages/Projects'));
