@@ -14,7 +14,7 @@ export async function seedDatabase() {
       aboutTitle:   { value: 'Excellence in Design & Construction' },
       aboutText:    { value: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.' },
       aboutImage1:  { value: '/images/residential-hallway.jpg' },
-      aboutImage2:  { value: '/images/bedroom-render-2.png' },
+      aboutImage2:  { value: '/images/bedroom-render-2.jpg' },
       ctaImage:     { value: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1920' },
     },
   });
