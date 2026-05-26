@@ -1,50 +1,58 @@
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { onAuthStateChanged, User } from 'firebase/auth';
+import { auth } from './firebase';
+import { Toaster } from 'sonner';
+import { HelmetProvider } from 'react-helmet-async';
+
+// Always-needed structural components
+import Layout from './components/Layout';
+import ErrorBoundary from './components/ErrorBoundary';
+import { ThemeProvider } from './components/ThemeProvider';
+import { SEO } from './components/SEO';
+
+// Public pages — loaded on demand per route
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Services = lazy(() => import('./pages/Services'));
+const Projects = lazy(() => import('./pages/Projects'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
+const Journal = lazy(() => import('./pages/Journal'));
+const JournalDetail = lazy(() => import('./pages/JournalDetail'));
+const Testimonials = lazy(() => import('./pages/Testimonials'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Terms = lazy(() => import('./pages/Terms'));
+
+// Admin — never downloaded by regular visitors
+const AdminLayout = lazy(() => import('./components/AdminLayout'));
+const AdminLogin = lazy(() => import('./pages/Admin/Login'));
+const AdminDashboard = lazy(() => import('./pages/Admin/Dashboard'));
+const AdminMessages = lazy(() => import('./pages/Admin/Messages'));
+const AdminSettings = lazy(() => import('./pages/Admin/Settings'));
+const AdminServices = lazy(() => import('./pages/Admin/Services'));
+const AdminProjects = lazy(() => import('./pages/Admin/Projects'));
+const AdminBlog = lazy(() => import('./pages/Admin/Blog'));
+const AdminTestimonials = lazy(() => import('./pages/Admin/Testimonials'));
+const ThemeSettings = lazy(() => import('./pages/Admin/ThemeSettings'));
+const SEOSettings = lazy(() => import('./pages/Admin/SEOSettings'));
+const MediaLibrary = lazy(() => import('./pages/Admin/MediaLibrary'));
+const PageEditor = lazy(() => import('./pages/Admin/PageEditor'));
+const AdminVideos = lazy(() => import('./pages/Admin/Videos'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
   return null;
 }
-import { onAuthStateChanged, User } from 'firebase/auth';
-import { auth } from './firebase';
-import { Toaster } from 'sonner';
-import { HelmetProvider } from 'react-helmet-async';
 
-// Components
-import Layout from './components/Layout';
-import AdminLayout from './components/AdminLayout';
-import ErrorBoundary from './components/ErrorBoundary';
-import { ThemeProvider } from './components/ThemeProvider';
-import { SEO } from './components/SEO';
-
-// Public Pages
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Projects from './pages/Projects';
-import ProjectDetail from './pages/ProjectDetail';
-import Journal from './pages/Journal';
-import JournalDetail from './pages/JournalDetail';
-import Testimonials from './pages/Testimonials';
-import Contact from './pages/Contact';
-import Privacy from './pages/Privacy';
-import Terms from './pages/Terms';
-
-// Admin Pages
-import AdminLogin from './pages/Admin/Login';
-import AdminDashboard from './pages/Admin/Dashboard';
-import AdminMessages from './pages/Admin/Messages';
-import AdminSettings from './pages/Admin/Settings';
-import AdminServices from './pages/Admin/Services';
-import AdminProjects from './pages/Admin/Projects';
-import AdminBlog from './pages/Admin/Blog';
-import AdminTestimonials from './pages/Admin/Testimonials';
-import ThemeSettings from './pages/Admin/ThemeSettings';
-import SEOSettings from './pages/Admin/SEOSettings';
-import MediaLibrary from './pages/Admin/MediaLibrary';
-import PageEditor from './pages/Admin/PageEditor';
-import AdminVideos from './pages/Admin/Videos';
+function PageLoader() {
+  return (
+    <div className="flex h-screen items-center justify-center bg-stone-50">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary" />
+    </div>
+  );
+}
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -59,11 +67,7 @@ export default function App() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-stone-50">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-stone-800"></div>
-      </div>
-    );
+    return <PageLoader />;
   }
 
   return (
@@ -74,42 +78,44 @@ export default function App() {
             <SEO />
             <ScrollToTop />
             <Toaster position="top-center" richColors />
-            <Routes>
-              {/* Public Routes */}
-              <Route element={<Layout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:slug" element={<ProjectDetail />} />
-                <Route path="/journal" element={<Journal />} />
-                <Route path="/journal/:slug" element={<JournalDetail />} />
-                <Route path="/testimonials" element={<Testimonials />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
-              </Route>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                {/* Public Routes */}
+                <Route element={<Layout />}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/projects/:slug" element={<ProjectDetail />} />
+                  <Route path="/journal" element={<Journal />} />
+                  <Route path="/journal/:slug" element={<JournalDetail />} />
+                  <Route path="/testimonials" element={<Testimonials />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/terms" element={<Terms />} />
+                </Route>
 
-              {/* Admin Routes */}
-              <Route path="/admin/login" element={user ? <Navigate to="/admin" /> : <AdminLogin />} />
-              <Route
-                path="/admin/*"
-                element={user ? <AdminLayout /> : <Navigate to="/admin/login" />}
-              >
-                <Route index element={<AdminDashboard />} />
-                <Route path="messages" element={<AdminMessages />} />
-                <Route path="settings" element={<AdminSettings />} />
-                <Route path="services" element={<AdminServices />} />
-                <Route path="projects" element={<AdminProjects />} />
-                <Route path="blog" element={<AdminBlog />} />
-                <Route path="testimonials" element={<AdminTestimonials />} />
-                <Route path="theme" element={<ThemeSettings />} />
-                <Route path="seo" element={<SEOSettings />} />
-                <Route path="media" element={<MediaLibrary />} />
-                <Route path="pages" element={<PageEditor />} />
-                <Route path="videos" element={<AdminVideos />} />
-              </Route>
-            </Routes>
+                {/* Admin Routes */}
+                <Route path="/admin/login" element={user ? <Navigate to="/admin" /> : <AdminLogin />} />
+                <Route
+                  path="/admin/*"
+                  element={user ? <AdminLayout /> : <Navigate to="/admin/login" />}
+                >
+                  <Route index element={<AdminDashboard />} />
+                  <Route path="messages" element={<AdminMessages />} />
+                  <Route path="settings" element={<AdminSettings />} />
+                  <Route path="services" element={<AdminServices />} />
+                  <Route path="projects" element={<AdminProjects />} />
+                  <Route path="blog" element={<AdminBlog />} />
+                  <Route path="testimonials" element={<AdminTestimonials />} />
+                  <Route path="theme" element={<ThemeSettings />} />
+                  <Route path="seo" element={<SEOSettings />} />
+                  <Route path="media" element={<MediaLibrary />} />
+                  <Route path="pages" element={<PageEditor />} />
+                  <Route path="videos" element={<AdminVideos />} />
+                </Route>
+              </Routes>
+            </Suspense>
           </Router>
         </ThemeProvider>
       </HelmetProvider>

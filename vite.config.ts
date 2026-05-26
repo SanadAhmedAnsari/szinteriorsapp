@@ -277,6 +277,19 @@ export default defineConfig(({ mode }) => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+            'vendor-firebase': ['firebase/app', 'firebase/firestore', 'firebase/auth', 'firebase/storage'],
+            'vendor-motion': ['motion/react'],
+            'vendor-ui': ['sonner', 'react-helmet-async', 'lucide-react', '@hookform/resolvers', 'react-hook-form', 'zod'],
+            'vendor-markdown': ['react-markdown'],
+          },
+        },
+      },
+    },
     server: {
       hmr: process.env.DISABLE_HMR !== 'true',
     },
