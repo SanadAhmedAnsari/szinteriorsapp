@@ -14,6 +14,13 @@ import { SEO } from './components/SEO';
 // Home is a static import — it's the entry point, lazy-loading it creates an FCP waterfall
 import Home from './pages/Home';
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+    _gtmLoaded?: boolean;
+  }
+}
+
 // All other public pages — loaded on demand per route
 const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
@@ -67,6 +74,30 @@ export default function App() {
       setLoading(false);
     });
     return unsubscribe;
+  }, []);
+
+  // Defer GTM until first user interaction or 3.5s — removes 280KB from critical path
+  useEffect(() => {
+    const load = () => {
+      if (window._gtmLoaded) return;
+      window._gtmLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      const s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5Z7QMPWN&l=dataLayer';
+      s.async = true;
+      document.head.appendChild(s);
+    };
+
+    const timer = setTimeout(load, 3500);
+    const events = ['click', 'scroll', 'keydown', 'touchstart'] as const;
+    const onInteraction = () => { clearTimeout(timer); load(); };
+    events.forEach(e => window.addEventListener(e, onInteraction, { once: true, passive: true }));
+
+    return () => {
+      clearTimeout(timer);
+      events.forEach(e => window.removeEventListener(e, onInteraction));
+    };
   }, []);
 
   if (loading) {
