@@ -261,7 +261,7 @@ export default defineConfig(({ mode }) => {
           xml += '</urlset>';
 
           // ── 5. Write robots.txt ───────────────────────────────────────────
-          const robots = `User-agent: *\nAllow: /\n\nSitemap: ${DOMAIN}/sitemap.xml`;
+          const robots = `User-agent: *\nAllow: /\nDisallow: /admin\n\nSitemap: ${DOMAIN}/sitemap.xml`;
 
           fs.writeFileSync(path.join(distDir, 'sitemap.xml'), xml, 'utf8');
           fs.writeFileSync(path.join(distDir, 'robots.txt'), robots, 'utf8');
