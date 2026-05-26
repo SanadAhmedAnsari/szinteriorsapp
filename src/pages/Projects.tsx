@@ -27,6 +27,7 @@ export default function Projects() {
       <Helmet>
         <title>Portfolio | Best Interior Designer in Bhopal & Indore</title>
         <meta name="description" content="Explore our portfolio of luxury residential and commercial projects. Thekedar in Bhopal for Pinterest-inspired home designs." />
+        <link rel="canonical" href="https://apkainteriorwala.com/projects" />
       </Helmet>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

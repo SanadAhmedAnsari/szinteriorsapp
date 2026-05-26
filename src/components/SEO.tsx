@@ -75,7 +75,7 @@ export function SEO() {
       <meta name="description" content={seo.metaDescription} />
       <meta name="keywords" content={`${seo.keywords}, ${SEO_KEYWORDS.primary.join(', ')}, ${SEO_KEYWORDS.colloquial.join(', ')}`} />
 
-      <link rel="canonical" href={typeof window !== 'undefined' ? window.location.href : DOMAIN} />
+      <link rel="canonical" href={`${DOMAIN}${pathname}`} />
 
       {/* Open Graph */}
       <meta property="og:title" content={seo.metaTitle} />
