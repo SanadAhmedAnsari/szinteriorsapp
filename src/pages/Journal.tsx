@@ -33,7 +33,7 @@ export default function Journal() {
     <div className="pb-32">
       <Helmet>
         <title>Journal | Apka Interior Wala - Design Insights & Tutorials</title>
-        <meta name="description" content="Explore our hybrid journal featuring Pinterest-inspired home designs, construction tips, and affordable interior design tutorials in Bhopal by Apka Interior Wala." />
+        <meta name="description" content="Interior design tips, modular kitchen guides, false ceiling costs & construction advice from Apka Interior Wala — Bhopal's top design studio." />
         <link rel="canonical" href="https://apkainteriorwala.com/journal" />
       </Helmet>
 
@@ -100,7 +100,7 @@ export default function Journal() {
                 >
                   <img
                     src={item.entryType === 'article' ? (item as BlogPost).image : (item as VideoContent).thumbnail}
-                    alt={item.title}
+                    alt={`${item.title} - interior design ${item.entryType === 'article' ? 'article' : 'video'} by Apka Interior Wala Bhopal`}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"

@@ -55,6 +55,10 @@ export default function JournalDetail() {
         <meta property="og:image" content={post.image} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonical} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={post.image} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 

@@ -87,7 +87,12 @@ export default function ProjectDetail() {
         <meta property="og:title" content={`${project.title} | Apka Interior Wala`} />
         <meta property="og:description" content={project.description} />
         <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
         <meta property="og:image" content={project.image} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${project.title} | Apka Interior Wala`} />
+        <meta name="twitter:description" content={`${project.description.slice(0, 130).trimEnd()}… See this ${project.category.toLowerCase()} project by Apka Interior Wala in ${project.location}.`} />
+        <meta name="twitter:image" content={project.image} />
         <script type="application/ld+json">{JSON.stringify(projectSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>

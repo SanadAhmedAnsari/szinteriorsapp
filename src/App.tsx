@@ -23,6 +23,7 @@ const Testimonials = lazy(() => import('./pages/Testimonials'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const Terms = lazy(() => import('./pages/Terms'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Admin — never downloaded by regular visitors
 const AdminLayout = lazy(() => import('./components/AdminLayout'));
@@ -94,6 +95,9 @@ export default function App() {
                   <Route path="/privacy" element={<Privacy />} />
                   <Route path="/terms" element={<Terms />} />
                 </Route>
+
+                {/* 404 */}
+                <Route path="*" element={<NotFound />} />
 
                 {/* Admin Routes */}
                 <Route path="/admin/login" element={user ? <Navigate to="/admin" /> : <AdminLogin />} />

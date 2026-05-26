@@ -93,6 +93,14 @@ export default function Testimonials() {
           >
             What Our <span className="italic font-serif">Clients</span> Say
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-8 max-w-2xl mx-auto text-lg text-stone-500 leading-relaxed"
+          >
+            Over 200 homeowners, business owners, and developers across Bhopal and Madhya Pradesh have trusted Apka Interior Wala for residential interiors, modular kitchens, false ceilings, and full turnkey construction. Here's what they have to say.
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">

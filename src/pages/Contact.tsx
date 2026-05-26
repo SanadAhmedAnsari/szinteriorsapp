@@ -70,6 +70,14 @@ export default function Contact() {
             Let's Start a{" "}
             <span className="italic font-serif">Conversation</span>
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-8 max-w-2xl mx-auto text-lg text-stone-500 leading-relaxed"
+          >
+            Whether you're planning a modular kitchen, false ceiling, full home renovation, or a commercial fit-out in Bhopal, our team is ready to assist. Get a free consultation and site visit — no commitment required.
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 gap-20 lg:grid-cols-2">

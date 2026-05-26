@@ -32,7 +32,8 @@ export function useFirestore<T>(collectionName: string, constraints: QueryConstr
     );
 
     return unsubscribe;
-  }, [collectionName]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [collectionName, JSON.stringify(constraints)]);
 
   return { data, loading, error };
 }
