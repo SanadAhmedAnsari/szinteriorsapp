@@ -19,10 +19,10 @@ export default function Footer() {
               Bhopal's premier international interior design and construction agency. Providing affordable and best interior solutions in India.
             </p>
             <div className="flex space-x-4">
-              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Instagram"><Instagram size={20} aria-hidden="true" /></a>
-              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Facebook"><Facebook size={20} aria-hidden="true" /></a>
-              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="LinkedIn"><Linkedin size={20} aria-hidden="true" /></a>
-              <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="YouTube"><Youtube size={20} aria-hidden="true" /></a>
+              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Instagram"><Instagram size={20} aria-hidden="true" /><span className="sr-only">Instagram</span></a>
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Facebook"><Facebook size={20} aria-hidden="true" /><span className="sr-only">Facebook</span></a>
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="LinkedIn"><Linkedin size={20} aria-hidden="true" /><span className="sr-only">LinkedIn</span></a>
+              <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="YouTube"><Youtube size={20} aria-hidden="true" /><span className="sr-only">YouTube</span></a>
             </div>
           </div>
 

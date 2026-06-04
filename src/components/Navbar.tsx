@@ -136,6 +136,7 @@ export default function Navbar() {
               {socialIcons.map((social, i) => (
                 <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label={social.label}>
                   <social.icon size={14} aria-hidden="true" />
+                  <span className="sr-only">{social.label}</span>
                 </a>
               ))}
             </div>

@@ -170,8 +170,8 @@ export default function Home() {
                 </div>
                 <h3 className="mb-4 text-xl font-bold text-stone-900">{service.title}</h3>
                 <p className="mb-8 text-sm leading-relaxed text-stone-600">{service.desc}</p>
-                <Link to="/services" className="text-xs font-bold uppercase tracking-widest text-stone-600 group-hover:text-stone-900" aria-label={`Read more about ${service.title}`}>
-                  Read More
+                <Link to="/services" className="text-xs font-bold uppercase tracking-widest text-stone-600 group-hover:text-stone-900">
+                  Read More<span className="sr-only"> about {service.title}</span>
                 </Link>
               </div>
             ))}
