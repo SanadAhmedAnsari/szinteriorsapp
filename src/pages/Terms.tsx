@@ -49,6 +49,7 @@ export default function Terms() {
     <div className="bg-stone-50 min-h-screen pb-32 pt-12">
       <Helmet>
         <title>Terms of Service | Apka Interior Wala Bhopal</title>
+        <meta name="robots" content="noindex, follow" />
         <meta name="description" content="Terms of Service for Apka Interior Wala, Bhopal. Read the terms governing use of our website and interior design & construction services." />
         <link rel="canonical" href="https://apkainteriorwala.com/terms" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>

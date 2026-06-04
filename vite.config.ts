@@ -142,11 +142,13 @@ export default defineConfig(() => {
           console.log(`✅ Pre-rendered ${routes.length - 1} static HTML shells`);
 
           // ── 2. Base sitemap URLs ──────────────────────────────────────────
-          const sitemapUrls: { loc: string; lastmod: string; changefreq: string; priority?: string }[] = routes.map(r => ({
-            loc: `${DOMAIN}${r.path}`,
-            lastmod: today,
-            changefreq: (r.path === '/privacy' || r.path === '/terms') ? 'yearly' : 'weekly',
-          }));
+          const sitemapUrls: { loc: string; lastmod: string; changefreq: string; priority?: string }[] = routes
+            .filter(r => r.path !== '/privacy' && r.path !== '/terms')
+            .map(r => ({
+              loc: `${DOMAIN}${r.path}`,
+              lastmod: today,
+              changefreq: 'weekly',
+            }));
 
           // ── 3. Project detail shells ──────────────────────────────────────
           for (const project of staticProjects) {
