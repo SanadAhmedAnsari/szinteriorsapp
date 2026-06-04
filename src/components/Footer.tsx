@@ -12,17 +12,17 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center space-x-3">
-              <img src="/favicon.png" alt="Apka Interior Wala logo" className="h-10 w-auto object-contain" />
-              <img src="/logo-text.png" alt="Apka Interior Wala" className="h-7 w-auto object-contain" />
+              <img src="/favicon.png" alt="Apka Interior Wala logo" className="h-10 w-auto object-contain" width="187" height="185" />
+              <img src="/logo-text.png" alt="Apka Interior Wala" className="h-7 w-auto object-contain" width="371" height="133" />
             </Link>
             <p className="text-sm leading-relaxed">
               Bhopal's premier international interior design and construction agency. Providing affordable and best interior solutions in India.
             </p>
             <div className="flex space-x-4">
-              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Instagram size={20} /></a>
-              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Facebook size={20} /></a>
-              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
-              <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Youtube size={20} /></a>
+              <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Instagram"><Instagram size={20} aria-hidden="true" /></a>
+              <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="Facebook"><Facebook size={20} aria-hidden="true" /></a>
+              <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="LinkedIn"><Linkedin size={20} aria-hidden="true" /></a>
+              <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label="YouTube"><Youtube size={20} aria-hidden="true" /></a>
             </div>
           </div>
 

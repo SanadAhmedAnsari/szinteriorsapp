@@ -63,7 +63,7 @@ export default function Contact() {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500"
+            className="text-xs font-bold uppercase tracking-[0.3em] text-stone-600"
           >
             Get in Touch
           </motion.span>
@@ -148,7 +148,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Full Name *</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-600">Full Name *</label>
                   <input
                     {...register("name")}
                     className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
@@ -159,7 +159,7 @@ export default function Contact() {
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Email Address</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-600">Email Address</label>
                   <input
                     {...register("email")}
                     className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
@@ -173,7 +173,7 @@ export default function Contact() {
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Phone Number *</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-600">Phone Number *</label>
                   <input
                     {...register("phone")}
                     className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
@@ -184,7 +184,7 @@ export default function Contact() {
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">What are you looking for? *</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-600">What are you looking for? *</label>
                   <select
                     {...register("service")}
                     className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors appearance-none cursor-pointer"
@@ -202,7 +202,7 @@ export default function Contact() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Message</label>
+                <label className="text-xs font-bold uppercase tracking-widest text-stone-600">Message</label>
                 <textarea
                   {...register("message")}
                   rows={5}

@@ -121,7 +121,7 @@ export default function Home() {
               </div>
             </div>
             <div className="space-y-8">
-              <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">About Apka Interior Wala</span>
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-600">About Apka Interior Wala</span>
               <h2 className="text-4xl font-light leading-tight text-stone-900 md:text-5xl">
                 {homeContent.aboutTitle}
               </h2>
@@ -130,12 +130,12 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-2 gap-8 pt-4">
                 <div>
-                  <h4 className="text-3xl font-bold text-stone-900">150+</h4>
-                  <p className="text-sm uppercase tracking-widest text-stone-500">Projects Completed</p>
+                  <p className="text-3xl font-bold text-stone-900">150+</p>
+                  <p className="text-sm uppercase tracking-widest text-stone-600">Projects Completed</p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-bold text-stone-900">12+</h4>
-                  <p className="text-sm uppercase tracking-widest text-stone-500">Years Experience</p>
+                  <p className="text-3xl font-bold text-stone-900">12+</p>
+                  <p className="text-sm uppercase tracking-widest text-stone-600">Years Experience</p>
                 </div>
               </div>
               <Link
@@ -154,7 +154,7 @@ export default function Home() {
       <section className="py-32 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-20 text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">Our Expertise</span>
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-600">Our Expertise</span>
             <h2 className="mt-4 text-4xl font-light text-stone-900 md:text-5xl">Comprehensive <span className="italic font-serif">Solutions</span></h2>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -170,7 +170,7 @@ export default function Home() {
                 </div>
                 <h3 className="mb-4 text-xl font-bold text-stone-900">{service.title}</h3>
                 <p className="mb-8 text-sm leading-relaxed text-stone-600">{service.desc}</p>
-                <Link to="/services" className="text-xs font-bold uppercase tracking-widest text-stone-400 group-hover:text-stone-900">
+                <Link to="/services" className="text-xs font-bold uppercase tracking-widest text-stone-600 group-hover:text-stone-900" aria-label={`Read more about ${service.title}`}>
                   Read More
                 </Link>
               </div>
@@ -218,7 +218,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between space-y-6 md:space-y-0">
             <div>
-              <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">The Journal</span>
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-600">The Journal</span>
               <h2 className="mt-4 text-4xl font-light md:text-5xl">Design <span className="italic font-serif">Journal</span></h2>
             </div>
             <Link to="/journal" className="text-sm font-bold uppercase tracking-widest text-stone-900 border-b border-stone-200 pb-2 hover:border-stone-900 transition-all">
@@ -238,7 +238,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="space-y-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">{post.category}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-stone-600">{post.category}</span>
                   <h3 className="text-xl font-light leading-tight text-stone-900 group-hover:text-stone-500 transition-colors">{post.title}</h3>
                 </div>
               </Link>
@@ -256,8 +256,8 @@ export default function Home() {
               "{testimonial.content}"
             </p>
             <div>
-              <h4 className="text-lg font-bold text-stone-900">{testimonial.name}</h4>
-              <p className="text-xs font-medium uppercase tracking-widest text-stone-500">{testimonial.role}</p>
+              <p className="text-lg font-bold text-stone-900">{testimonial.name}</p>
+              <p className="text-xs font-medium uppercase tracking-widest text-stone-600">{testimonial.role}</p>
             </div>
           </div>
         </div>

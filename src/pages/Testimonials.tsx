@@ -17,7 +17,7 @@ export default function Testimonials() {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500"
+            className="text-xs font-bold uppercase tracking-[0.3em] text-stone-600"
           >
             Client Reviews
           </motion.span>
@@ -67,14 +67,14 @@ export default function Testimonials() {
                   {testimonial.image ? (
                     <img src={testimonial.image} alt={testimonial.name} className="h-full w-full object-cover" referrerPolicy="no-referrer" />
                   ) : (
-                    <span className="text-lg font-bold text-stone-500">
+                    <span className="text-lg font-bold text-stone-600">
                       {testimonial.name.charAt(0)}
                     </span>
                   )}
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-stone-900">{testimonial.name}</h4>
-                  <p className="text-[10px] uppercase tracking-widest text-stone-500">{testimonial.role}</p>
+                  <p className="text-[10px] uppercase tracking-widest text-stone-600">{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>

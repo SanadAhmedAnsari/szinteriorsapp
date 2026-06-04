@@ -23,10 +23,10 @@ export default function Navbar() {
   const { phone, socialLinks } = siteSettings;
 
   const socialIcons = [
-    { icon: Instagram, url: socialLinks.instagram },
-    { icon: Youtube, url: socialLinks.youtube },
-    { icon: Linkedin, url: socialLinks.linkedin },
-    { icon: Facebook, url: socialLinks.facebook },
+    { icon: Instagram, url: socialLinks.instagram, label: 'Instagram' },
+    { icon: Youtube, url: socialLinks.youtube, label: 'YouTube' },
+    { icon: Linkedin, url: socialLinks.linkedin, label: 'LinkedIn' },
+    { icon: Facebook, url: socialLinks.facebook, label: 'Facebook' },
   ];
 
   useEffect(() => {
@@ -62,8 +62,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 group transition-transform group-hover:scale-105">
-              <img src="/favicon.png" alt="Apka Interior Wala logo" className="h-12 w-auto object-contain" />
-              <img src="/logo-text.png" alt="Apka Interior Wala" className="h-8 w-auto object-contain" />
+              <img src="/favicon.png" alt="Apka Interior Wala logo" className="h-12 w-auto object-contain" width="187" height="185" />
+              <img src="/logo-text.png" alt="Apka Interior Wala" className="h-8 w-auto object-contain" width="371" height="133" />
             </Link>
 
             {/* Contact Info (Desktop) */}
@@ -73,7 +73,7 @@ export default function Navbar() {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Call Us Now</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-stone-600">Call Us Now</p>
                   <p className="text-sm font-bold text-stone-900">{phone}</p>
                 </div>
               </div>
@@ -83,7 +83,7 @@ export default function Navbar() {
                   <Clock size={20} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Opening times</p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-stone-600">Opening times</p>
                   <p className="text-sm font-bold text-stone-900">Mon - Sat: 10 AM - 6 PM</p>
                 </div>
               </div>
@@ -101,6 +101,8 @@ export default function Navbar() {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-stone-900 focus:outline-none"
+                aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={isOpen}
               >
                 {isOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -132,8 +134,8 @@ export default function Navbar() {
             {/* Social Links */}
             <div className="hidden md:flex items-center space-x-4">
               {socialIcons.map((social, i) => (
-                <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  <social.icon size={14} />
+                <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors" aria-label={social.label}>
+                  <social.icon size={14} aria-hidden="true" />
                 </a>
               ))}
             </div>

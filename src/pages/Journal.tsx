@@ -43,7 +43,7 @@ export default function Journal() {
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500"
+            className="text-xs font-bold uppercase tracking-[0.3em] text-stone-600"
           >
             The Journal
           </motion.span>
@@ -81,7 +81,7 @@ export default function Journal() {
               </Link>
 
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-stone-500">
+                <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-stone-600">
                   <span className="bg-stone-100 px-3 py-1 rounded-full text-stone-900">
                     {(post as BlogPost).category}
                   </span>
@@ -116,7 +116,7 @@ export default function Journal() {
         {/* Instagram Reels Feed */}
         <div className="mt-32">
           <div className="mb-16 text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">From Our Instagram</span>
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-600">From Our Instagram</span>
             <h2 className="mt-4 text-4xl font-light text-stone-900 md:text-5xl">
               Latest <span className="italic font-serif">Reels</span>
             </h2>
