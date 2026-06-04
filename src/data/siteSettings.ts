@@ -7,7 +7,7 @@ export const siteSettings = {
     instagram: 'https://www.instagram.com/apkainteriorwalabhopal/',
     facebook: 'https://facebook.com/apkainteriorwala',
     linkedin: 'https://www.linkedin.com/company/apka-interior-wala-design-studio',
-    youtube: 'https://youtube.com/szinteriors',
+    youtube: 'https://www.youtube.com/@Apkainteriorwala',
     pinterest: '',
   },
 };
