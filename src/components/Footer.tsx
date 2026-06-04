@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { siteSettings } from '../data/siteSettings';
 
 export default function Footer() {
-  const { phone, email, address, socialLinks } = useSiteSettings();
+  const { phone, email, address, socialLinks } = siteSettings;
 
   return (
     <footer className="bg-stone-950 pt-20 pb-10 text-stone-400">

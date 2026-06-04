@@ -3,22 +3,12 @@ import { motion } from 'motion/react';
 import { ArrowLeft, MapPin, Tag, Calendar, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useFirestore } from '../hooks/useFirestore';
-import { Project } from '../types';
+import { projects } from '../data/projects';
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const { data: projects, loading } = useFirestore<Project>('projects');
-
-  if (loading) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-stone-50">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary" />
-      </div>
-    );
-  }
 
   const project = projects.find((p) => p.slug === slug);
   if (!project) return <Navigate to="/projects" replace />;
@@ -128,7 +118,6 @@ export default function ProjectDetail() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
         {/* Back + Meta */}
         <div className="mt-12 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <Link

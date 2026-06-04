@@ -1,12 +1,11 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import fs from 'fs';
 
 const DOMAIN = 'https://apkainteriorwala.com';
 
-// Static routes with their SEO metadata for pre-rendering
 const routes: { path: string; title: string; description: string }[] = [
   {
     path: '',
@@ -16,7 +15,7 @@ const routes: { path: string; title: string; description: string }[] = [
   {
     path: '/about',
     title: 'About Us | Apka Interior Wala Bhopal',
-    description: 'Learn about Apka Interior Wala — Bhopal\'s premier interior design and construction firm. Meet our founder and discover our journey of excellence.',
+    description: "Learn about Apka Interior Wala — Bhopal's premier interior design and construction firm. Meet our founder and discover our journey of excellence.",
   },
   {
     path: '/services',
@@ -36,7 +35,7 @@ const routes: { path: string; title: string; description: string }[] = [
   {
     path: '/testimonials',
     title: 'Client Reviews | Apka Interior Wala Bhopal',
-    description: 'Read what our clients say about Apka Interior Wala — Bhopal\'s most trusted interior design and construction firm.',
+    description: "Read what our clients say about Apka Interior Wala — Bhopal's most trusted interior design and construction firm.",
   },
   {
     path: '/contact',
@@ -55,6 +54,24 @@ const routes: { path: string; title: string; description: string }[] = [
   },
 ];
 
+// Static project and blog data for build-time pre-rendering
+const staticProjects = [
+  { slug: 'modern-luxury-villa-construction-bhopal', title: 'The Horizon - Modern Luxury Villa', category: 'Construction', location: 'Arera Colony, Bhopal', image: '/images/horizon-villa-day.jpg', description: 'Breathtaking multi-story villa construction with stone cladding and glass balconies. A flagship construction project in Bhopal showcasing international standards.', createdAt: '2022-08-01T00:00:00.000Z' },
+  { slug: 'modular-kitchen-before-after-bhopal', title: 'Blue Heaven - Modular Kitchen Transformation', category: 'Renovation', location: 'Gulmohar, Bhopal', image: '/images/blue-kitchen-renovation.jpg', description: 'Complete kitchen renovation showcasing a stunning before-and-after transformation with modular light blue cabinetry and designer subway tiling.', createdAt: '2022-07-15T00:00:00.000Z' },
+  { slug: 'commercial-building-interior-design-bhopal', title: 'ONE 6NE - Commercial Landmark', category: 'Commercial', location: 'MP Nagar, Bhopal', image: '/images/one6ne-commercial-1.jpg', description: "Dynamic commercial building interior and exterior design featuring geometric facades and modern workspace planning.", createdAt: '2022-06-10T00:00:00.000Z' },
+  { slug: 'luxury-home-interiors-false-ceiling-bhopal', title: 'Regal Residences - Luxury Interiors', category: 'Residential', location: 'Koh-e-Fiza, Bhopal', image: '/images/living-room-partition.jpg', description: 'Sophisticated residential interiors featuring premium wardrobes, designer false ceilings, and bespoke mirrored partitions.', createdAt: '2022-05-20T00:00:00.000Z' },
+  { slug: 'modern-kitchen-designer-bhopal', title: 'Sleek Kitchen - Grey & Wood Finish', category: 'Residential', location: 'Indore Highway, Bhopal', image: '/images/grey-wood-kitchen.jpg', description: 'Real completion of a gourmet kitchen with sleek grey and wood finishes, black granite countertops, and a statement island with wood cladding.', createdAt: '2022-04-05T00:00:00.000Z' },
+];
+
+const staticPosts = [
+  { slug: 'best-interior-designer-bhopal-apka-interior-wala', title: 'Best Interior Designer in Bhopal: Why Apka Interior Wala Tops Every List', excerpt: "Looking for the best interior designer in Bhopal? Discover why Apka Interior Wala is Madhya Pradesh's most trusted interior design studio.", image: '/images/living-room-partition.jpg', publishedAt: '2023-06-01T00:00:00.000Z' },
+  { slug: '10-tips-modern-modular-kitchen-bhopal', title: 'Modular Kitchen in Bhopal: Complete Guide to Cost, Design & Materials', excerpt: 'Planning a modular kitchen in Bhopal? This complete guide covers design styles, material choices, cost ranges, and planning tips.', image: '/images/grey-wood-kitchen.jpg', publishedAt: '2023-05-01T00:00:00.000Z' },
+  { slug: 'false-ceiling-design-cost-bhopal', title: 'False Ceiling in Bhopal: Types, Designs & Real Cost Breakdown (2024)', excerpt: 'False ceilings can completely transform a room. This guide covers every material type with real cost ranges for Bhopal homes and offices.', image: '/images/false-ceiling-render.jpg', publishedAt: '2023-04-01T00:00:00.000Z' },
+  { slug: 'best-construction-contractor-thekedar-bhopal', title: 'Best Construction Contractor in Bhopal: What to Look for Before You Hire', excerpt: 'Hiring a thekedar or construction contractor in Bhopal? This guide tells you exactly what to check before signing any agreement.', image: '/images/marble-staircase.jpg', publishedAt: '2023-03-01T00:00:00.000Z' },
+  { slug: 'affordable-home-interior-design-bhopal-cost-guide', title: 'Affordable Interior Design in Bhopal: Real Cost Guide for Every Budget', excerpt: 'Wondering what interior design actually costs in Bhopal? This honest guide breaks down costs for every room, tier, and budget.', image: '/images/bedroom-wardrobe.jpg', publishedAt: '2023-02-01T00:00:00.000Z' },
+  { slug: 'custom-furniture-carpentry-bhopal', title: "Custom Furniture in Bhopal: Why Bespoke Beats Off-the-Shelf Every Time", excerpt: "Custom furniture in Bhopal doesn't have to cost a fortune. Learn how bespoke wardrobes and kitchen cabinets can transform your home.", image: '/images/bedroom-wardrobe-study.jpg', publishedAt: '2023-01-01T00:00:00.000Z' },
+];
+
 function escAttr(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
@@ -71,8 +88,6 @@ function injectIntoShell(template: string, opts: {
   let html = template;
 
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escAttr(title)}</title>`);
-
-  // Replace multiline meta description
   html = html.replace(/<meta[\s\S]*?name="description"[\s\S]*?\/>/s,
     `<meta name="description" content="${escAttr(description)}" />`
   );
@@ -92,9 +107,7 @@ function injectIntoShell(template: string, opts: {
   return html;
 }
 
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, '.', '');
-
+export default defineConfig(() => {
   return {
     plugins: [
       react(),
@@ -110,12 +123,10 @@ export default defineConfig(({ mode }) => {
           for (const { path: routePath, title, description } of routes) {
             if (routePath === '') continue;
             const canonical = `${DOMAIN}${routePath}`;
-            const isYearly = routePath === '/privacy' || routePath === '/terms';
             const html = injectIntoShell(template, { title, description, canonical });
             const dir = path.join(distDir, routePath);
             fs.mkdirSync(dir, { recursive: true });
             fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
-            void isYearly; // used in sitemap below
           }
           console.log(`✅ Pre-rendered ${routes.length - 1} static HTML shells`);
 
@@ -126,128 +137,90 @@ export default defineConfig(({ mode }) => {
             changefreq: (r.path === '/privacy' || r.path === '/terms') ? 'yearly' : 'weekly',
           }));
 
-          // ── 3. Firebase: pre-render dynamic project & journal shells ──────
-          try {
-            const firebaseConfig: Record<string, string> = JSON.parse(
-              fs.readFileSync(path.resolve(process.cwd(), 'firebase-applet-config.json'), 'utf8')
-            );
+          // ── 3. Project detail shells ──────────────────────────────────────
+          for (const project of staticProjects) {
+            const canonical = `${DOMAIN}/projects/${project.slug}`;
+            const location = project.location;
+            const category = project.category.toLowerCase();
+            const title = `${project.title} | Interior Designer ${location} | Apka Interior Wala`;
+            const description = `${project.description.slice(0, 120).trimEnd()}… See this ${category} project by Apka Interior Wala in ${location}.`;
 
-            const { initializeApp, getApps } = await import('firebase/app');
-            const { getFirestore, collection, getDocs } = await import('firebase/firestore');
+            const schema = JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'CreativeWork',
+              name: project.title,
+              description: project.description,
+              image: project.image,
+              locationCreated: {
+                '@type': 'Place',
+                name: location,
+                address: { '@type': 'PostalAddress', addressLocality: location, addressRegion: 'Madhya Pradesh', addressCountry: 'IN' },
+              },
+              creator: { '@type': 'LocalBusiness', name: 'Apka Interior Wala', url: DOMAIN },
+            });
 
-            const existingApp = getApps().find(a => a.name === 'prerender');
-            const fbApp = existingApp ?? initializeApp(firebaseConfig, 'prerender');
-            const db = getFirestore(fbApp, firebaseConfig.firestoreDatabaseId);
+            const html = injectIntoShell(template, {
+              title, description, canonical,
+              ogImage: project.image,
+              extraHead: `  <script type="application/ld+json">${schema}</script>`,
+            });
 
-            const [projectsSnap, blogSnap] = await Promise.all([
-              getDocs(collection(db, 'projects')),
-              getDocs(collection(db, 'blog')),
-            ]);
+            const dir = path.join(distDir, 'projects', project.slug);
+            fs.mkdirSync(dir, { recursive: true });
+            fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
 
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const projects: any[] = projectsSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const posts: any[] = blogSnap.docs
-              .map(d => ({ id: d.id, ...d.data() }))
-              .filter((p: any) => p.published !== false);
-
-            // Project detail shells
-            for (const project of projects) {
-              if (!project.slug) continue;
-              const canonical = `${DOMAIN}/projects/${project.slug}`;
-              const location = project.location || 'Bhopal';
-              const category = (project.category || 'interior design').toLowerCase();
-              const title = `${project.title} | Interior Designer ${location} | Apka Interior Wala`;
-              const rawDesc = (project.description || '') as string;
-              const description = `${rawDesc.slice(0, 120).trimEnd()}… See this ${category} project by Apka Interior Wala in ${location}.`;
-
-              const schema = JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'CreativeWork',
-                name: project.title,
-                description: project.description,
-                image: project.image,
-                locationCreated: {
-                  '@type': 'Place',
-                  name: location,
-                  address: { '@type': 'PostalAddress', addressLocality: location, addressRegion: 'Madhya Pradesh', addressCountry: 'IN' },
-                },
-                creator: { '@type': 'LocalBusiness', name: 'Apka Interior Wala', url: DOMAIN },
-              });
-
-              const html = injectIntoShell(template, {
-                title,
-                description,
-                canonical,
-                ogImage: project.image,
-                extraHead: `  <script type="application/ld+json">${schema}</script>`,
-              });
-
-              const dir = path.join(distDir, 'projects', project.slug);
-              fs.mkdirSync(dir, { recursive: true });
-              fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
-
-              const rawDate = project.createdAt as string | undefined;
-              sitemapUrls.push({
-                loc: canonical,
-                lastmod: rawDate ? rawDate.split('T')[0] : today,
-                changefreq: 'monthly',
-                priority: '0.8',
-              });
-            }
-            console.log(`✅ Pre-rendered ${projects.length} project detail shells`);
-
-            // Journal post shells
-            for (const post of posts) {
-              if (!post.slug) continue;
-              const canonical = `${DOMAIN}/journal/${post.slug}`;
-              const title = `${post.title} | Apka Interior Wala Journal`;
-              const description = ((post.excerpt || post.content || '') as string).slice(0, 155).trimEnd();
-
-              const schema = JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'Article',
-                headline: post.title,
-                description: post.excerpt,
-                image: post.image,
-                datePublished: post.publishedAt,
-                author: { '@type': 'Person', name: post.author || 'Apka Interior Wala' },
-                publisher: {
-                  '@type': 'Organization',
-                  name: 'Apka Interior Wala',
-                  logo: { '@type': 'ImageObject', url: `${DOMAIN}/favicon.png` },
-                },
-                mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
-              });
-
-              const html = injectIntoShell(template, {
-                title,
-                description,
-                canonical,
-                ogImage: post.image,
-                ogType: 'article',
-                extraHead: `  <script type="application/ld+json">${schema}</script>`,
-              });
-
-              const dir = path.join(distDir, 'journal', post.slug);
-              fs.mkdirSync(dir, { recursive: true });
-              fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
-
-              const rawDate = post.publishedAt as string | undefined;
-              sitemapUrls.push({
-                loc: canonical,
-                lastmod: rawDate ? rawDate.split('T')[0] : today,
-                changefreq: 'monthly',
-                priority: '0.7',
-              });
-            }
-            console.log(`✅ Pre-rendered ${posts.length} journal post shells`);
-
-          } catch (err) {
-            console.warn('⚠️  Firebase fetch skipped during build (dynamic shells not generated):', (err as Error).message);
+            sitemapUrls.push({
+              loc: canonical,
+              lastmod: project.createdAt.split('T')[0],
+              changefreq: 'monthly',
+              priority: '0.8',
+            });
           }
+          console.log(`✅ Pre-rendered ${staticProjects.length} project detail shells`);
 
-          // ── 4. Write sitemap.xml ──────────────────────────────────────────
+          // ── 4. Journal post shells ────────────────────────────────────────
+          for (const post of staticPosts) {
+            const canonical = `${DOMAIN}/journal/${post.slug}`;
+            const title = `${post.title} | Apka Interior Wala Journal`;
+            const description = post.excerpt.slice(0, 155).trimEnd();
+
+            const schema = JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: post.title,
+              description: post.excerpt,
+              image: post.image,
+              datePublished: post.publishedAt,
+              author: { '@type': 'Person', name: 'Zainab Khan' },
+              publisher: {
+                '@type': 'Organization',
+                name: 'Apka Interior Wala',
+                logo: { '@type': 'ImageObject', url: `${DOMAIN}/favicon.png` },
+              },
+              mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+            });
+
+            const html = injectIntoShell(template, {
+              title, description, canonical,
+              ogImage: post.image,
+              ogType: 'article',
+              extraHead: `  <script type="application/ld+json">${schema}</script>`,
+            });
+
+            const dir = path.join(distDir, 'journal', post.slug);
+            fs.mkdirSync(dir, { recursive: true });
+            fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+
+            sitemapUrls.push({
+              loc: canonical,
+              lastmod: post.publishedAt.split('T')[0],
+              changefreq: 'monthly',
+              priority: '0.7',
+            });
+          }
+          console.log(`✅ Pre-rendered ${staticPosts.length} journal post shells`);
+
+          // ── 5. Write sitemap.xml ──────────────────────────────────────────
           let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
           xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
           for (const { loc, lastmod, changefreq, priority } of sitemapUrls) {
@@ -260,18 +233,15 @@ export default defineConfig(({ mode }) => {
           }
           xml += '</urlset>';
 
-          // ── 5. Write robots.txt ───────────────────────────────────────────
+          // ── 6. Write robots.txt ───────────────────────────────────────────
           const robots = `User-agent: *\nAllow: /\nDisallow: /admin\n\nSitemap: ${DOMAIN}/sitemap.xml`;
 
           fs.writeFileSync(path.join(distDir, 'sitemap.xml'), xml, 'utf8');
           fs.writeFileSync(path.join(distDir, 'robots.txt'), robots, 'utf8');
-          console.log(`✅ sitemap.xml written with ${sitemapUrls.length} URLs (${sitemapUrls.length - routes.length} dynamic)\n`);
+          console.log(`✅ sitemap.xml written with ${sitemapUrls.length} URLs\n`);
         },
       },
     ],
-    define: {
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
@@ -282,7 +252,6 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks: {
             'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-            'vendor-firebase': ['firebase/app', 'firebase/firestore', 'firebase/auth', 'firebase/storage'],
             'vendor-motion': ['motion/react'],
             'vendor-ui': ['sonner', 'react-helmet-async', 'lucide-react', '@hookform/resolvers', 'react-hook-form', 'zod'],
             'vendor-markdown': ['react-markdown'],

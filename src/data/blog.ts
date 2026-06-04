@@ -1,192 +1,14 @@
-import { db } from '../firebase';
-import { collection, doc, setDoc, writeBatch } from 'firebase/firestore';
+import { BlogPost } from '../types';
 
-export async function seedDatabase() {
-  const batch = writeBatch(db);
-
-  // ─── 1. Pages ────────────────────────────────────────────────────────────────
-
-  batch.set(doc(db, 'pages', 'home'), {
-    sections: {
-      heroTitle:    { value: 'Crafting Spaces That Tell Your Story' },
-      heroSubtitle: { value: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.' },
-      heroImage:    { value: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920' },
-      aboutTitle:   { value: 'Excellence in Design & Construction' },
-      aboutText:    { value: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.' },
-      aboutImage1:  { value: '/images/residential-hallway.jpg' },
-      aboutImage2:  { value: '/images/bedroom-render-2.jpg' },
-      ctaImage:     { value: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1920' },
-    },
-  });
-
-  batch.set(doc(db, 'pages', 'about'), {
-    sections: {
-      introTitle:   { value: 'Our Journey of Excellence' },
-      introText:    { value: 'Founded in Bhopal, Apka Interior Wala has grown from a passionate two-person studio into a full-service design and construction firm trusted across Madhya Pradesh.' },
-      founderName:  { value: 'Zainab Khan' },
-      founderRole:  { value: 'Founder & Principal Designer' },
-      founderBio:   { value: 'Driven by a belief that every space should feel personal, Zainab has spent over a decade turning client visions into meticulously crafted realities — from intimate apartments to landmark commercial builds.' },
-      founderImage: { value: '/images/founder-zainab-khan.jpeg' },
-      introImage:   { value: '/images/living-room-partition.jpg' },
-      mission:      { value: 'To transform our clients\' visions into reality through exceptional design and superior craftsmanship.' },
-      vision:       { value: 'To be the most trusted name in luxury interior design and construction across Central India.' },
-    },
-  });
-
-  // ─── 2. Settings ─────────────────────────────────────────────────────────────
-
-  batch.set(doc(db, 'settings', 'seo'), {
-    metaTitle: 'Apka Interior Wala | Best Interior Design & Construction in Bhopal',
-    metaDescription: 'Apka Interior Wala delivers premium interior design and construction services in Bhopal, Madhya Pradesh. Residential, commercial, and turnkey solutions.',
-    keywords: 'interior design bhopal, best interior designer bhopal, construction agency bhopal, luxury home interiors, modular kitchen bhopal, false ceiling bhopal',
-    ogImage: '/images/horizon-villa-day.jpg',
-    googleAnalyticsId: '',
-    searchConsoleId: '',
-    robotsTxt: 'User-agent: *\nAllow: /',
-  });
-
-  batch.set(doc(db, 'settings', 'theme'), {
-    primaryColor: '#1c1917',
-    secondaryColor: '#a8a29e',
-    accentColor: '#d4af37',
-    fontFamily: 'Inter',
-    borderRadius: '1.5rem',
-    buttonStyle: 'sharp',
-  });
-
-  batch.set(doc(db, 'settings', 'site'), {
-    companyName: 'Apka Interior Wala',
-    email: 'info@apkainteriorwala.com',
-    phone: '+91 78933 65987',
-    address: '10, Patwa Market, Near Bharat Talkies, Bhopal, Madhya Pradesh, India',
-    socialLinks: {
-      instagram: 'https://instagram.com/apkainteriorwala',
-      facebook: 'https://facebook.com/apkainteriorwala',
-      linkedin: 'https://linkedin.com/company/apkainteriorwala',
-      youtube: 'https://youtube.com/szinteriors',
-      pinterest: '',
-    },
-  });
-
-  // ─── 3. Services ─────────────────────────────────────────────────────────────
-
-  const services = [
-    { title: 'Residential Interior Design', description: 'Creating luxurious, personalized living spaces that reflect your unique style and personality. From modern apartments to classic villas.', icon: 'Home',      image: '/images/bedroom-render.jpg',           order: 0 },
-    { title: 'Commercial Interior Design',  description: 'Designing innovative and functional workspaces that boost productivity and reflect your brand identity. Offices, retail, and hospitality.', icon: 'Building',  image: '/images/one6ne-commercial-3.jpg',       order: 1 },
-    { title: 'Turnkey Interior Solutions',  description: 'End-to-end management of your project, ensuring a stress-free experience from conception to handover.', icon: 'Key',       image: '/images/marble-kitchen.jpg',            order: 2 },
-    { title: 'Construction Services',       description: 'Professional construction management and execution for residential and commercial projects, maintaining high quality and safety.', icon: 'Hammer',    image: '/images/marble-staircase.jpg',          order: 3 },
-    { title: 'Renovation & Remodeling',     description: 'Giving new life to existing spaces through creative remodeling and high-quality renovation work.', icon: 'Paintbrush', image: '/images/blue-kitchen-renovation.jpg',   order: 4 },
-    { title: 'Space Planning',              description: 'Optimizing your floor plan for maximum efficiency and flow. We ensure every square foot of your space is utilized effectively.', icon: 'Ruler',     image: '/images/false-ceiling-render.jpg',      order: 5 },
-    { title: 'Project Management',          description: 'Professional oversight of your construction or interior project. We ensure quality, budget adherence, and timely delivery.', icon: 'Briefcase', image: '/images/bedroom-wardrobe.jpg',          order: 6 },
-    { title: 'Furniture & Custom Joinery',  description: 'Bespoke furniture and woodwork designed and crafted specifically for your space. Quality materials and exquisite finish.', icon: 'Users',     image: '/images/bedroom-wardrobe-study.jpg',    order: 7 },
-  ];
-
-  // Use fixed IDs so re-seeding doesn't duplicate
-  services.forEach((service) => {
-    const id = service.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-    batch.set(doc(db, 'services', id), service);
-  });
-
-  // ─── 4. Projects ─────────────────────────────────────────────────────────────
-
-  const projects = [
-    {
-      title: 'The Horizon - Modern Luxury Villa',
-      slug: 'modern-luxury-villa-construction-bhopal',
-      category: 'Construction',
-      location: 'Arera Colony, Bhopal',
-      image: '/images/horizon-villa-day.jpg',
-      gallery: [
-        '/images/horizon-villa-day.jpg',
-        '/images/horizon-villa-night.jpg',
-        '/images/marble-staircase.jpg',
-        '/images/marble-kitchen.jpg',
-        '/images/bedroom-wardrobe.jpg',
-      ],
-      description: 'Breathtaking multi-story villa construction with stone cladding and glass balconies. A flagship construction project in Bhopal showcasing international standards. Every detail — from the structural planning to the premium marble flooring and bespoke staircase — was executed with precision and care.',
-      featured: true,
-      createdAt: '2022-08-01T00:00:00.000Z',
-    },
-    {
-      title: 'Blue Heaven - Modular Kitchen Transformation',
-      slug: 'modular-kitchen-before-after-bhopal',
-      category: 'Renovation',
-      location: 'Gulmohar, Bhopal',
-      image: '/images/blue-kitchen-renovation.jpg',
-      gallery: [
-        '/images/blue-kitchen-renovation.jpg',
-        '/images/blue-kitchen-before.jpg',
-        '/images/modular-kitchen-unit.jpg',
-        '/images/grey-wood-kitchen.jpg',
-      ],
-      description: 'Complete kitchen renovation showcasing a stunning before-and-after transformation with modular light blue cabinetry and designer subway tiling. The space was reimagined from scratch — new layout, island unit, under-cabinet lighting, and a classic blue-and-white palette that gives the kitchen timeless character.',
-      featured: false,
-      createdAt: '2022-07-15T00:00:00.000Z',
-    },
-    {
-      title: 'ONE 6NE - Commercial Landmark',
-      slug: 'commercial-building-interior-design-bhopal',
-      category: 'Commercial',
-      location: 'MP Nagar, Bhopal',
-      image: '/images/one6ne-commercial-1.jpg',
-      gallery: [
-        '/images/one6ne-commercial-1.jpg',
-        '/images/one6ne-commercial-2.jpg',
-        '/images/one6ne-commercial-3.jpg',
-        '/images/residential-exterior.jpg',
-      ],
-      description: 'Dynamic commercial building interior and exterior design featuring geometric facades and modern workspace planning. The iconic hexagonal facade and bold orange-black palette make this a landmark destination on one of Bhopal\'s busiest commercial corridors.',
-      featured: true,
-      createdAt: '2022-06-10T00:00:00.000Z',
-    },
-    {
-      title: 'Regal Residences - Luxury Interiors',
-      slug: 'luxury-home-interiors-false-ceiling-bhopal',
-      category: 'Residential',
-      location: 'Koh-e-Fiza, Bhopal',
-      image: '/images/living-room-partition.jpg',
-      gallery: [
-        '/images/living-room-partition.jpg',
-        '/images/bedroom-wardrobe.jpg',
-        '/images/residential-hallway.jpg',
-        '/images/false-ceiling-render.jpg',
-      ],
-      description: 'Sophisticated residential interiors featuring premium wardrobes, designer false ceilings, and bespoke mirrored partitions. The living space is anchored by a stunning diamond-mirror accent wall that doubles as a room divider, creating distinct zones while keeping the layout open and airy.',
-      featured: false,
-      createdAt: '2022-05-20T00:00:00.000Z',
-    },
-    {
-      title: 'Sleek Kitchen - Grey & Wood Finish',
-      slug: 'modern-kitchen-designer-bhopal',
-      category: 'Residential',
-      location: 'Indore Highway, Bhopal',
-      image: '/images/grey-wood-kitchen.jpg',
-      gallery: [
-        '/images/grey-wood-kitchen.jpg',
-        '/images/grey-wood-kitchen-2.jpg',
-        '/images/marble-kitchen.jpg',
-        '/images/modular-kitchen-unit.jpg',
-      ],
-      description: 'Real completion of a gourmet kitchen with sleek grey and wood finishes, black granite countertops, and a statement island with wood cladding. The warm walnut upper cabinets contrast beautifully against the matte grey lower units, while under-cabinet LED strips add depth and function.',
-      featured: false,
-      createdAt: '2022-04-05T00:00:00.000Z',
-    },
-  ];
-
-  // Use slug as document ID — prevents duplicates on re-seed
-  projects.forEach((project) => {
-    batch.set(doc(db, 'projects', project.slug), project);
-  });
-
-  // ─── 5. Blog ─────────────────────────────────────────────────────────────────
-
-  const posts = [
-    {
-      title: 'Best Interior Designer in Bhopal: Why Apka Interior Wala Tops Every List',
-      slug: 'best-interior-designer-bhopal-apka-interior-wala',
-      category: 'Design Tips',
-      excerpt: 'Looking for the best interior designer in Bhopal? Discover why Apka Interior Wala is Madhya Pradesh\'s most trusted interior design studio for homes, offices, and luxury spaces.',
-      content: `## Why Bhopal Deserves World-Class Interior Design
+export const blogPosts: BlogPost[] = [
+  {
+    id: 'best-interior-designer-bhopal-apka-interior-wala',
+    title: 'Best Interior Designer in Bhopal: Why Apka Interior Wala Tops Every List',
+    slug: 'best-interior-designer-bhopal-apka-interior-wala',
+    category: 'Design Tips',
+    excerpt:
+      "Looking for the best interior designer in Bhopal? Discover why Apka Interior Wala is Madhya Pradesh's most trusted interior design studio for homes, offices, and luxury spaces.",
+    content: `## Why Bhopal Deserves World-Class Interior Design
 
 Bhopal is growing fast. From Arera Colony to MP Nagar, from Koh-e-Fiza to New Market — the city's homeowners and business owners are raising their expectations. They want spaces that don't just look good in photos but feel extraordinary to live and work in every single day.
 
@@ -235,18 +57,26 @@ We've been featured as one of the **top interior design firms in Central India**
 If you're searching for the best interior designer in Bhopal, best interior design company in Madhya Pradesh, or simply the most affordable luxury studio that delivers real results — you've found it.
 
 **Call us, visit our studio, or book a consultation online.** Your dream space starts today.`,
-      image: '/images/living-room-partition.jpg',
-      author: 'Zainab Khan',
-      tags: ['best interior designer bhopal', 'interior design studio bhopal', 'luxury interior', 'madhya pradesh', 'interior design firm'],
-      published: true,
-      publishedAt: '2023-06-01T00:00:00.000Z',
-    },
-    {
-      title: 'Modular Kitchen in Bhopal: Complete Guide to Cost, Design & Materials',
-      slug: '10-tips-modern-modular-kitchen-bhopal',
-      category: 'Design Tips',
-      excerpt: 'Planning a modular kitchen in Bhopal? This complete guide covers design styles, material choices, cost ranges, and the 10 planning tips our designers use on every project.',
-      content: `## What is a Modular Kitchen — and Why is Everyone Getting One?
+    image: '/images/living-room-partition.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'best interior designer bhopal',
+      'interior design studio bhopal',
+      'luxury interior',
+      'madhya pradesh',
+      'interior design firm',
+    ],
+    published: true,
+    publishedAt: '2023-06-01T00:00:00.000Z',
+  },
+  {
+    id: '10-tips-modern-modular-kitchen-bhopal',
+    title: 'Modular Kitchen in Bhopal: Complete Guide to Cost, Design & Materials',
+    slug: '10-tips-modern-modular-kitchen-bhopal',
+    category: 'Design Tips',
+    excerpt:
+      'Planning a modular kitchen in Bhopal? This complete guide covers design styles, material choices, cost ranges, and the 10 planning tips our designers use on every project.',
+    content: `## What is a Modular Kitchen — and Why is Everyone Getting One?
 
 A **modular kitchen** is a pre-fabricated, factory-made kitchen system where cabinets, drawers, shelves, and countertops are built as independent modules that slot together on-site. The result? A kitchen that looks like it belongs in a design magazine — but is installed in days, not months.
 
@@ -299,18 +129,26 @@ In Bhopal, demand for modular kitchens has exploded in the past five years. Here
 ## Get Your Modular Kitchen Designed Today
 
 Apka Interior Wala has delivered 50+ modular kitchens across Bhopal. **Book a free site visit** and we'll bring samples, give you a floor plan, and a fixed quote — all at no charge.`,
-      image: '/images/grey-wood-kitchen.jpg',
-      author: 'Zainab Khan',
-      tags: ['modular kitchen bhopal', 'kitchen design', 'modular kitchen cost', 'kitchen renovation', 'interior design'],
-      published: true,
-      publishedAt: '2023-05-01T00:00:00.000Z',
-    },
-    {
-      title: 'False Ceiling in Bhopal: Types, Designs & Real Cost Breakdown (2024)',
-      slug: 'false-ceiling-design-cost-bhopal',
-      category: 'Construction',
-      excerpt: 'False ceilings can completely transform a room. This guide covers every material type — POP, gypsum, wood, PVC — with real cost ranges for Bhopal homes and offices.',
-      content: `## What is a False Ceiling and Should You Get One?
+    image: '/images/grey-wood-kitchen.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'modular kitchen bhopal',
+      'kitchen design',
+      'modular kitchen cost',
+      'kitchen renovation',
+      'interior design',
+    ],
+    published: true,
+    publishedAt: '2023-05-01T00:00:00.000Z',
+  },
+  {
+    id: 'false-ceiling-design-cost-bhopal',
+    title: 'False Ceiling in Bhopal: Types, Designs & Real Cost Breakdown (2024)',
+    slug: 'false-ceiling-design-cost-bhopal',
+    category: 'Construction',
+    excerpt:
+      'False ceilings can completely transform a room. This guide covers every material type — POP, gypsum, wood, PVC — with real cost ranges for Bhopal homes and offices.',
+    content: `## What is a False Ceiling and Should You Get One?
 
 A **false ceiling** (also called a dropped ceiling or suspended ceiling) is a secondary ceiling installed below the main structural slab. It's one of the most cost-effective ways to elevate a room's interior — hiding ugly beams, adding lighting drama, improving insulation, and making a space feel more refined.
 
@@ -378,18 +216,26 @@ A membrane stretched across a frame. Allows for dramatic backlighting effects an
 ## Get a Free False Ceiling Design Estimate
 
 Apka Interior Wala designs and installs all types of false ceilings across Bhopal. Our team will visit your site, recommend the right material, and give you a complete quote with no surprises.`,
-      image: '/images/false-ceiling-render.jpg',
-      author: 'Zainab Khan',
-      tags: ['false ceiling bhopal', 'POP ceiling', 'gypsum ceiling', 'false ceiling cost', 'interior design bhopal'],
-      published: true,
-      publishedAt: '2023-04-01T00:00:00.000Z',
-    },
-    {
-      title: 'Best Construction Contractor in Bhopal: What to Look for Before You Hire',
-      slug: 'best-construction-contractor-thekedar-bhopal',
-      category: 'Construction',
-      excerpt: 'Hiring a thekedar or construction contractor in Bhopal? This guide tells you exactly what to check — licences, materials, payment terms — before signing any agreement.',
-      content: `## The Construction Decision That Changes Everything
+    image: '/images/false-ceiling-render.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'false ceiling bhopal',
+      'POP ceiling',
+      'gypsum ceiling',
+      'false ceiling cost',
+      'interior design bhopal',
+    ],
+    published: true,
+    publishedAt: '2023-04-01T00:00:00.000Z',
+  },
+  {
+    id: 'best-construction-contractor-thekedar-bhopal',
+    title: 'Best Construction Contractor in Bhopal: What to Look for Before You Hire',
+    slug: 'best-construction-contractor-thekedar-bhopal',
+    category: 'Construction',
+    excerpt:
+      'Hiring a thekedar or construction contractor in Bhopal? This guide tells you exactly what to check — licences, materials, payment terms — before signing any agreement.',
+    content: `## The Construction Decision That Changes Everything
 
 Whether you're building a new home, adding a floor, or doing a full structural renovation — the contractor you choose will determine whether your project finishes on time, on budget, and to standard. Bhopal has no shortage of *thekedars* and construction firms. But finding a reliable, skilled, and transparent one? That's harder than it looks.
 
@@ -440,18 +286,26 @@ What we do differently:
 ## Talk to a Construction Expert
 
 Planning a construction project in Bhopal? **Book a free site assessment.** We'll review your plot, your requirements, and your budget — and give you an honest, detailed proposal with no pressure.`,
-      image: '/images/marble-staircase.jpg',
-      author: 'Zainab Khan',
-      tags: ['construction contractor bhopal', 'thekedar bhopal', 'best construction firm bhopal', 'home construction bhopal', 'building contractor madhya pradesh'],
-      published: true,
-      publishedAt: '2023-03-01T00:00:00.000Z',
-    },
-    {
-      title: 'Affordable Interior Design in Bhopal: Real Cost Guide for Every Budget',
-      slug: 'affordable-home-interior-design-bhopal-cost-guide',
-      category: 'Design Tips',
-      excerpt: 'Wondering what interior design actually costs in Bhopal? This honest guide breaks down costs for every room, tier, and budget — so you can plan your home with confidence.',
-      content: `## The Myth of "Expensive" Interior Design
+    image: '/images/marble-staircase.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'construction contractor bhopal',
+      'thekedar bhopal',
+      'best construction firm bhopal',
+      'home construction bhopal',
+      'building contractor madhya pradesh',
+    ],
+    published: true,
+    publishedAt: '2023-03-01T00:00:00.000Z',
+  },
+  {
+    id: 'affordable-home-interior-design-bhopal-cost-guide',
+    title: 'Affordable Interior Design in Bhopal: Real Cost Guide for Every Budget',
+    slug: 'affordable-home-interior-design-bhopal-cost-guide',
+    category: 'Design Tips',
+    excerpt:
+      'Wondering what interior design actually costs in Bhopal? This honest guide breaks down costs for every room, tier, and budget — so you can plan your home with confidence.',
+    content: `## The Myth of "Expensive" Interior Design
 
 Most people assume that hiring a professional interior designer in Bhopal is only for the wealthy. It's one of the most persistent myths in our industry — and it costs homeowners real money.
 
@@ -506,18 +360,26 @@ We also offer **EMI-friendly payment schedules**, tying every payment to a compl
 ## Start with a Free Consultation
 
 Unsure what your budget can achieve? **Book a free consultation.** Bring your floor plan (even a rough sketch), your inspiration photos, and your budget range. We'll give you an honest assessment of what's possible — and a roadmap to get there.`,
-      image: '/images/bedroom-wardrobe.jpg',
-      author: 'Zainab Khan',
-      tags: ['affordable interior design bhopal', 'home interior cost bhopal', 'interior design budget', 'best affordable interior designer', 'interior design price bhopal'],
-      published: true,
-      publishedAt: '2023-02-01T00:00:00.000Z',
-    },
-    {
-      title: 'Custom Furniture in Bhopal: Why Bespoke Beats Off-the-Shelf Every Time',
-      slug: 'custom-furniture-carpentry-bhopal',
-      category: 'Design Tips',
-      excerpt: 'Custom furniture in Bhopal doesn\'t have to cost a fortune. Learn how bespoke wardrobes, TV units, and kitchen cabinets can transform your home — and what they really cost.',
-      content: `## Why Custom Furniture is the Secret to Great Interiors
+    image: '/images/bedroom-wardrobe.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'affordable interior design bhopal',
+      'home interior cost bhopal',
+      'interior design budget',
+      'best affordable interior designer',
+      'interior design price bhopal',
+    ],
+    published: true,
+    publishedAt: '2023-02-01T00:00:00.000Z',
+  },
+  {
+    id: 'custom-furniture-carpentry-bhopal',
+    title: "Custom Furniture in Bhopal: Why Bespoke Beats Off-the-Shelf Every Time",
+    slug: 'custom-furniture-carpentry-bhopal',
+    category: 'Design Tips',
+    excerpt:
+      "Custom furniture in Bhopal doesn't have to cost a fortune. Learn how bespoke wardrobes, TV units, and kitchen cabinets can transform your home — and what they really cost.",
+    content: `## Why Custom Furniture is the Secret to Great Interiors
 
 Walk into a home that feels truly designed and you'll almost always find custom furniture. Not because it's expensive (it often isn't), but because standard off-the-shelf furniture was built for an average room — and your room isn't average.
 
@@ -581,18 +443,16 @@ We only use **BWR (Boiling Water Resistant) or Marine Plywood** as the core for 
 ## Bring Your Space to Life
 
 Ready to replace flat-pack furniture with pieces that are built for your home and built to last? **Contact Apka Interior Wala today** for a free site visit and furniture design consultation.`,
-      image: '/images/bedroom-wardrobe-study.jpg',
-      author: 'Zainab Khan',
-      tags: ['custom furniture bhopal', 'modular furniture bhopal', 'wardrobe design bhopal', 'furniture carpenter bhopal', 'bespoke furniture madhya pradesh'],
-      published: true,
-      publishedAt: '2023-01-01T00:00:00.000Z',
-    },
-  ];
-
-  posts.forEach((post) => {
-    batch.set(doc(db, 'blog', post.slug), post);
-  });
-
-  await batch.commit();
-  console.log('Database seeded successfully');
-}
+    image: '/images/bedroom-wardrobe-study.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'custom furniture bhopal',
+      'modular furniture bhopal',
+      'wardrobe design bhopal',
+      'furniture carpenter bhopal',
+      'bespoke furniture madhya pradesh',
+    ],
+    published: true,
+    publishedAt: '2023-01-01T00:00:00.000Z',
+  },
+];

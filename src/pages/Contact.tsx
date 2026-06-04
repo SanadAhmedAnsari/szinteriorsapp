@@ -4,8 +4,6 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "../firebase";
 import { toast } from "sonner";
 
 const contactSchema = z.object({
@@ -26,22 +24,30 @@ export default function Contact() {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    defaultValues: {
-      service: "",
-    },
+    defaultValues: { service: "" },
   });
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      await addDoc(collection(db, "messages"), {
-        ...data,
-        createdAt: serverTimestamp(),
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: `New enquiry from ${data.name} — ${data.service}`,
+          from_name: "Apka Interior Wala Website",
+          ...data,
+        }),
       });
-      toast.success("Message sent successfully! We will get back to you soon.");
-      reset();
-    } catch (error) {
-      console.error("Error sending message:", error);
-      toast.error("Failed to send message. Please try again.");
+      const json = await res.json();
+      if (json.success) {
+        toast.success("Message sent successfully! We will get back to you soon.");
+        reset();
+      } else {
+        throw new Error(json.message);
+      }
+    } catch {
+      toast.error("Failed to send message. Please try again or call us directly.");
     }
   };
 
@@ -84,13 +90,9 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="space-y-12">
             <div className="space-y-8">
-              <h2 className="text-3xl font-light text-stone-900">
-                Contact Information
-              </h2>
+              <h2 className="text-3xl font-light text-stone-900">Contact Information</h2>
               <p className="text-lg text-stone-600 leading-relaxed">
-                Whether you're planning a luxury home renovation or a
-                large-scale commercial construction, our team is ready to assist
-                you.
+                Whether you're planning a luxury home renovation or a large-scale commercial construction, our team is ready to assist you.
               </p>
             </div>
 
@@ -100,13 +102,8 @@ export default function Contact() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">
-                    Our Office
-                  </h4>
-                  <p className="mt-2 text-stone-600">
-                    10, Patwa Market, Near Bharat Talkies, Bhopal, Madhya
-                    Pradesh 462016, India
-                  </p>
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">Our Office</h4>
+                  <p className="mt-2 text-stone-600">10, Patwa Market, Near Bharat Talkies, Bhopal, Madhya Pradesh 462016, India</p>
                 </div>
               </div>
 
@@ -115,9 +112,7 @@ export default function Contact() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">
-                    Phone / WhatsApp
-                  </h4>
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">Phone / WhatsApp</h4>
                   <p className="mt-2 text-stone-600">+91 78933 65987</p>
                 </div>
               </div>
@@ -127,12 +122,8 @@ export default function Contact() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">
-                    Email
-                  </h4>
-                  <p className="mt-2 text-stone-600">
-                    info@apkainteriorwala.com
-                  </p>
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-stone-900">Email</h4>
+                  <p className="mt-2 text-stone-600">info@apkainteriorwala.com</p>
                 </div>
               </div>
             </div>
@@ -157,83 +148,61 @@ export default function Contact() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">
-                    Full Name *
-                  </label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Full Name *</label>
                   <input
                     {...register("name")}
                     className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
                     placeholder="John Doe"
                   />
                   {errors.name && (
-                    <p className="text-[10px] text-red-500 uppercase tracking-widest">
-                      {errors.name.message}
-                    </p>
+                    <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.name.message}</p>
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">
-                    Email Address
-                  </label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Email Address</label>
                   <input
                     {...register("email")}
                     className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
                     placeholder="john@example.com"
                   />
                   {errors.email && (
-                    <p className="text-[10px] text-red-500 uppercase tracking-widest">
-                      {errors.email.message}
-                    </p>
+                    <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.email.message}</p>
                   )}
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">
-                    Phone Number *
-                  </label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Phone Number *</label>
                   <input
                     {...register("phone")}
                     className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors"
                     placeholder="+91 00000 00000"
                   />
                   {errors.phone && (
-                    <p className="text-[10px] text-red-500 uppercase tracking-widest">
-                      {errors.phone.message}
-                    </p>
+                    <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.phone.message}</p>
                   )}
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">
-                    What are you looking for? *
-                  </label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-500">What are you looking for? *</label>
                   <select
                     {...register("service")}
                     className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors appearance-none cursor-pointer"
                   >
-                    <option value="" disabled>
-                      Select a service
-                    </option>
-                    <option value="Interior Designing">
-                      Interior Designing
-                    </option>
+                    <option value="" disabled>Select a service</option>
+                    <option value="Interior Designing">Interior Designing</option>
                     <option value="Consultation">Consultation</option>
                     <option value="3D Visualisation">3D Visualisation</option>
                     <option value="Architecture">Architecture</option>
                   </select>
                   {errors.service && (
-                    <p className="text-[10px] text-red-500 uppercase tracking-widest">
-                      {errors.service.message}
-                    </p>
+                    <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.service.message}</p>
                   )}
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-stone-500">
-                  Message
-                </label>
+                <label className="text-xs font-bold uppercase tracking-widest text-stone-500">Message</label>
                 <textarea
                   {...register("message")}
                   rows={5}
@@ -241,9 +210,7 @@ export default function Contact() {
                   placeholder="Tell us about your project..."
                 />
                 {errors.message && (
-                  <p className="text-[10px] text-red-500 uppercase tracking-widest">
-                    {errors.message.message}
-                  </p>
+                  <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.message.message}</p>
                 )}
               </div>
 
@@ -254,10 +221,7 @@ export default function Contact() {
               >
                 <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                 {!isSubmitting && (
-                  <Send
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
-                  />
+                  <Send size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 )}
               </button>
             </form>

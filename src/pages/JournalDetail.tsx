@@ -3,8 +3,7 @@ import { motion } from 'motion/react';
 import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import ReactMarkdown from 'react-markdown';
-import { useFirestore } from '../hooks/useFirestore';
-import { BlogPost } from '../types';
+import { blogPosts } from '../data/blog';
 
 function readingTime(content: string): number {
   return Math.max(1, Math.ceil(content.split(/\s+/).length / 200));
@@ -12,17 +11,8 @@ function readingTime(content: string): number {
 
 export default function JournalDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const { data: posts, loading } = useFirestore<BlogPost>('blog');
 
-  if (loading) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-stone-50">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary" />
-      </div>
-    );
-  }
-
-  const post = posts.find((p) => p.slug === slug);
+  const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return <Navigate to="/journal" replace />;
 
   const mins = readingTime(post.content);
@@ -141,29 +131,19 @@ export default function JournalDetail() {
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 className="mt-8 mb-3 text-lg font-semibold text-stone-800">
-                  {children}
-                </h3>
+                <h3 className="mt-8 mb-3 text-lg font-semibold text-stone-800">{children}</h3>
               ),
               p: ({ children }) => (
-                <p className="mt-5 text-lg leading-relaxed text-stone-700">
-                  {children}
-                </p>
+                <p className="mt-5 text-lg leading-relaxed text-stone-700">{children}</p>
               ),
               ul: ({ children }) => (
-                <ul className="mt-5 space-y-2 pl-6 list-disc marker:text-stone-400">
-                  {children}
-                </ul>
+                <ul className="mt-5 space-y-2 pl-6 list-disc marker:text-stone-400">{children}</ul>
               ),
               ol: ({ children }) => (
-                <ol className="mt-5 space-y-2 pl-6 list-decimal marker:text-stone-400">
-                  {children}
-                </ol>
+                <ol className="mt-5 space-y-2 pl-6 list-decimal marker:text-stone-400">{children}</ol>
               ),
               li: ({ children }) => (
-                <li className="text-lg leading-relaxed text-stone-700">
-                  {children}
-                </li>
+                <li className="text-lg leading-relaxed text-stone-700">{children}</li>
               ),
               strong: ({ children }) => (
                 <strong className="font-semibold text-stone-900">{children}</strong>

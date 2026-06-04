@@ -1,26 +1,27 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { ExternalLink, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollSEO } from '../hooks/useScrollSEO';
 import { SEO_KEYWORDS } from '../utils/seoData';
 import { Helmet } from 'react-helmet-async';
-import { useFirestore } from '../hooks/useFirestore';
-import { Project } from '../types';
-import { orderBy } from 'firebase/firestore';
+import { projects } from '../data/projects';
 
 const categories = ['All', 'Residential', 'Commercial', 'Construction', 'Renovation'];
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const { data: projects, loading } = useFirestore<Project>('projects', [orderBy('createdAt', 'desc')]);
 
-  // Vertical Scroll SEO Trick
   useScrollSEO('.project-section');
 
-  const filteredProjects = activeCategory === 'All'
-    ? projects
-    : projects.filter((p) => p.category === activeCategory);
+  const sortedProjects = [...projects].sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+
+  const filteredProjects =
+    activeCategory === 'All'
+      ? sortedProjects
+      : sortedProjects.filter((p) => p.category === activeCategory);
 
   return (
     <div className="pb-32">
@@ -56,7 +57,7 @@ export default function Projects() {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-8 py-3 text-xs font-bold uppercase tracking-widest transition-all rounded-full ${
-                activeCategory === cat 
+                activeCategory === cat
                   ? 'bg-primary text-white'
                   : 'bg-stone-100 text-stone-500 hover:bg-stone-200'
               }`}
@@ -66,81 +67,76 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Vertical Carousel for SEO & UX */}
-        {loading ? (
-          <div className="flex justify-center py-32">
-            <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary" />
-          </div>
-        ) : filteredProjects.length === 0 ? (
+        {filteredProjects.length === 0 ? (
           <div className="py-32 text-center text-stone-400">No projects found.</div>
         ) : (
-        <div className="space-y-32">
-          {filteredProjects.map((project, idx) => (
-            <section
-              key={project.id}
-              id={project.slug}
-              className="project-section grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[70vh]"
-            >
-              <motion.div
-                initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                className={idx % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}
+          <div className="space-y-32">
+            {filteredProjects.map((project, idx) => (
+              <section
+                key={project.id}
+                id={project.slug}
+                className="project-section grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[70vh]"
               >
-                <div className="relative aspect-[4/5] overflow-hidden rounded-theme shadow-2xl">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} - ${SEO_KEYWORDS.colloquial[idx % SEO_KEYWORDS.colloquial.length]}`}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-1000 hover:scale-110"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-8 left-8">
-                    <span className="bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] text-stone-900">
-                      {project.category}
-                    </span>
+                <motion.div
+                  initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className={idx % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}
+                >
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-theme shadow-2xl">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} - ${SEO_KEYWORDS.colloquial[idx % SEO_KEYWORDS.colloquial.length]}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-1000 hover:scale-110"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute top-8 left-8">
+                      <span className="bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] text-stone-900">
+                        {project.category}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className={`space-y-8 ${idx % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-2 text-stone-500">
-                    <MapPin size={16} />
-                    <span className="text-xs font-bold uppercase tracking-widest">{project.location}</span>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className={`space-y-8 ${idx % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-2 text-stone-500">
+                      <MapPin size={16} />
+                      <span className="text-xs font-bold uppercase tracking-widest">{project.location}</span>
+                    </div>
+                    <h3 className="text-4xl md:text-5xl font-light text-stone-900 leading-tight">
+                      {project.title}
+                    </h3>
                   </div>
-                  <h3 className="text-4xl md:text-5xl font-light text-stone-900 leading-tight">
-                    {project.title}
-                  </h3>
-                </div>
 
-                <p className="text-lg text-stone-600 leading-relaxed font-light">
-                  {project.description}
-                </p>
+                  <p className="text-lg text-stone-600 leading-relaxed font-light">
+                    {project.description}
+                  </p>
 
-                {project.slug && (
-                  <div className="pt-8">
-                    <Link
-                      to={`/projects/${project.slug}`}
-                      className="group inline-flex items-center space-x-4 text-xs font-bold uppercase tracking-[0.3em] text-stone-900"
-                      aria-label={`View details for ${project.title}`}
-                    >
-                      <span className="border-b-2 border-stone-900 pb-1 group-hover:border-stone-400 transition-colors">Explore Project</span>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 group-hover:bg-primary group-hover:text-white transition-all">
-                        <ExternalLink size={16} />
-                      </div>
-                    </Link>
-                  </div>
-                )}
-              </motion.div>
-            </section>
-          ))}
-        </div>
+                  {project.slug && (
+                    <div className="pt-8">
+                      <Link
+                        to={`/projects/${project.slug}`}
+                        className="group inline-flex items-center space-x-4 text-xs font-bold uppercase tracking-[0.3em] text-stone-900"
+                        aria-label={`View details for ${project.title}`}
+                      >
+                        <span className="border-b-2 border-stone-900 pb-1 group-hover:border-stone-400 transition-colors">Explore Project</span>
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-200 group-hover:bg-primary group-hover:text-white transition-all">
+                          <ExternalLink size={16} />
+                        </div>
+                      </Link>
+                    </div>
+                  )}
+                </motion.div>
+              </section>
+            ))}
+          </div>
         )}
 
         {/* CTA */}

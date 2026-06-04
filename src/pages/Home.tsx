@@ -1,36 +1,19 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { ArrowRight, ChevronRight, Star, Quote, Phone, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, ChevronRight, Quote } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useFirestore } from '../hooks/useFirestore';
-import { Service, Project, Testimonial, BlogPost } from '../types';
-import { usePageContent } from '../hooks/usePageContent';
+import { homeContent } from '../data/pageContent';
+import { projects } from '../data/projects';
+import { blogPosts } from '../data/blog';
+import { testimonials } from '../data/testimonials';
 
-const DEFAULT_HOME_CONTENT = {
-  heroTitle: 'Crafting Spaces That Tell Your Story',
-  heroSubtitle: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.',
-  heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=60&w=1600',
-  aboutTitle: 'Excellence in Design & Construction',
-  aboutText: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.',
-  aboutImage1: '/images/residential-hallway.jpg',
-  aboutImage2: '/images/bedroom-render-2.jpg',
-  ctaImage: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=50&w=1200',
-};
+const featuredProjects = [
+  { title: 'The Horizon Villa', loc: 'Arera Colony, Bhopal', img: '/images/horizon-villa-day.jpg', slug: 'modern-luxury-villa-construction-bhopal' },
+  { title: 'ONE 6NE - Commercial Hub', loc: 'MP Nagar, Bhopal', img: '/images/one6ne-commercial-1.jpg', slug: 'commercial-building-interior-design-bhopal' },
+];
 
 export default function Home() {
-  const { content, loading } = usePageContent('home', DEFAULT_HOME_CONTENT);
-  const { data: services } = useFirestore<Service>('services');
-  const { data: projects } = useFirestore<Project>('projects');
-  const { data: testimonials } = useFirestore<Testimonial>('testimonials');
-  const { data: blogPosts } = useFirestore<BlogPost>('blog');
-
-  if (loading) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-stone-50">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-stone-200 border-t-primary"></div>
-      </div>
-    );
-  }
+  const testimonial = testimonials[0];
 
   return (
     <div className="overflow-hidden">
@@ -39,11 +22,12 @@ export default function Home() {
         <meta name="description" content="Premium interior design and construction firm in Bhopal. Modular kitchens, false ceilings, custom furniture & turnkey solutions. Free consultation available." />
         <link rel="canonical" href="https://apkainteriorwala.com" />
       </Helmet>
+
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={content.heroImage}
+            src={homeContent.heroImage}
             alt="Luxury interior design living room - Apka Interior Wala Bhopal"
             className="h-full w-full object-cover brightness-[0.4]"
             fetchPriority="high"
@@ -67,7 +51,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-8 text-5xl font-light leading-tight text-white md:text-7xl lg:text-8xl"
             >
-              {content.heroTitle}
+              {homeContent.heroTitle}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -75,7 +59,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mx-auto mb-12 max-w-2xl text-lg text-stone-300 md:text-xl"
             >
-              {content.heroSubtitle}
+              {homeContent.heroSubtitle}
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -99,9 +83,9 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-        
+
         {/* Scroll Indicator */}
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50"
@@ -119,7 +103,7 @@ export default function Home() {
             <div className="relative">
               <div className="aspect-[4/5] overflow-hidden rounded-2xl">
                 <img
-                  src={content.aboutImage1}
+                  src={homeContent.aboutImage1}
                   alt="Best interior designer in Bhopal - Design Process"
                   loading="lazy"
                   className="h-full w-full object-cover"
@@ -128,7 +112,7 @@ export default function Home() {
               </div>
               <div className="absolute -bottom-10 -right-10 hidden h-64 w-64 overflow-hidden rounded-2xl border-8 border-white shadow-2xl md:block">
                 <img
-                  src={content.aboutImage2}
+                  src={homeContent.aboutImage2}
                   alt="Construction contractor Madhya Pradesh - Site Work"
                   loading="lazy"
                   className="h-full w-full object-cover"
@@ -139,10 +123,10 @@ export default function Home() {
             <div className="space-y-8">
               <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-500">About Apka Interior Wala</span>
               <h2 className="text-4xl font-light leading-tight text-stone-900 md:text-5xl">
-                {content.aboutTitle}
+                {homeContent.aboutTitle}
               </h2>
               <p className="text-lg leading-relaxed text-stone-600">
-                {content.aboutText}
+                {homeContent.aboutText}
               </p>
               <div className="grid grid-cols-2 gap-8 pt-4">
                 <div>
@@ -175,10 +159,10 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { title: 'Residential Design', desc: 'Custom luxury interiors for villas and apartments. Pinterest-inspired home designs.', icon: 'Home' },
-              { title: 'Commercial Design', desc: 'Innovative office and retail spaces that inspire. Modern office design Indore.', icon: 'Building' },
-              { title: 'Construction', desc: 'High-quality construction with international standards. Thekedar in Bhopal.', icon: 'Hammer' },
-              { title: 'Turnkey Solutions', desc: 'End-to-end management from concept to completion. Carpenter & Plumbing solutions.', icon: 'Key' },
+              { title: 'Residential Design', desc: 'Custom luxury interiors for villas and apartments. Pinterest-inspired home designs.' },
+              { title: 'Commercial Design', desc: 'Innovative office and retail spaces that inspire. Modern office design Indore.' },
+              { title: 'Construction', desc: 'High-quality construction with international standards. Thekedar in Bhopal.' },
+              { title: 'Turnkey Solutions', desc: 'End-to-end management from concept to completion. Carpenter & Plumbing solutions.' },
             ].map((service, idx) => (
               <div key={idx} className="group border border-stone-100 p-10 transition-all hover:bg-stone-50 hover:shadow-xl">
                 <div className="mb-8 flex h-16 w-16 items-center justify-center bg-primary text-white transition-transform group-hover:scale-110">
@@ -208,10 +192,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-            {[
-              { title: 'The Horizon Villa', loc: 'Arera Colony, Bhopal', img: '/images/horizon-villa-day.jpg', slug: 'modern-luxury-villa-construction-bhopal' },
-              { title: 'ONE 6NE - Commercial Hub', loc: 'MP Nagar, Bhopal', img: '/images/one6ne-commercial-1.jpg', slug: 'commercial-building-interior-design-bhopal' },
-            ].map((project, idx) => (
+            {featuredProjects.map((project, idx) => (
               <Link key={idx} to={`/projects/${project.slug}`} className="group block space-y-6">
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
@@ -272,14 +253,11 @@ export default function Home() {
           <Quote size={64} className="mx-auto mb-12 text-stone-200" />
           <div className="space-y-12">
             <p className="text-2xl font-light italic leading-relaxed text-stone-800 md:text-3xl">
-              "Apka Interior Wala transformed our house into a home that reflects our personality perfectly. Their attention to detail and commitment to quality is truly world-class."
+              "{testimonial.content}"
             </p>
             <div>
-              <div className="mx-auto mb-4 h-16 w-16 overflow-hidden rounded-full">
-                <img src="https://i.pravatar.cc/150?u=1" alt="Rajesh Sharma - satisfied interior design client, Bhopal" referrerPolicy="no-referrer" />
-              </div>
-              <h4 className="text-lg font-bold text-stone-900">Rajesh Sharma</h4>
-              <p className="text-xs font-medium uppercase tracking-widest text-stone-500">Homeowner, Bhopal</p>
+              <h4 className="text-lg font-bold text-stone-900">{testimonial.name}</h4>
+              <p className="text-xs font-medium uppercase tracking-widest text-stone-500">{testimonial.role}</p>
             </div>
           </div>
         </div>
@@ -291,7 +269,7 @@ export default function Home() {
           <div className="relative overflow-hidden bg-primary px-8 py-24 text-center text-white rounded-theme">
             <div className="absolute inset-0 opacity-20">
               <img
-                src={content.ctaImage}
+                src={homeContent.ctaImage}
                 alt="Construction and interior design work in progress - Apka Interior Wala Bhopal"
                 className="h-full w-full object-cover"
                 loading="lazy"

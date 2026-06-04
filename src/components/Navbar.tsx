@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Clock, Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
-import { useSiteSettings } from '../hooks/useSiteSettings';
+import { siteSettings } from '../data/siteSettings';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -20,7 +20,7 @@ export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
-  const { phone, socialLinks } = useSiteSettings();
+  const { phone, socialLinks } = siteSettings;
 
   const socialIcons = [
     { icon: Instagram, url: socialLinks.instagram },
