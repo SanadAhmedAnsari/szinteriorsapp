@@ -95,7 +95,7 @@ export default function About() {
               </p>
               <div className="pt-4 flex space-x-6">
                 <a
-                  href="https://www.instagram.com/apka_interior_wala_bhopal/"
+                  href="https://www.instagram.com/apkainteriorwalabhopal/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-stone-500 hover:text-white transition-colors"
@@ -103,7 +103,7 @@ export default function About() {
                   <Instagram size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com/company/apkainteriorwala"
+                  href="https://www.linkedin.com/in/zainabkhandigital/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-stone-500 hover:text-white transition-colors"
