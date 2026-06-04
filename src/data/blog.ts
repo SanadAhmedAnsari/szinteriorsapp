@@ -455,4 +455,66 @@ Ready to replace flat-pack furniture with pieces that are built for your home an
     published: true,
     publishedAt: '2023-01-01T00:00:00.000Z',
   },
+  {
+    id: 'before-after-villa-renovation-bhopal',
+    title: 'Before & After: Transforming a Dated Villa into a Luxury Home',
+    slug: 'before-after-villa-renovation-bhopal',
+    category: 'Project Stories',
+    excerpt:
+      'We take you behind the scenes of one of our most ambitious renovation projects — a 20-year-old villa in Arera Colony that became a modern luxury residence.',
+    content: `## The Brief: Keep the Bones, Transform Everything Else
+
+When the owners of a 20-year-old villa in Arera Colony, Bhopal first called us, the home was structurally sound but visually frozen in time. Dark, cramped rooms. Outdated tiling. A kitchen that hadn't been touched in two decades. Heavy curtains blocking out light that the house had in abundance.
+
+Their brief was refreshingly clear: **keep the structure, transform everything else.** No demolition of load-bearing walls. No complete rebuild. Just a thoughtful, comprehensive renovation that would carry the home confidently into the next 20 years.
+
+## What We Were Working With
+
+The villa spanned 3,200 sq ft across two floors, with four bedrooms, a large living-dining area, a separate kitchen, and a rear garden that had been largely ignored. The bones were good — high ceilings, generous room sizes, and solid construction from an era when builders didn't cut corners.
+
+The problems were cosmetic and functional:
+
+- **Living room:** Beige walls, old mosaic flooring, and a false ceiling from the early 2000s with fluorescent tube lighting
+- **Kitchen:** Standalone wooden cabinets, stone countertop, no organised storage, poor ventilation
+- **Bedrooms:** Mismatched furniture, heavy wooden wardrobes eating up floor space, no cohesive identity
+- **Bathrooms:** Original white tiles, outdated fixtures, poor waterproofing causing persistent damp patches
+- **Exterior:** Exposed brick showing through peeling paint, a dated gate and boundary wall
+
+## Our Approach: Phased Renovation
+
+We planned the project in four phases so the family could continue living in parts of the house while work progressed — a practical consideration that's often overlooked in renovation planning.
+
+**Phase 1 — Bathrooms first.** Waterproofing issues always get fixed before anything else. We gutted all three bathrooms, redid the waterproofing, and installed large-format light grey tiles, frameless shower enclosures, and wall-mounted fixtures that made each bathroom feel twice as large.
+
+**Phase 2 — Kitchen transformation.** The old kitchen was stripped to the walls. We designed a full modular kitchen with matt white base cabinets, a deep grey island countertop in engineered stone, and open upper shelving in brushed walnut finish. An exhaust system and extra window enlarged the space visually and functionally.
+
+**Phase 3 — Living and dining.** The mosaic flooring was covered with large-format Italian marble-finish vitrified tiles — a cost-effective way to get the look of marble without the maintenance. The false ceiling was rebuilt with warm recessed lighting and a central feature panel. Walls went from beige to a warm off-white with one textured accent wall in Venetian plaster.
+
+**Phase 4 — Bedrooms and exterior.** Each bedroom received a custom wardrobe fitted to the wall, a headboard panel in upholstered fabric, and coordinated soft furnishings. The exterior was repainted in a refined ivory and charcoal palette, the boundary wall was re-rendered, and the garden received basic landscaping with a small seating area.
+
+## The Results
+
+The transformation took 14 weeks in total. The owners got a home that felt entirely new without the disruption or cost of a ground-up rebuild.
+
+Key outcomes:
+- **Living area** feels 40% larger with the new flooring continuity, lighter palette, and improved ceiling lighting
+- **Kitchen** went from a dysfunctional workspace to the heart of the home — the island now doubles as a breakfast bar and homework station
+- **Master bedroom** has the calm, hotel-like quality the owners specifically asked for
+- **Resale value** of the property increased significantly — a well-executed renovation in Arera Colony consistently delivers strong returns
+
+## What This Project Taught Us
+
+Every old home has good bones if you know where to look. The temptation in renovation is to demolish and start fresh, but that approach wastes the structural investment already made and adds months to the timeline. The better instinct is to work *with* the existing architecture — correct its weaknesses, amplify its strengths.
+
+This villa had ceiling heights that modern builders rarely achieve. We made every design decision to celebrate that height rather than hide it.
+
+## Planning a Villa Renovation in Bhopal?
+
+Whether your home is 10 years old or 30, a well-planned renovation can bring it fully up to date while preserving what makes it worth living in. **Contact Apka Interior Wala** for a free site assessment — we'll tell you honestly what's worth keeping, what needs to go, and how to get the most from your renovation budget.`,
+    image: '/images/residential-hallway.jpg',
+    author: 'Zainab Khan',
+    tags: ['renovation', 'villa', 'before after', 'arera colony'],
+    published: true,
+    publishedAt: '2022-07-20T00:00:00.000Z',
+  },
 ];

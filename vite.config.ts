@@ -70,6 +70,7 @@ const staticPosts = [
   { slug: 'best-construction-contractor-thekedar-bhopal', title: 'Best Construction Contractor in Bhopal: What to Look for Before You Hire', excerpt: 'Hiring a thekedar or construction contractor in Bhopal? This guide tells you exactly what to check before signing any agreement.', image: '/images/marble-staircase.jpg', publishedAt: '2023-03-01T00:00:00.000Z' },
   { slug: 'affordable-home-interior-design-bhopal-cost-guide', title: 'Affordable Interior Design in Bhopal: Real Cost Guide for Every Budget', excerpt: 'Wondering what interior design actually costs in Bhopal? This honest guide breaks down costs for every room, tier, and budget.', image: '/images/bedroom-wardrobe.jpg', publishedAt: '2023-02-01T00:00:00.000Z' },
   { slug: 'custom-furniture-carpentry-bhopal', title: "Custom Furniture in Bhopal: Why Bespoke Beats Off-the-Shelf Every Time", excerpt: "Custom furniture in Bhopal doesn't have to cost a fortune. Learn how bespoke wardrobes and kitchen cabinets can transform your home.", image: '/images/bedroom-wardrobe-study.jpg', publishedAt: '2023-01-01T00:00:00.000Z' },
+  { slug: 'before-after-villa-renovation-bhopal', title: 'Before & After: Transforming a Dated Villa into a Luxury Home', excerpt: 'We take you behind the scenes of one of our most ambitious renovation projects — a 20-year-old villa in Arera Colony that became a modern luxury residence.', image: '/images/residential-hallway.jpg', publishedAt: '2022-07-20T00:00:00.000Z' },
 ];
 
 function escAttr(s: string): string {
@@ -83,8 +84,9 @@ function injectIntoShell(template: string, opts: {
   ogImage?: string;
   ogType?: string;
   extraHead?: string;
+  bodyContent?: string;
 }): string {
-  const { title, description, canonical, ogImage, ogType = 'website', extraHead = '' } = opts;
+  const { title, description, canonical, ogImage, ogType = 'website', extraHead = '', bodyContent } = opts;
   let html = template;
 
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escAttr(title)}</title>`);
@@ -104,6 +106,15 @@ function injectIntoShell(template: string, opts: {
   ].filter(Boolean).join('\n');
 
   html = html.replace('</head>', injected);
+
+  // Inject crawlable body content so Google indexes real text on first HTML fetch
+  if (bodyContent) {
+    html = html.replace(
+      /<div id="root"><\/div>/,
+      `<div id="root">${bodyContent}</div>`
+    );
+  }
+
   return html;
 }
 
@@ -159,10 +170,13 @@ export default defineConfig(() => {
               creator: { '@type': 'LocalBusiness', name: 'Apka Interior Wala', url: DOMAIN },
             });
 
+            const bodyContent = `<main style="max-width:860px;margin:0 auto;padding:2rem 1rem"><span style="font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#78716c">${project.category} &mdash; ${location}</span><h1 style="font-size:2rem;font-weight:300;margin:.5rem 0 1rem;color:#1c1917">${project.title}</h1><p style="color:#57534e;line-height:1.7">${project.description}</p></main>`;
+
             const html = injectIntoShell(template, {
               title, description, canonical,
               ogImage: project.image,
               extraHead: `  <script type="application/ld+json">${schema}</script>`,
+              bodyContent,
             });
 
             const dir = path.join(distDir, 'projects', project.slug);
@@ -200,11 +214,14 @@ export default defineConfig(() => {
               mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
             });
 
+            const bodyContent = `<main style="max-width:860px;margin:0 auto;padding:2rem 1rem"><h1 style="font-size:2rem;font-weight:300;margin:0 0 1rem;color:#1c1917">${post.title}</h1><p style="color:#57534e;line-height:1.7">${post.excerpt}</p></main>`;
+
             const html = injectIntoShell(template, {
               title, description, canonical,
               ogImage: post.image,
               ogType: 'article',
               extraHead: `  <script type="application/ld+json">${schema}</script>`,
+              bodyContent,
             });
 
             const dir = path.join(distDir, 'journal', post.slug);
