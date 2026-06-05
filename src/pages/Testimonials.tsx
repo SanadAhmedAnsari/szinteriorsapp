@@ -82,17 +82,28 @@ export default function Testimonials() {
         </div>
 
         {/* CTA */}
-        <div className="mt-32 text-center bg-primary p-12 md:p-24 rounded-theme text-white">
-          <h2 className="text-3xl font-light mb-8">Join Our List of Satisfied Clients</h2>
-          <p className="text-stone-400 mb-12 max-w-2xl mx-auto">
-            Experience the difference of working with Bhopal's premier design and construction agency.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-block bg-white text-stone-900 px-12 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-stone-100 transition-all"
-          >
-            Get a Free Consultation
-          </Link>
+        <div className="mt-32 relative overflow-hidden text-center bg-primary p-12 md:p-24 rounded-theme text-white">
+          <div className="absolute inset-0 opacity-20">
+            <img
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=50&w=1200"
+              alt=""
+              className="h-full w-full object-cover"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="relative z-10">
+            <h2 className="text-3xl font-light mb-8">Join Our List of Satisfied Clients</h2>
+            <p className="text-stone-400 mb-12 max-w-2xl mx-auto">
+              Experience the difference of working with Bhopal's premier design and construction agency.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-block bg-white text-stone-900 px-12 py-5 rounded-full font-bold uppercase tracking-widest hover:bg-stone-100 transition-all"
+            >
+              Get a Free Consultation
+            </Link>
+          </div>
         </div>
       </div>
     </div>

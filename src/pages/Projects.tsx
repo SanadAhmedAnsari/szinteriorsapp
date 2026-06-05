@@ -140,17 +140,28 @@ export default function Projects() {
         )}
 
         {/* CTA */}
-        <div className="mt-40 text-center bg-stone-50 rounded-[4rem] p-20 md:p-32">
-          <h2 className="text-4xl font-light text-stone-900 mb-8">Ready to Build Your <span className="italic font-serif">Dream</span>?</h2>
-          <p className="text-stone-500 mb-12 max-w-2xl mx-auto">
-            Whether it's a Pinterest-inspired home design or a professional theka construction, we are your trusted partners in Madhya Pradesh.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-block bg-primary px-16 py-6 text-sm font-bold uppercase tracking-widest text-white transition-all hover:opacity-90 rounded-button"
-          >
-            Start Your Project
-          </Link>
+        <div className="mt-40 relative overflow-hidden text-center bg-primary rounded-[4rem] p-20 md:p-32 text-white">
+          <div className="absolute inset-0 opacity-20">
+            <img
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=50&w=1200"
+              alt=""
+              className="h-full w-full object-cover"
+              loading="lazy"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="relative z-10">
+            <h2 className="text-4xl font-light mb-8">Ready to Build Your <span className="italic font-serif">Dream</span>?</h2>
+            <p className="text-stone-400 mb-12 max-w-2xl mx-auto">
+              Whether it's a Pinterest-inspired home design or a professional theka construction, we are your trusted partners in Madhya Pradesh.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-block bg-white text-stone-900 px-16 py-6 text-sm font-bold uppercase tracking-widest transition-all hover:bg-stone-100 rounded-button"
+            >
+              Start Your Project
+            </Link>
+          </div>
         </div>
       </div>
     </div>
