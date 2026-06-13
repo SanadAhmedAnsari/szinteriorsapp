@@ -62,14 +62,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 group transition-transform group-hover:scale-105">
-              <picture>
-                <source srcSet="/favicon.webp" type="image/webp" />
-                <img src="/favicon.png" alt="Apka Interior Wala logo" className="h-12 w-auto object-contain" width="187" height="185" />
-              </picture>
-              <picture>
-                <source srcSet="/logo-text.webp" type="image/webp" />
-                <img src="/logo-text.png" alt="Apka Interior Wala" className="h-8 w-auto object-contain" width="371" height="133" />
-              </picture>
+              <img src="/favicon.webp" alt="Apka Interior Wala logo" className="h-12 w-auto object-contain" width="187" height="185" />
+              <img src="/logo-text.webp" alt="Apka Interior Wala" className="h-8 w-auto object-contain" width="371" height="133" />
             </Link>
 
             {/* Contact Info (Desktop) */}

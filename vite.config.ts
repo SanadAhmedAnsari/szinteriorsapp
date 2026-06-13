@@ -128,7 +128,17 @@ export default defineConfig(() => {
         async closeBundle() {
           const distDir = path.resolve(process.cwd(), 'dist');
           const today = new Date().toISOString().split('T')[0];
-          const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+          let template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+
+          // Inject CSS preload so the browser fetches the stylesheet before it's parsed
+          const cssFile = fs.readdirSync(path.join(distDir, 'assets')).find(f => f.endsWith('.css'));
+          if (cssFile) {
+            template = template.replace(
+              '</head>',
+              `  <link rel="preload" as="style" href="/assets/${cssFile}" />\n</head>`
+            );
+            fs.writeFileSync(path.join(distDir, 'index.html'), template, 'utf8');
+          }
 
           // ── 1. Pre-render static HTML shells ─────────────────────────────
           for (const { path: routePath, title, description } of routes) {
