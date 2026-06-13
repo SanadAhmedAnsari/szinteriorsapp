@@ -9,8 +9,8 @@ const DOMAIN = 'https://apkainteriorwala.com';
 const routes: { path: string; title: string; description: string }[] = [
   {
     path: '',
-    title: 'Apka Interior Wala | Interior Design & Construction Bhopal',
-    description: 'Premium interior design and construction firm in Bhopal. Modular kitchens, false ceilings, custom furniture & turnkey solutions. Free consultation available.',
+    title: 'Best Interior Designer in Bhopal | Apka Interior Wala',
+    description: "Apka Interior Wala — Bhopal's best interior design studio. Modular kitchens, wardrobes, false ceilings, custom furniture & aluminium partitions. 150+ projects. Free consultation.",
   },
   {
     path: '/about',
@@ -19,8 +19,8 @@ const routes: { path: string; title: string; description: string }[] = [
   },
   {
     path: '/services',
-    title: 'Our Services | Interior Design & Construction Bhopal',
-    description: 'Residential & commercial interior design, modular kitchens, false ceilings, construction, renovation, and turnkey solutions in Bhopal, Madhya Pradesh.',
+    title: 'Interior Design Services in Bhopal | Apka Interior Wala',
+    description: 'Best interior design services in Bhopal — modular kitchens, wardrobes, false ceilings, aluminium partitions, custom furniture & turnkey construction. Free consultation.',
   },
   {
     path: '/projects',
@@ -90,9 +90,19 @@ function injectIntoShell(template: string, opts: {
   let html = template;
 
   html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${escAttr(title)}</title>`);
-  html = html.replace(/<meta[\s\S]*?name="description"[\s\S]*?\/>/s,
+  // Match only the description <meta> tag itself — not other tags that come before it.
+  // The multi-line form in index.html is: <meta\n      name="description"\n      content="..."\n    />
+  html = html.replace(
+    /<meta\s*\n\s*name="description"\s*\n\s*content="[^"]*"\s*\n\s*\/>/,
     `<meta name="description" content="${escAttr(description)}" />`
   );
+  // Fallback for single-line: <meta name="description" content="..." />
+  if (!html.includes(`content="${escAttr(description)}"`)) {
+    html = html.replace(
+      /<meta\s+name="description"\s+content="[^"]*"\s*\/>/,
+      `<meta name="description" content="${escAttr(description)}" />`
+    );
+  }
 
   const injected = [
     `  <link rel="canonical" href="${canonical}" />`,
@@ -139,6 +149,29 @@ export default defineConfig(() => {
             );
             fs.writeFileSync(path.join(distDir, 'index.html'), template, 'utf8');
           }
+
+          // ── 0. Inject homepage-specific FAQ schema + static body content ──
+          const homepageFaqSchema = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              { '@type': 'Question', name: 'Who is the best interior designer in Bhopal?', acceptedAnswer: { '@type': 'Answer', text: "Apka Interior Wala is widely regarded as Bhopal's best interior design studio, with 150+ completed projects across residential and commercial segments throughout Madhya Pradesh." } },
+              { '@type': 'Question', name: 'What interior design services do you offer in Bhopal?', acceptedAnswer: { '@type': 'Answer', text: 'Modular kitchens, custom wardrobes, false ceilings, custom furniture, aluminium sliding partitions, home & wall decor, residential interior design, commercial interior design, and full turnkey construction across Bhopal.' } },
+              { '@type': 'Question', name: 'What is the cost of interior design in Bhopal?', acceptedAnswer: { '@type': 'Answer', text: 'Costs range from ₹50,000 for a single room to ₹8 lakh+ for full home interiors. Modular kitchens from ₹1.5 lakh, false ceilings from ₹60/sq ft, and 2BHK interiors from ₹5–8 lakh.' } },
+              { '@type': 'Question', name: 'Do you offer a free interior design consultation in Bhopal?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — a free 60-minute design consultation at our studio near Bharat Talkies, Bhopal, or at your home or office. Free 3D visualizations provided before any work begins.' } },
+              { '@type': 'Question', name: 'Which areas in Bhopal does Apka Interior Wala serve?', acceptedAnswer: { '@type': 'Answer', text: 'Arera Colony, MP Nagar, Koh-e-Fiza, Gulmohar, Hoshangabad Road, New Market, Bhopal Junction, Shivaji Nagar, and surrounding Madhya Pradesh districts including Indore.' } },
+            ],
+          });
+
+          const homepageFaqBody = `<section id="faq" style="max-width:800px;margin:4rem auto;padding:2rem 1rem"><h2 style="font-size:1.5rem;font-weight:300;margin:0 0 1.5rem;color:#1c1917">Frequently Asked Questions — Interior Design Bhopal</h2><div style="border-top:1px solid #e7e5e4"><div style="padding:1.25rem 0;border-bottom:1px solid #e7e5e4"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">Who is the best interior designer in Bhopal?</h3><p style="color:#57534e;line-height:1.7;margin:0">Apka Interior Wala is widely regarded as Bhopal’s best interior design studio, with 150+ completed projects across residential and commercial segments throughout Madhya Pradesh.</p></div><div style="padding:1.25rem 0;border-bottom:1px solid #e7e5e4"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">What interior design services are available in Bhopal?</h3><p style="color:#57534e;line-height:1.7;margin:0">Modular kitchens, custom wardrobes, false ceilings, custom furniture, aluminium sliding partitions, home &amp; wall decor, residential &amp; commercial interior design, and full turnkey construction across Bhopal.</p></div><div style="padding:1.25rem 0;border-bottom:1px solid #e7e5e4"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">What is the cost of interior design in Bhopal?</h3><p style="color:#57534e;line-height:1.7;margin:0">Costs range from ₹50,000 for a single room to ₹8 lakh+ for full home interiors. Modular kitchens from ₹1.5 lakh, false ceilings from ₹60/sq ft, and 2BHK interiors from ₹5–8 lakh.</p></div><div style="padding:1.25rem 0;border-bottom:1px solid #e7e5e4"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">Do you offer a free consultation in Bhopal?</h3><p style="color:#57534e;line-height:1.7;margin:0">Yes — free 60-minute consultation at our studio near Bharat Talkies, Bhopal, or at your site. Free 3D visualization before work begins.</p></div><div style="padding:1.25rem 0"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">Which Bhopal areas do you serve?</h3><p style="color:#57534e;line-height:1.7;margin:0">Arera Colony, MP Nagar, Koh-e-Fiza, Gulmohar, Hoshangabad Road, New Market, Bhopal Junction, Shivaji Nagar, and surrounding Madhya Pradesh districts.</p></div></div></section>`;
+
+          {
+            let homepageHtml = template
+              .replace('</head>', `  <script type="application/ld+json">${homepageFaqSchema}</script>\n</head>`)
+              .replace('<div id="root"></div>', `<div id="root">${homepageFaqBody}</div>`);
+            fs.writeFileSync(path.join(distDir, 'index.html'), homepageHtml, 'utf8');
+          }
+          console.log('✅ Homepage FAQ schema + static content injected');
 
           // ── 1. Pre-render static HTML shells ─────────────────────────────
           for (const { path: routePath, title, description } of routes) {

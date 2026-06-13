@@ -2,47 +2,113 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://apkainteriorwala.com</loc>
-    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://apkainteriorwala.com/about</loc>
-    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://apkainteriorwala.com/services</loc>
-    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://apkainteriorwala.com/projects</loc>
-    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://apkainteriorwala.com/journal</loc>
-    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://apkainteriorwala.com/testimonials</loc>
-    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://apkainteriorwala.com/contact</loc>
-    <lastmod>2026-05-17</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Project pages -->
+  <url>
+    <loc>https://apkainteriorwala.com/projects/modern-luxury-villa-construction-bhopal</loc>
+    <lastmod>2022-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://apkainteriorwala.com/privacy</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://apkainteriorwala.com/projects/modular-kitchen-before-after-bhopal</loc>
+    <lastmod>2022-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://apkainteriorwala.com/terms</loc>
-    <lastmod>2026-05-23</lastmod>
-    <changefreq>yearly</changefreq>
+    <loc>https://apkainteriorwala.com/projects/commercial-building-interior-design-bhopal</loc>
+    <lastmod>2022-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apkainteriorwala.com/projects/luxury-home-interiors-false-ceiling-bhopal</loc>
+    <lastmod>2022-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apkainteriorwala.com/projects/modern-kitchen-designer-bhopal</loc>
+    <lastmod>2022-04-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Journal / Blog posts -->
+  <url>
+    <loc>https://apkainteriorwala.com/journal/best-interior-designer-bhopal-apka-interior-wala</loc>
+    <lastmod>2023-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://apkainteriorwala.com/journal/10-tips-modern-modular-kitchen-bhopal</loc>
+    <lastmod>2023-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apkainteriorwala.com/journal/false-ceiling-design-cost-bhopal</loc>
+    <lastmod>2023-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apkainteriorwala.com/journal/best-construction-contractor-thekedar-bhopal</loc>
+    <lastmod>2023-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://apkainteriorwala.com/journal/affordable-home-interior-design-bhopal-cost-guide</loc>
+    <lastmod>2023-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apkainteriorwala.com/journal/custom-furniture-carpentry-bhopal</loc>
+    <lastmod>2023-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://apkainteriorwala.com/journal/before-after-villa-renovation-bhopal</loc>
+    <lastmod>2022-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

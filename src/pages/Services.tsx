@@ -58,10 +58,10 @@ export default function Services() {
   return (
     <div className="pb-32">
       <Helmet>
-        <title>Our Services | Interior Design &amp; Construction Bhopal</title>
-        <meta name="description" content="Residential & commercial interior design, modular kitchens, false ceilings, construction, renovation, and turnkey solutions in Bhopal, Madhya Pradesh." />
+        <title>Interior Design Services in Bhopal | Apka Interior Wala</title>
+        <meta name="description" content="Best interior design services in Bhopal — modular kitchens, wardrobes, false ceilings, aluminium partitions, custom furniture & turnkey construction. Free consultation." />
         <link rel="canonical" href="https://apkainteriorwala.com/services" />
-        <meta property="og:title" content="Our Services | Interior Design &amp; Construction Bhopal" />
+        <meta property="og:title" content="Interior Design Services in Bhopal | Apka Interior Wala" />
         <meta property="og:description" content="Residential &amp; commercial interior design, modular kitchens, false ceilings, construction, renovation, and turnkey solutions in Bhopal, Madhya Pradesh." />
         <meta property="og:url" content="https://apkainteriorwala.com/services" />
         <meta property="og:type" content="website" />
@@ -82,7 +82,7 @@ export default function Services() {
             transition={{ delay: 0.1 }}
             className="mt-4 text-5xl font-light text-stone-900 md:text-7xl"
           >
-            Interior Design <span className="italic font-serif">Services</span>
+            Interior Design <span className="italic font-serif">Services</span> in Bhopal
           </motion.h1>
         </div>
 

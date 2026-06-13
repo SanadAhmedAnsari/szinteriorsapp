@@ -1,6 +1,6 @@
 export const homeContent = {
-  heroTitle: 'Crafting Spaces That Tell Your Story',
-  heroSubtitle: 'Premium interior design and construction services for residential and commercial projects in Bhopal and beyond.',
+  heroTitle: "Bhopal's Best Interior Design & Construction",
+  heroSubtitle: 'Modular kitchens, custom wardrobes, false ceilings & turnkey interiors for homes and offices across Bhopal — free consultation available.',
   heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=50&w=1200&fm=avif',
   aboutTitle: 'Excellence in Design & Construction',
   aboutText: 'With over a decade of experience, Apka Interior Wala has been at the forefront of creating luxury spaces that blend functionality with aesthetic brilliance.',

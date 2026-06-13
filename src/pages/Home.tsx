@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { ArrowRight, ChevronRight, Quote } from 'lucide-react';
@@ -6,6 +7,61 @@ import { homeContent } from '../data/pageContent';
 import { projects } from '../data/projects';
 import { blogPosts } from '../data/blog';
 import { testimonials } from '../data/testimonials';
+
+const faqItems = [
+  {
+    q: 'Who is the best interior designer in Bhopal?',
+    a: "Apka Interior Wala is widely regarded as Bhopal's best interior design studio, with 150+ completed projects across residential and commercial segments throughout Madhya Pradesh.",
+  },
+  {
+    q: 'What interior design services do you offer in Bhopal?',
+    a: 'We offer modular kitchens, custom wardrobes, false ceilings, custom furniture, aluminium sliding partitions, home & wall decor, residential interior design, commercial interior design, and full turnkey construction across Bhopal.',
+  },
+  {
+    q: 'What is the cost of interior design in Bhopal?',
+    a: 'Costs range from ₹50,000 for a single room refresh to ₹8 lakh+ for full home interiors. Modular kitchens start at ₹1.5 lakh, false ceilings from ₹60/sq ft, and complete 2BHK interiors from ₹5–8 lakh depending on finish quality.',
+  },
+  {
+    q: 'Do you offer a free interior design consultation in Bhopal?',
+    a: 'Yes — Apka Interior Wala offers a free 60-minute design consultation at our studio near Bharat Talkies, Bhopal, or at your home or office. We also provide free 3D visualizations before any work begins.',
+  },
+  {
+    q: 'Which areas in Bhopal does Apka Interior Wala serve?',
+    a: 'We serve all Bhopal localities including Arera Colony, MP Nagar, Koh-e-Fiza, Gulmohar, Hoshangabad Road, New Market, Bhopal Junction, and Shivaji Nagar, plus surrounding Madhya Pradesh districts including Indore.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-stone-100">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between py-6 text-left gap-6"
+        aria-expanded={open}
+      >
+        <span className="text-lg font-light text-stone-900">{q}</span>
+        <ChevronRight
+          size={20}
+          className={`shrink-0 text-stone-400 transition-transform duration-300 ${open ? 'rotate-90' : ''}`}
+        />
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-48 pb-6' : 'max-h-0'}`}>
+        <p className="text-stone-600 leading-relaxed">{a}</p>
+      </div>
+    </div>
+  );
+}
 
 const featuredProjects = [
   { title: 'The Horizon Villa', loc: 'Arera Colony, Bhopal', img: '/images/horizon-villa-day.jpg', slug: 'modern-luxury-villa-construction-bhopal' },
@@ -18,14 +74,15 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <Helmet>
-        <title>Apka Interior Wala | Interior Design &amp; Construction Bhopal</title>
-        <meta name="description" content="Premium interior design and construction firm in Bhopal. Modular kitchens, false ceilings, custom furniture & turnkey solutions. Free consultation available." />
+        <title>Best Interior Designer in Bhopal | Apka Interior Wala</title>
+        <meta name="description" content="Apka Interior Wala — Bhopal's best interior design studio. Modular kitchens, wardrobes, false ceilings, custom furniture & aluminium partitions. 150+ projects. Free consultation." />
         <link rel="canonical" href="https://apkainteriorwala.com" />
-        <meta property="og:title" content="Apka Interior Wala | Interior Design &amp; Construction Bhopal" />
-        <meta property="og:description" content="Premium interior design and construction firm in Bhopal. Modular kitchens, false ceilings, custom furniture &amp; turnkey solutions. Free consultation available." />
+        <meta property="og:title" content="Best Interior Designer in Bhopal | Apka Interior Wala" />
+        <meta property="og:description" content="Apka Interior Wala — Bhopal's best interior design studio. Modular kitchens, wardrobes, false ceilings, custom furniture & aluminium partitions. Free consultation." />
         <meta property="og:url" content="https://apkainteriorwala.com" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://apkainteriorwala.com/images/living-room-partition.jpg" />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       {/* Hero Section */}
@@ -264,6 +321,23 @@ export default function Home() {
               <p className="text-lg font-bold text-stone-900">{testimonial.name}</p>
               <p className="text-xs font-medium uppercase tracking-widest text-stone-600">{testimonial.role}</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-32 bg-stone-50">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-stone-600">Common Questions</span>
+            <h2 className="mt-4 text-4xl font-light text-stone-900 md:text-5xl">
+              Frequently Asked <span className="italic font-serif">Questions</span>
+            </h2>
+          </div>
+          <div className="divide-y divide-stone-100 border-t border-stone-100">
+            {faqItems.map((item, idx) => (
+              <FAQItem key={idx} q={item.q} a={item.a} />
+            ))}
           </div>
         </div>
       </section>
