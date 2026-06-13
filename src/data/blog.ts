@@ -2,6 +2,567 @@ import { BlogPost } from '../types';
 
 export const blogPosts: BlogPost[] = [
   {
+    id: 'wardrobe-design-bhopal-custom-modular',
+    title: 'Wardrobe Design in Bhopal: Custom vs Modular, Cost & 2025 Ideas',
+    slug: 'wardrobe-design-bhopal-custom-modular',
+    category: 'Design Tips',
+    excerpt:
+      'Planning a new wardrobe in Bhopal? This complete guide covers hinged vs sliding vs walk-in wardrobes, materials, internal layouts, and real cost estimates so you get it right the first time.',
+    content: `## Why Your Wardrobe Deserves More Planning Than Your Sofa
+
+The wardrobe is the most-used piece of furniture in any bedroom — you open it twice a day, every day. Yet most homeowners spend more time choosing sofa fabric than planning their wardrobe. The result: clothes everywhere, doors that don't close properly, and a bedroom that never quite feels organised.
+
+In Bhopal, we've installed 100+ custom wardrobes — from compact 2-door units in Gulmohar apartments to full-wall walk-in closets in Arera Colony villas. Here's everything you need to know before placing an order.
+
+## Types of Wardrobes
+
+### Hinged Door Wardrobes
+
+The classic — doors swing open on traditional hinges. Best for rooms where you have 4+ feet of clear space in front.
+
+- **Pros:** Simple mechanism, easy to repair, full visibility of contents
+- **Cons:** Needs swing clearance — not ideal for compact rooms
+
+### Sliding Door Wardrobes
+
+Two or three panels slide on tracks. Ideal for smaller rooms or when the bed is close to the wardrobe wall.
+
+- **Pros:** Space-efficient, sleek modern look, works well with mirrors and glass panels
+- **Cons:** Can't open both panels at once; slightly more complex mechanism
+
+### Walk-In Wardrobes
+
+A dedicated dressing room requiring 60–80 sq ft minimum. Extremely popular in Arera Colony and Koh-e-Fiza villas. When done well, it transforms how a home feels entirely.
+
+- **Pros:** Unlimited storage, doubles as a dressing area, major resale value addition
+- **Cons:** Requires dedicated space; good lighting is essential
+
+## Materials: What We Actually Recommend
+
+### Carcass (The Box)
+
+Always specify **BWR (Boiling Water Resistant) or Marine Grade Plywood** for the structural carcass. Never accept particle board or MDF as the main structural box — they swell with humidity, attract pests, and warp within 3–5 years. Bhopal's monsoon humidity makes this non-negotiable.
+
+### Shutter (The Door Face)
+
+| Finish | Look | Durability | Best For |
+|--------|------|------------|----------|
+| Acrylic | High gloss, reflective | Very high | Modern, sleek bedrooms |
+| PU Lacquer | Satin/matt, premium | High | Luxury, tactile feel |
+| Veneer | Real wood grain | High | Warm, natural aesthetic |
+| Laminate (HPL) | Wide colour range | Good | Budget-conscious builds |
+| Fluted Glass | Translucent, light | Medium | Contemporary, airy look |
+
+### Hardware
+
+Invest in quality hardware. Soft-close hinges (Hettich, Häfele, or Ebco) eliminate the slam. Full-extension drawer channels make deep drawers fully accessible. This hardware gets used 700+ times a year — it's worth the upgrade.
+
+## Internal Layout: Design for How You Actually Live
+
+Most people request "more hanging space" but end up with three full-length rails and nowhere to fold anything. Before finalising your internal layout, count your clothes by category:
+
+- How many full-length outfits (sarees, formal suits, anarkalis)?
+- How many shirts/trousers that need half-height hanging?
+- How many folded items (t-shirts, jeans, nightwear)?
+- Shoes? Accessories? Jewellery?
+
+A good layout mixes 2–3 zones: hanging (long and short), shelving for folded items, and pull-out drawers for daily wear. Add a mirror on the inside of one door and a dedicated small-items tray.
+
+## Wardrobe Cost in Bhopal (2025)
+
+| Type | Size | Material | Estimated Cost |
+|------|------|----------|----------------|
+| 2-door hinged | 5×7 ft | Laminate shutter, BWR ply | ₹25,000 – 40,000 |
+| 3-door sliding | 8×8 ft | Acrylic shutter, BWR ply | ₹55,000 – 85,000 |
+| 4-door sliding with glass | 10×8 ft | Glass/PU, BWR ply | ₹90,000 – 1.5 lakh |
+| Walk-in (L-shape) | 10×10 ft | Veneer + acrylic mix | ₹1.5 – 3 lakh+ |
+
+*Prices include hardware and installation. Mirror panels add ₹5,000–15,000 depending on size.*
+
+## 5 Things to Confirm Before Fabrication
+
+1. **Exact wall dimensions** — measure at floor, mid, and ceiling (walls are rarely perfectly square)
+2. **Height to ceiling** — full-height units look better and add storage, but check beam and AC duct positions
+3. **Power points** — if you want interior lighting, plan electrical points before installation
+4. **Loft or overhead storage** — build it as part of the unit from day one
+5. **Finish sample on-site** — always view your chosen finish in your room's lighting before committing
+
+## Get Your Wardrobe Designed in Bhopal
+
+Apka Interior Wala has delivered 100+ custom wardrobes across Bhopal. **Book a free site visit** and we'll measure, design, and quote your wardrobe at no charge — with a 3D design before any fabrication begins.`,
+    image: '/images/bedroom-wardrobe-study.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'wardrobe design bhopal',
+      'custom wardrobe bhopal',
+      'sliding wardrobe',
+      'modular wardrobe',
+      'bedroom storage bhopal',
+    ],
+    published: true,
+    publishedAt: '2026-04-01T00:00:00.000Z',
+  },
+  {
+    id: 'aluminium-profile-partition-fluted-glass-bhopal',
+    title: 'Aluminium Profile Partition with Fluted Glass in Bhopal: Design, Cost & Ideas',
+    slug: 'aluminium-profile-partition-fluted-glass-bhopal',
+    category: 'Design Tips',
+    excerpt:
+      'Aluminium profile partitions with fluted glass are transforming Bhopal homes. This guide covers what they are, where to use them, frame finishes, glass types, and real costs for 2025.',
+    content: `## The Room Divider That's Everywhere in Bhopal Right Now
+
+If you've browsed any interior design account recently, you've seen it: a slim black aluminium frame holding panels of ridged, translucent glass that casts beautiful light patterns across the room. This is the **aluminium profile partition with fluted glass** — and it has become one of the most requested design elements in Bhopal's modern homes and offices.
+
+It's not a passing trend. It's a design shift — and here's everything you need to know about it.
+
+## What is an Aluminium Profile Partition?
+
+An aluminium profile partition is a wall or screen made from thin aluminium extrusion frames (called profiles) that hold glass or solid panels in place. Key advantages over traditional brick-and-plaster partition walls:
+
+- **No structural or civil work** — installed directly onto floor and ceiling
+- **Translucent or transparent** — allows light to pass freely between spaces
+- **Slim profile** — the aluminium frame can be as thin as 25–50mm
+- **Removable and reconfigurable** — unlike masonry walls
+- **Fast installation** — typically 1–3 days depending on size
+
+## What is Fluted Glass?
+
+Fluted glass (also called reeded glass or ribbed glass) has a series of parallel vertical ridges moulded into its surface. These ridges:
+
+- Diffuse light while allowing it to pass through — translucent, not fully transparent
+- Create soft privacy — shapes visible, details not
+- Produce stunning patterns when backlit by a lamp or natural light
+- Add tactile texture to an otherwise flat surface
+
+Fluted glass is currently the most fashionable glass finish in Indian interior design — and for good reason.
+
+## Where to Use Aluminium Profile Partitions
+
+### Living Room Divider
+
+Separate the living area from the dining room, entrance lobby, or pooja room without blocking natural light. A black aluminium frame with fluted glass panels creates an immediate design statement while keeping both sides bright.
+
+### Master Bedroom — Dressing Area Screen
+
+Create a dedicated dressing nook within your bedroom using a full-height fluted glass partition. The translucent glass screens the dressing area from the sleeping zone while soft light passes through beautifully.
+
+### Bathroom Shower Screen
+
+Replace heavy shower curtains or solid walls with a slimline aluminium-framed fluted glass shower enclosure. Luxury hotel aesthetic, easily achieved.
+
+### Home Office / Study Partition
+
+In an open-plan apartment, a partial-height aluminium partition creates a visual boundary for the workspace without isolating it from the rest of the home.
+
+### Pooja Room or Prayer Space
+
+A fluted glass front to a built-in pooja unit allows the warm glow of diyas to filter through softly — a very popular application in Bhopal homes with traditional sensibilities and modern design.
+
+## Aluminium Profile Finishes
+
+| Finish | Look | Best Paired With |
+|--------|------|-----------------|
+| Matte Black | Bold, contemporary | White walls, warm wood tones |
+| Champagne Gold | Warm, luxurious | Beige tones, marble, ivory walls |
+| Silver / Brushed | Clean, minimal | Greys, concrete-look surfaces |
+| White | Soft, Scandinavian | Light interiors, off-white walls |
+
+Matte black is currently the most popular choice in Bhopal for its high contrast and clean modern look.
+
+## Glass Panel Options
+
+| Glass Type | Translucency | Privacy Level | Best For |
+|------------|-------------|---------------|----------|
+| Fluted (reeded) | High | Medium | Living rooms, bedroom screens |
+| Frosted | High | High | Bathrooms, office partitions |
+| Clear | None | None | Open decorative frames |
+| Tinted | Medium | Medium | Commercial spaces |
+| Textured (rain/delta pattern) | High | High | Feature areas |
+
+## Cost in Bhopal (2025)
+
+| Application | Approximate Size | Estimated Cost |
+|-------------|-----------------|----------------|
+| Living room room divider | 8×9 ft | ₹18,000 – 35,000 |
+| Shower enclosure / bathroom screen | 5×7 ft | ₹12,000 – 22,000 |
+| Full-height bedroom/wardrobe front | 10×9 ft | ₹25,000 – 45,000 |
+| Office cabin partition | 12×9 ft | ₹22,000 – 40,000 |
+
+*Costs vary by aluminium profile thickness, glass type, and chosen finish. Double-glazed or extra-thick panels increase cost.*
+
+## How Installation Works
+
+1. **Floor and ceiling tracks** are anchor-bolted to the slab
+2. **Vertical aluminium posts** are fixed between the tracks
+3. **Glass panels** are slid in and secured with rubber gaskets
+4. **Hardware** (handles, locks, or push-to-open catches) is fitted last
+
+A standard room partition typically installs in 1–2 days. No wet work, no dust, no curing time — you can use the space the same day.
+
+## Maintenance
+
+Aluminium frames need virtually no maintenance — wipe with a damp cloth. Fluted glass shows fingerprints less than clear glass. The powder-coated aluminium finish doesn't rust, fade, or peel under normal conditions.
+
+## Design Your Partition in Bhopal
+
+Apka Interior Wala designs and installs aluminium profile partitions with fluted, frosted, and textured glass across Bhopal homes and offices. We handle design, supply, and full installation — with a free consultation and 3D design before any work begins. **Book your free site visit today.**`,
+    image: '/images/living-room-partition.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'aluminium partition bhopal',
+      'fluted glass partition',
+      'aluminium profile partition',
+      'glass partition bhopal',
+      'room divider bhopal',
+    ],
+    published: true,
+    publishedAt: '2026-03-01T00:00:00.000Z',
+  },
+  {
+    id: 'bedroom-interior-design-bhopal-ideas-cost',
+    title: 'Bedroom Interior Design in Bhopal: Ideas, Bed Designs & Real Costs (2025)',
+    slug: 'bedroom-interior-design-bhopal-ideas-cost',
+    category: 'Design Tips',
+    excerpt:
+      'Everything you need to plan your bedroom interior in Bhopal — bed designs, wardrobe tips, lighting, false ceiling, and a complete cost breakdown for every budget level.',
+    content: `## Designing a Bedroom That Actually Feels Like Rest
+
+A well-designed bedroom does one job above all others: it helps you unwind. Not through expensive materials or complex layouts — through the right balance of light, storage, and spatial organisation. In Bhopal's climate (intense summer heat, humid monsoon, cool winters), bedroom design needs to be practical as much as beautiful.
+
+This guide covers everything from choosing the right bed design to planning the full room, with real costs for Bhopal homes.
+
+## Start with the Floor Plan
+
+Before anything else, sketch your room to scale. Mark:
+
+- **Door position and swing direction** — affects bed placement immediately
+- **Window positions and sun direction** — important for curtain and AC placement
+- **AC unit location** — cold air falls; position for even circulation
+- **Existing electrical points** — and where you need new ones
+
+The bed placement drives every other decision. In most bedrooms, the bed goes against the wall opposite the door — giving a clear sightline on entry and maximising usable floor space on both sides.
+
+## Bed Designs: Which is Right for You?
+
+### Platform Bed (Low Profile)
+
+Sits 6–8 inches off the floor on a solid base, no box spring needed. Looks sleek and modern, makes a room feel larger. Ideal for bedrooms with 9–10 foot ceilings.
+
+**Cost:** ₹20,000 – 45,000 (King size, engineered wood)
+
+### Storage Bed (Hydraulic Lift)
+
+The platform lifts on hydraulic pistons to reveal a large storage cavity below. This is Bhopal's most popular bed type — because storage is the number one challenge in apartments. Store bedding, seasonal clothes, and bulky items inside the base.
+
+**Cost:** ₹28,000 – 60,000 (King size, depending on material and headboard design)
+
+### Upholstered Bed
+
+The headboard and sometimes the full base is upholstered in fabric — velvet, microfibre, or leatherette. Creates a warm, hotel-like feel. Most popular choice for master bedrooms in Bhopal's premium segment.
+
+**Cost:** ₹35,000 – 90,000+ (depends on fabric quality, size, and headboard complexity)
+
+### Panel Bed (Wooden Headboard)
+
+Solid or engineered wood headboard with optional storage drawers in the base. Classic, long-lasting, and easy to maintain. Works in both traditional and modern rooms.
+
+**Cost:** ₹18,000 – 45,000
+
+### Canopy / Four-Poster Bed
+
+Adds height and drama. Works only in bedrooms with 10+ foot ceilings. Less common in Bhopal apartments but spectacular in villas.
+
+## Headboard Design: The Statement Piece
+
+The headboard is the visual anchor of the bedroom. Popular styles right now in Bhopal:
+
+- **Tufted velvet** — luxurious, warm, currently the most requested finish
+- **Fluted wood panel (WPC)** — architectural and textured, works with modern and transitional styles
+- **Cane / rattan panel** — natural and bohemian, very on-trend in 2025
+- **Integrated headboard-to-bedside unit** — a single continuous piece from headboard to side tables; no gaps, clean look
+
+All of these can be designed as bespoke pieces for your exact wall width and ceiling height.
+
+## Wardrobe: Plan It with the Bed, Not After
+
+The wardrobe should be planned alongside the bed, not as an afterthought. If your bedroom is 10×12 ft or larger, a full-wall wardrobe — behind the bed wall or on the adjacent wall — is almost always the best use of space.
+
+For smaller bedrooms (8×10 ft or less), a corner or alcove wardrobe with sliding doors maximises usable floor area.
+
+## Bedroom Lighting: The Three-Layer Approach
+
+A single overhead ceiling light is the biggest mistake in bedroom design. Good bedroom lighting uses three layers:
+
+1. **Ambient** — soft general light from a cove false ceiling, dimmable overhead fixture, or LED strip
+2. **Task** — beside the bed for reading (wall-mounted swing-arm lamps or bedside pendants hung from the ceiling)
+3. **Accent** — highlighting the headboard or wardrobe (backlit LED behind the headboard panel is transformative)
+
+This three-layer approach works in any budget — even simple LED strips behind a POP cornice dramatically improve the feel of a room.
+
+## False Ceiling for Bedrooms
+
+A false ceiling in the bedroom adds thermal insulation (reducing AC load), hides wiring, and creates the frame for cove lighting.
+
+For a standard 10×12 ft master bedroom:
+- **POP false ceiling with cove** — ₹12,000 – 18,000
+- **Gypsum board with recessed lights** — ₹18,000 – 30,000
+
+## Full Bedroom Interior Design Cost in Bhopal (2025)
+
+| Item | Essential | Mid-Range | Premium |
+|------|-----------|-----------|---------|
+| Bed (King, storage/upholstered) | ₹22,000 | ₹45,000 | ₹75,000+ |
+| Wardrobe (sliding, 3-door) | ₹45,000 | ₹75,000 | ₹1.2 lakh+ |
+| False ceiling | ₹12,000 | ₹20,000 | ₹35,000+ |
+| Bedside tables (pair) | ₹8,000 | ₹18,000 | ₹35,000+ |
+| Lighting (complete) | ₹8,000 | ₹18,000 | ₹40,000+ |
+| Flooring (if upgrading) | — | ₹25,000 | ₹60,000+ |
+| **Full master bedroom** | **₹1–1.5 lakh** | **₹2–3.5 lakh** | **₹4–8 lakh+** |
+
+## Design Your Bedroom with Apka Interior Wala
+
+We've designed and built 60+ bedrooms across Bhopal — from compact 8×10 ft rooms in apartments to sprawling master suites in Arera Colony villas. **Book a free consultation** and we'll create a 3D design of your bedroom before any work begins.`,
+    image: '/images/bedroom-render.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'bedroom interior design bhopal',
+      'bed design bhopal',
+      'bedroom design ideas',
+      'master bedroom bhopal',
+      'upholstered bed bhopal',
+    ],
+    published: true,
+    publishedAt: '2026-02-01T00:00:00.000Z',
+  },
+  {
+    id: 'tv-unit-design-bhopal-entertainment-wall',
+    title: 'TV Unit Design in Bhopal: Wall-Mounted, Floating & Full Entertainment Walls',
+    slug: 'tv-unit-design-bhopal-entertainment-wall',
+    category: 'Design Tips',
+    excerpt:
+      'A well-designed TV unit transforms your entire living room. This guide covers floor units, floating panels, full entertainment walls, backlit panels, cable management, and costs for Bhopal homes.',
+    content: `## The TV Unit That Does More Than Hold a Screen
+
+The TV unit is the focal point of every living room. But in most Indian homes it's also the most underdesigned piece in the space — a flat panel mounted on a plain wall, or a standalone cabinet that looks like it arrived from a furniture showroom a decade ago.
+
+A well-designed TV unit or entertainment wall transforms the entire feel of your living space. Here's how to plan one for your Bhopal home.
+
+## TV Unit Types
+
+### Floor-Standing Cabinet Unit
+
+The traditional form — a low cabinet on the floor with doors, drawers, and shelving. Still practical and affordable. The right design makes it look intentional rather than generic.
+
+- **Pros:** Easy to reconfigure, no wall drilling required
+- **Cons:** Can look heavy; dated if the design isn't updated
+
+### Wall-Mounted Floating Unit
+
+Panels and shelves fixed directly to the wall, with the TV mounted above or within the composition. The floating look adds visual lightness and is easier to clean underneath.
+
+- **Pros:** Space-efficient, very modern, works in any room size
+- **Cons:** Requires proper wall fixings; cable management must be planned ahead
+
+### Full Entertainment Wall
+
+A full-height, full-width unit that takes over the entire TV wall — combining the TV panel with open shelves, closed storage, integrated lighting, and a feature design element (fluted wood panel, stone cladding, or wallpaper behind the TV).
+
+This is Bhopal's most requested living room upgrade right now. Done well, it transforms a room completely.
+
+- **Pros:** Maximum storage and design impact, hides all cables
+- **Cons:** Higher cost; wall preparation is essential
+
+## Entertainment Wall Design Details
+
+### Backlit LED Panel
+
+LED strips behind the TV or recessed in shelving reduce eye strain during night viewing and add tremendous depth to the unit. The most impactful upgrade for the least cost — often ₹3,000–8,000 added to a unit project.
+
+### Fluted Wood Panel (WPC or Veneer)
+
+Vertical ribbed panels on either side of the TV or as the backing surface of the feature wall. Creates warmth and texture. Currently the most popular wall detail in Bhopal living room projects.
+
+### Open Floating Shelves
+
+For books, plants, decorative objects, and your sound equipment. The ideal unit mixes open storage on top (for display) with closed sections below (for clutter and media equipment).
+
+### Push-to-Open Doors
+
+Handle-free doors that open with a gentle push. Creates a clean, uninterrupted surface — the hallmark of a high-quality custom unit.
+
+## Cable Management: The Hidden Detail That Matters Most
+
+Nothing ruins a beautiful TV wall faster than a tangle of visible cables. Plan for:
+
+- **In-wall conduit** for TV signal and power cables — installed before the unit is built
+- **Dedicated cable tray** at the rear of the unit for AV equipment connections
+- **A single concealed power strip** inside one closed section — one cable to the wall
+
+This planning costs almost nothing but makes the final result look genuinely custom.
+
+## TV Sizing and Mounting Height Guide
+
+| TV Size | Minimum Unit Width | Ideal Screen Centre Height (from floor, for sofa viewing) |
+|---------|-------------------|----------------------------------------------------------|
+| 43 inch | 5 ft | 44–48 inches |
+| 55 inch | 6 ft | 46–50 inches |
+| 65 inch | 7 ft | 48–52 inches |
+| 75 inch+ | Full wall recommended | 50–54 inches |
+
+The TV centre should be at eye level when seated — for a standard 18-inch sofa seat, that's typically 44–52 inches from the floor.
+
+## Materials for TV Units
+
+| Material | Look | Durability | Cost |
+|----------|------|------------|------|
+| BWR plywood + veneer | Warm wood grain | High | Medium |
+| WPC board | Waterproof, wood-look | Very high | Medium-high |
+| Acrylic shutter | High gloss, modern | Very high | Medium |
+| Glass shelves | Light, airy | Medium | Low-medium |
+| Fluted WPC panels | Textured, on-trend | High | Medium |
+
+We always use BWR plywood as the structural core — never MDF or particle board for weight-bearing sections.
+
+## TV Unit Cost in Bhopal (2025)
+
+| Type | Size | Estimated Cost |
+|------|------|----------------|
+| Simple floor-standing unit | 5×2 ft | ₹18,000 – 30,000 |
+| Wall-mounted floating unit | 8×5 ft | ₹28,000 – 50,000 |
+| Entertainment wall (standard) | Full wall, 9 ft tall | ₹45,000 – 80,000 |
+| Entertainment wall (premium) | Full wall, 9 ft tall | ₹80,000 – 1.5 lakh+ |
+
+*Prices include design, fabrication, and installation. LED strips add ₹3,000–8,000. Fluted WPC wall panelling adds ₹10,000–25,000.*
+
+## Design Your TV Wall with Apka Interior Wala
+
+We design and build custom TV units and full entertainment walls across Bhopal homes and offices. Every project starts with a **free 3D design** so you can see exactly what it will look like before we begin. **Book your free consultation today.**`,
+    image: '/images/bedroom-render-2.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'tv unit design bhopal',
+      'entertainment wall bhopal',
+      'living room design bhopal',
+      'tv wall design',
+      'custom tv unit bhopal',
+    ],
+    published: true,
+    publishedAt: '2026-01-01T00:00:00.000Z',
+  },
+  {
+    id: 'sofa-design-bhopal-living-room',
+    title: 'Sofa Design in Bhopal: L-Shape, Sectional & Custom Sofas for Every Home',
+    slug: 'sofa-design-bhopal-living-room',
+    category: 'Design Tips',
+    excerpt:
+      'Planning a new sofa for your Bhopal home? This guide covers L-shape, sectional, and 3+1+1 configurations, the best fabrics for Bhopal\'s climate, sizing rules, and custom vs readymade costs.',
+    content: `## Choosing the Right Sofa for Your Bhopal Living Room
+
+The sofa is the centrepiece of your living room — and the most-used piece of furniture in your home. The average family uses it 4–6 hours a day. Yet most sofas in Bhopal homes are chosen quickly, from a showroom floor, without considering actual room dimensions, usage patterns, or long-term durability.
+
+This guide helps you choose, size, and where needed, custom-design a sofa that fits your space and your family perfectly.
+
+## Sofa Configurations: Which Layout is Right for Your Room?
+
+### 3+1+1 (Three-Seater Plus Two Armchairs)
+
+The classic Indian living room arrangement. Versatile, easy to rearrange, and works in rooms of all sizes. The armchairs can face each other or angle toward the main seating to create a conversation grouping.
+
+- **Best for:** Rectangular rooms, formal living rooms, rooms used frequently for guests
+
+### L-Shape (Corner Sectional)
+
+One long section and one shorter perpendicular section forming an L. Maximises seating in one corner, anchors the room, and makes efficient use of corner space.
+
+- **Best for:** Square rooms, open-plan living spaces, families with children who need more casual seating
+- **Important:** Measure carefully — the L must leave at least 3 feet of walkway on each open side
+
+### U-Shape (Three-Section Sectional)
+
+Three sections forming a U around a central coffee table. Maximum seating for large families. Works only in generous rooms (18×18 ft or more).
+
+### Chesterfield
+
+Deep-buttoned, rolled-arm classic form. Formal and timeless — works in traditional and eclectic interiors. The deep tufting can show wear over time more visibly than flat fabrics.
+
+## Sofa Fabric Guide: What Works Best in Bhopal
+
+Bhopal's climate is humid during monsoon and dusty year-round. Not all fabrics perform equally.
+
+| Fabric | Feel | Durability | Bhopal Suitability | Cleanability |
+|--------|------|------------|-------------------|--------------|
+| Microfibre | Soft, matt | Very high | Excellent | Wipe-clean |
+| Velvet | Luxurious, rich | Medium | Good (avoid with pets/small kids) | Moderate |
+| Leatherette (PU) | Sleek, modern | High | Very good | Excellent |
+| Genuine leather | Premium, ages beautifully | Very high | Good | Easy |
+| Linen | Natural, textured | Medium | Fair (stains easily) | Dry clean |
+| Polyester blend | Practical | High | Very good | Easy |
+
+**Our recommendation for Bhopal families:** Microfibre or leatherette. Both resist dust accumulation, clean easily, and hold up reliably to daily use in Bhopal's climate.
+
+## Standard Sofa Dimensions for Indian Homes
+
+| Configuration | Width | Depth | Seat Height |
+|--------------|-------|-------|-------------|
+| 2-seater | 5–5.5 ft | 2.5–3 ft | 17–19 in |
+| 3-seater | 6.5–7.5 ft | 2.5–3 ft | 17–19 in |
+| L-shape | 8–10 ft × 5–7 ft | 2.5–3 ft | 17–19 in |
+
+**Clearance rules to always follow:**
+- At least 18 inches between sofa edge and coffee table (for comfortable leg room)
+- At least 36 inches between sofa and TV wall (proper viewing distance for a 55-inch screen)
+- At least 30 inches as a walkway around the sofa grouping
+
+## Custom Sofa vs Readymade: What's the Better Choice?
+
+Most furniture showrooms in Bhopal sell standard sizes designed for a hypothetical average room. Your room isn't average.
+
+**A custom sofa from Apka Interior Wala:**
+- Sized exactly to your room dimensions — crucial for L-shapes and sectionals that must fit specific corners
+- Fabric and colour chosen from samples seen in your own lighting conditions
+- Foam density selected for how you actually sit (firm and upright for formal settings; deep and reclined for daily use)
+- Lead time: 4–6 weeks from order confirmation
+
+**Cost difference:** Custom sofas are typically 15–25% more expensive than comparable readymade pieces. For an L-shape that fits your room precisely — versus one that either crowds the walkway or looks undersized — it's worth every rupee.
+
+## Sofa Cost in Bhopal (2025)
+
+| Type | Configuration | Estimated Cost |
+|------|--------------|----------------|
+| Readymade 3+1+1 | Standard fabric | ₹35,000 – 80,000 |
+| Custom 3-seater | Microfibre | ₹28,000 – 55,000 |
+| Custom L-shape | Microfibre / leatherette | ₹55,000 – 1.1 lakh |
+| Custom U-shape sectional | Fabric | ₹90,000 – 1.8 lakh |
+| Chesterfield (custom) | Leatherette | ₹45,000 – 90,000 |
+
+## 5 Sofa Mistakes We See Most Often in Bhopal
+
+**1. Too small for the room.** A 5.5 ft three-seater in a 16×14 ft living room looks like it's floating in empty space. When in doubt, go bigger — a large sofa in a large room always looks intentional.
+
+**2. Wrong orientation.** The sofa should face your primary focal point — the TV or the main window. Not a blank wall.
+
+**3. Choosing fabric from a showroom.** Fabric that looks great under showroom lighting can appear completely different in your home. Always take samples home before ordering.
+
+**4. Low-slung seats for elderly family members.** Deep, low sofas look elegant but are difficult to get out of for older guests or family members. Seat height of 18–19 inches is the most accessible for all ages.
+
+**5. Buying before measuring.** Measure twice: the room dimensions AND the clearance for the sofa to physically enter your home through the door and up any stairs. This is more often an issue than people expect.
+
+## Design Your Sofa with Apka Interior Wala
+
+We design and fabricate custom sofas, sectionals, and upholstered seating for Bhopal homes. Fabric and foam samples come to your home — no showroom visit needed. **Book your free consultation today.**`,
+    image: '/images/residential-hallway.jpg',
+    author: 'Zainab Khan',
+    tags: [
+      'sofa design bhopal',
+      'custom sofa bhopal',
+      'l shape sofa bhopal',
+      'living room furniture bhopal',
+      'sectional sofa bhopal',
+    ],
+    published: true,
+    publishedAt: '2025-12-01T00:00:00.000Z',
+  },
+  {
     id: 'best-interior-designer-bhopal-apka-interior-wala',
     title: 'Best Interior Designer in Bhopal: Why Apka Interior Wala Tops Every List',
     slug: 'best-interior-designer-bhopal-apka-interior-wala',
