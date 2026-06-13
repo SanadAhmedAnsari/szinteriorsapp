@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { Home, Building, Key, Hammer, Paintbrush, Ruler, Users, Briefcase } from 'lucide-react';
+import { Home, Building, Key, Hammer, Paintbrush, Ruler, Users, Briefcase, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const services = [
@@ -61,6 +61,11 @@ export default function Services() {
         <title>Our Services | Interior Design &amp; Construction Bhopal</title>
         <meta name="description" content="Residential & commercial interior design, modular kitchens, false ceilings, construction, renovation, and turnkey solutions in Bhopal, Madhya Pradesh." />
         <link rel="canonical" href="https://apkainteriorwala.com/services" />
+        <meta property="og:title" content="Our Services | Interior Design &amp; Construction Bhopal" />
+        <meta property="og:description" content="Residential &amp; commercial interior design, modular kitchens, false ceilings, construction, renovation, and turnkey solutions in Bhopal, Madhya Pradesh." />
+        <meta property="og:url" content="https://apkainteriorwala.com/services" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://apkainteriorwala.com/images/marble-kitchen.jpg" />
       </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-32 text-center">
@@ -77,7 +82,7 @@ export default function Services() {
             transition={{ delay: 0.1 }}
             className="mt-4 text-5xl font-light text-stone-900 md:text-7xl"
           >
-            Comprehensive <span className="italic font-serif">Solutions</span>
+            Interior Design <span className="italic font-serif">Services</span>
           </motion.h1>
         </div>
 
@@ -95,6 +100,7 @@ export default function Services() {
                 <img
                   src={service.image}
                   alt={`${service.title} in Bhopal, Madhya Pradesh - Apka Interior Wala`}
+                  loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
@@ -116,6 +122,18 @@ export default function Services() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Portfolio Link */}
+        <div className="mt-20 mb-0 text-center">
+          <p className="text-stone-500 mb-6">Want to see these services in action?</p>
+          <Link
+            to="/projects"
+            className="inline-flex items-center space-x-3 text-sm font-bold uppercase tracking-widest text-stone-900 border-b-2 border-stone-900 pb-1 hover:border-stone-400 transition-colors"
+          >
+            <span>Explore Our Project Portfolio</span>
+            <ArrowRight size={16} />
+          </Link>
         </div>
 
         {/* Process Section */}

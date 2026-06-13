@@ -50,6 +50,15 @@ export default function JournalDetail() {
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={post.image} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://apkainteriorwala.com' },
+            { '@type': 'ListItem', position: 2, name: 'Journal', item: 'https://apkainteriorwala.com/journal' },
+            { '@type': 'ListItem', position: 3, name: post.title, item: canonical },
+          ],
+        })}</script>
       </Helmet>
 
       {/* Hero */}
@@ -179,12 +188,20 @@ export default function JournalDetail() {
           <p className="mt-4 text-stone-400 text-sm">
             Get a free consultation from Bhopal's premier interior design team.
           </p>
-          <Link
-            to="/contact"
-            className="mt-8 inline-block bg-white px-10 py-4 text-sm font-bold uppercase tracking-widest text-stone-900 transition-all hover:bg-stone-100 rounded-full"
-          >
-            Book a Free Consultation
-          </Link>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/contact"
+              className="inline-block bg-white px-10 py-4 text-sm font-bold uppercase tracking-widest text-stone-900 transition-all hover:bg-stone-100 rounded-full"
+            >
+              Book a Free Consultation
+            </Link>
+            <Link
+              to="/projects"
+              className="inline-block border border-white/30 px-10 py-4 text-sm font-bold uppercase tracking-widest text-white transition-all hover:bg-white/10 rounded-full"
+            >
+              View Our Portfolio
+            </Link>
+          </div>
         </div>
       </div>
     </div>

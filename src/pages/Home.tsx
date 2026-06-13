@@ -21,6 +21,11 @@ export default function Home() {
         <title>Apka Interior Wala | Interior Design &amp; Construction Bhopal</title>
         <meta name="description" content="Premium interior design and construction firm in Bhopal. Modular kitchens, false ceilings, custom furniture & turnkey solutions. Free consultation available." />
         <link rel="canonical" href="https://apkainteriorwala.com" />
+        <meta property="og:title" content="Apka Interior Wala | Interior Design &amp; Construction Bhopal" />
+        <meta property="og:description" content="Premium interior design and construction firm in Bhopal. Modular kitchens, false ceilings, custom furniture &amp; turnkey solutions. Free consultation available." />
+        <meta property="og:url" content="https://apkainteriorwala.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://apkainteriorwala.com/images/living-room-partition.jpg" />
       </Helmet>
 
       {/* Hero Section */}

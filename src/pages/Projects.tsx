@@ -29,6 +29,11 @@ export default function Projects() {
         <title>Portfolio | Best Interior Designer in Bhopal & Indore</title>
         <meta name="description" content="Explore our portfolio of luxury residential and commercial projects. Thekedar in Bhopal for Pinterest-inspired home designs." />
         <link rel="canonical" href="https://apkainteriorwala.com/projects" />
+        <meta property="og:title" content="Portfolio | Best Interior Designer in Bhopal &amp; Indore" />
+        <meta property="og:description" content="Explore our portfolio of luxury residential and commercial interior design projects across Bhopal and Madhya Pradesh." />
+        <meta property="og:url" content="https://apkainteriorwala.com/projects" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://apkainteriorwala.com/images/horizon-villa-day.jpg" />
       </Helmet>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -46,7 +51,7 @@ export default function Projects() {
             transition={{ delay: 0.1 }}
             className="mt-4 text-5xl font-light text-stone-900 md:text-7xl"
           >
-            Featured <span className="italic font-serif">Masterpieces</span>
+            Interior Design <span className="italic font-serif">Portfolio</span>
           </motion.h1>
         </div>
 

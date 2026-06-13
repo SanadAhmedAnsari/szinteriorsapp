@@ -34,6 +34,11 @@ export default function Journal() {
         <title>Journal | Apka Interior Wala - Design Insights & Tutorials</title>
         <meta name="description" content="Interior design tips, modular kitchen guides, false ceiling costs & construction advice from Apka Interior Wala — Bhopal's top design studio." />
         <link rel="canonical" href="https://apkainteriorwala.com/journal" />
+        <meta property="og:title" content="Interior Design Tips & Ideas Bhopal | Journal" />
+        <meta property="og:description" content="Interior design tips, modular kitchen guides, false ceiling costs & construction advice from Apka Interior Wala — Bhopal's top design studio." />
+        <meta property="og:url" content="https://apkainteriorwala.com/journal" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://apkainteriorwala.com/images/grey-wood-kitchen.jpg" />
       </Helmet>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -53,7 +58,7 @@ export default function Journal() {
             transition={{ delay: 0.1 }}
             className="mt-4 text-5xl font-light text-stone-900 md:text-7xl"
           >
-            Insights & <span className="italic font-serif">Inspiration</span>
+            Interior Design Tips & <span className="italic font-serif">Inspiration</span>
           </motion.h1>
         </div>
 

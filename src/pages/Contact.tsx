@@ -54,9 +54,14 @@ export default function Contact() {
   return (
     <div className="pb-32">
       <Helmet>
-        <title>Contact Us | Apka Interior Wala Bhopal</title>
+        <title>Free Consultation | Interior Designer Bhopal | Contact Us</title>
         <meta name="description" content="Get in touch with Apka Interior Wala for a free interior design consultation in Bhopal. Call +91 78933 65987 or visit us at Patwa Market." />
         <link rel="canonical" href="https://apkainteriorwala.com/contact" />
+        <meta property="og:title" content="Free Consultation | Interior Designer Bhopal | Contact Us" />
+        <meta property="og:description" content="Get in touch with Apka Interior Wala for a free interior design consultation in Bhopal. Call +91 78933 65987 or visit us at Patwa Market." />
+        <meta property="og:url" content="https://apkainteriorwala.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://apkainteriorwala.com/images/marble-kitchen.jpg" />
       </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-20 text-center">

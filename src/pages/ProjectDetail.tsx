@@ -85,6 +85,15 @@ export default function ProjectDetail() {
         <meta name="twitter:image" content={project.image} />
         <script type="application/ld+json">{JSON.stringify(projectSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://apkainteriorwala.com' },
+            { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://apkainteriorwala.com/projects' },
+            { '@type': 'ListItem', position: 3, name: project.title, item: canonicalUrl },
+          ],
+        })}</script>
       </Helmet>
 
       {/* Hero */}

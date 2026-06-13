@@ -11,6 +11,11 @@ export default function Testimonials() {
         <title>Client Reviews | Apka Interior Wala Bhopal</title>
         <meta name="description" content="Read what our clients say about Apka Interior Wala — Bhopal's most trusted interior design and construction firm." />
         <link rel="canonical" href="https://apkainteriorwala.com/testimonials" />
+        <meta property="og:title" content="Client Reviews | Apka Interior Wala Bhopal" />
+        <meta property="og:description" content="Read what our clients say about Apka Interior Wala — Bhopal's most trusted interior design and construction firm." />
+        <meta property="og:url" content="https://apkainteriorwala.com/testimonials" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://apkainteriorwala.com/images/living-room-partition.jpg" />
       </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-20 text-center">
@@ -27,7 +32,7 @@ export default function Testimonials() {
             transition={{ delay: 0.1 }}
             className="mt-4 text-5xl font-light text-stone-900 md:text-7xl"
           >
-            What Our <span className="italic font-serif">Clients</span> Say
+            What Our Bhopal <span className="italic font-serif">Clients</span> Say
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

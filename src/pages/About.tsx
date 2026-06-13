@@ -13,9 +13,14 @@ export default function About() {
   return (
     <div className="pb-32">
       <Helmet>
-        <title>About Us | Apka Interior Wala Bhopal</title>
+        <title>Interior Design Studio Bhopal | About Apka Interior Wala</title>
         <meta name="description" content="Learn about Apka Interior Wala — Bhopal's premier interior design and construction firm. Meet our founder and discover our journey of excellence." />
         <link rel="canonical" href="https://apkainteriorwala.com/about" />
+        <meta property="og:title" content="Interior Design Studio Bhopal | About Apka Interior Wala" />
+        <meta property="og:description" content="Learn about Apka Interior Wala — Bhopal's premier interior design and construction firm. Meet our founder and discover our journey of excellence." />
+        <meta property="og:url" content="https://apkainteriorwala.com/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://apkainteriorwala.com/images/founder-zainab-khan.jpeg" />
       </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
@@ -33,8 +38,7 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="mt-4 text-5xl font-light text-stone-900 md:text-7xl"
           >
-            Designing the <span className="italic font-serif">Future</span> of
-            Bhopal
+            Bhopal's Premier Interior <span className="italic font-serif">Design</span> Studio
           </motion.h1>
         </div>
 
