@@ -10,7 +10,7 @@ const routes: { path: string; title: string; description: string }[] = [
   {
     path: '',
     title: 'Best Interior Designer in Bhopal | Apka Interior Wala',
-    description: "Apka Interior Wala — Bhopal's best interior design studio. Modular kitchens, wardrobes, false ceilings, custom furniture & aluminium partitions. 150+ projects. Free consultation.",
+    description: "Apka Interior Wala — Bhopal's best interior design studio. Modular kitchens, wardrobes, false ceilings, custom furniture & aluminium partitions. 150+ projects. Call +91 78933 65987 for a free consultation.",
   },
   {
     path: '/about',
@@ -20,7 +20,7 @@ const routes: { path: string; title: string; description: string }[] = [
   {
     path: '/services',
     title: 'Interior Design Services in Bhopal | Apka Interior Wala',
-    description: 'Best interior design services in Bhopal — modular kitchens, wardrobes, false ceilings, aluminium partitions, custom furniture & turnkey construction. Free consultation.',
+    description: 'Best interior design services in Bhopal — modular kitchens, wardrobes, false ceilings, aluminium partitions, custom furniture & turnkey construction. Call +91 78933 65987 for a free consultation.',
   },
   {
     path: '/projects',
@@ -155,29 +155,14 @@ export default defineConfig(() => {
             fs.writeFileSync(path.join(distDir, 'index.html'), template, 'utf8');
           }
 
-          // ── 0. Inject homepage-specific FAQ schema + static body content ──
-          const homepageFaqSchema = JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: [
-              { '@type': 'Question', name: 'Who is the best interior designer in Bhopal?', acceptedAnswer: { '@type': 'Answer', text: "Apka Interior Wala is widely regarded as Bhopal's best interior design studio, with 150+ completed projects across residential and commercial segments throughout Madhya Pradesh." } },
-              { '@type': 'Question', name: 'What interior design services do you offer in Bhopal?', acceptedAnswer: { '@type': 'Answer', text: 'Modular kitchens, custom wardrobes, false ceilings, custom furniture, aluminium sliding partitions, home & wall decor, residential interior design, commercial interior design, and full turnkey construction across Bhopal.' } },
-              { '@type': 'Question', name: 'What is the cost of interior design in Bhopal?', acceptedAnswer: { '@type': 'Answer', text: 'Costs range from ₹50,000 for a single room to ₹8 lakh+ for full home interiors. Modular kitchens from ₹1.5 lakh, false ceilings from ₹60/sq ft, and 2BHK interiors from ₹5–8 lakh.' } },
-              { '@type': 'Question', name: 'Do you offer a free interior design consultation in Bhopal?', acceptedAnswer: { '@type': 'Answer', text: 'Yes — a free 60-minute design consultation at our studio near Bharat Talkies, Bhopal, or at your home or office. Free 3D visualizations provided before any work begins.' } },
-              { '@type': 'Question', name: 'Which areas in Bhopal does Apka Interior Wala serve?', acceptedAnswer: { '@type': 'Answer', text: 'Arera Colony, MP Nagar, Koh-e-Fiza, Gulmohar, Hoshangabad Road, New Market, Bhopal Junction, Shivaji Nagar, and surrounding Madhya Pradesh districts including Indore.' } },
-            ],
-          });
-
+          // ── 0. Inject homepage static FAQ body content ──
           const homepageFaqBody = `<section id="faq" style="max-width:800px;margin:4rem auto;padding:2rem 1rem"><h2 style="font-size:1.5rem;font-weight:300;margin:0 0 1.5rem;color:#1c1917">Frequently Asked Questions — Interior Design Bhopal</h2><div style="border-top:1px solid #e7e5e4"><div style="padding:1.25rem 0;border-bottom:1px solid #e7e5e4"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">Who is the best interior designer in Bhopal?</h3><p style="color:#57534e;line-height:1.7;margin:0">Apka Interior Wala is widely regarded as Bhopal’s best interior design studio, with 150+ completed projects across residential and commercial segments throughout Madhya Pradesh.</p></div><div style="padding:1.25rem 0;border-bottom:1px solid #e7e5e4"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">What interior design services are available in Bhopal?</h3><p style="color:#57534e;line-height:1.7;margin:0">Modular kitchens, custom wardrobes, false ceilings, custom furniture, aluminium sliding partitions, home &amp; wall decor, residential &amp; commercial interior design, and full turnkey construction across Bhopal.</p></div><div style="padding:1.25rem 0;border-bottom:1px solid #e7e5e4"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">What is the cost of interior design in Bhopal?</h3><p style="color:#57534e;line-height:1.7;margin:0">Costs range from ₹50,000 for a single room to ₹8 lakh+ for full home interiors. Modular kitchens from ₹1.5 lakh, false ceilings from ₹60/sq ft, and 2BHK interiors from ₹5–8 lakh.</p></div><div style="padding:1.25rem 0;border-bottom:1px solid #e7e5e4"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">Do you offer a free consultation in Bhopal?</h3><p style="color:#57534e;line-height:1.7;margin:0">Yes — free 60-minute consultation at our studio near Bharat Talkies, Bhopal, or at your site. Free 3D visualization before work begins.</p></div><div style="padding:1.25rem 0"><h3 style="font-size:1rem;font-weight:600;color:#1c1917;margin:0 0 .5rem">Which Bhopal areas do you serve?</h3><p style="color:#57534e;line-height:1.7;margin:0">Arera Colony, MP Nagar, Koh-e-Fiza, Gulmohar, Hoshangabad Road, New Market, Bhopal Junction, Shivaji Nagar, and surrounding Madhya Pradesh districts.</p></div></div></section>`;
 
           {
             let homepageHtml = template
-              .replace('</head>', `  <script type="application/ld+json">${homepageFaqSchema}</script>\n</head>`)
               .replace('<div id="root"></div>', `<div id="root">${homepageFaqBody}</div>`);
             fs.writeFileSync(path.join(distDir, 'index.html'), homepageHtml, 'utf8');
           }
-          console.log('✅ Homepage FAQ schema + static content injected');
-
           // ── 1. Pre-render static HTML shells ─────────────────────────────
           for (const { path: routePath, title, description } of routes) {
             if (routePath === '') continue;
@@ -187,7 +172,6 @@ export default defineConfig(() => {
             fs.mkdirSync(dir, { recursive: true });
             fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
           }
-          console.log(`✅ Pre-rendered ${routes.length - 1} static HTML shells`);
 
           // ── 2. Base sitemap URLs ──────────────────────────────────────────
           const sitemapUrls: { loc: string; lastmod: string; changefreq: string; priority?: string }[] = routes
@@ -206,26 +190,11 @@ export default defineConfig(() => {
             const title = `${project.title} | Interior Designer ${location} | Apka Interior Wala`;
             const description = `${project.description.slice(0, 120).trimEnd()}… See this ${category} project by Apka Interior Wala in ${location}.`;
 
-            const schema = JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'CreativeWork',
-              name: project.title,
-              description: project.description,
-              image: project.image,
-              locationCreated: {
-                '@type': 'Place',
-                name: location,
-                address: { '@type': 'PostalAddress', addressLocality: location, addressRegion: 'Madhya Pradesh', addressCountry: 'IN' },
-              },
-              creator: { '@type': 'LocalBusiness', name: 'Apka Interior Wala', url: DOMAIN },
-            });
-
             const bodyContent = `<main style="max-width:860px;margin:0 auto;padding:2rem 1rem"><span style="font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:#78716c">${project.category} &mdash; ${location}</span><h1 style="font-size:2rem;font-weight:300;margin:.5rem 0 1rem;color:#1c1917">${project.title}</h1><p style="color:#57534e;line-height:1.7">${project.description}</p></main>`;
 
             const html = injectIntoShell(template, {
               title, description, canonical,
               ogImage: project.image,
-              extraHead: `  <script type="application/ld+json">${schema}</script>`,
               bodyContent,
             });
 
@@ -240,7 +209,6 @@ export default defineConfig(() => {
               priority: '0.8',
             });
           }
-          console.log(`✅ Pre-rendered ${staticProjects.length} project detail shells`);
 
           // ── 4. Journal post shells ────────────────────────────────────────
           for (const post of staticPosts) {
@@ -248,29 +216,12 @@ export default defineConfig(() => {
             const title = `${post.title} | Apka Interior Wala Journal`;
             const description = post.excerpt.slice(0, 155).trimEnd();
 
-            const schema = JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Article',
-              headline: post.title,
-              description: post.excerpt,
-              image: post.image,
-              datePublished: post.publishedAt,
-              author: { '@type': 'Person', name: 'Zainab Khan' },
-              publisher: {
-                '@type': 'Organization',
-                name: 'Apka Interior Wala',
-                logo: { '@type': 'ImageObject', url: `${DOMAIN}/favicon.png` },
-              },
-              mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
-            });
-
             const bodyContent = `<main style="max-width:860px;margin:0 auto;padding:2rem 1rem"><h1 style="font-size:2rem;font-weight:300;margin:0 0 1rem;color:#1c1917">${post.title}</h1><p style="color:#57534e;line-height:1.7">${post.excerpt}</p></main>`;
 
             const html = injectIntoShell(template, {
               title, description, canonical,
               ogImage: post.image,
               ogType: 'article',
-              extraHead: `  <script type="application/ld+json">${schema}</script>`,
               bodyContent,
             });
 
@@ -285,7 +236,6 @@ export default defineConfig(() => {
               priority: '0.7',
             });
           }
-          console.log(`✅ Pre-rendered ${staticPosts.length} journal post shells`);
 
           // ── 5. Write sitemap.xml ──────────────────────────────────────────
           let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
@@ -305,7 +255,6 @@ export default defineConfig(() => {
 
           fs.writeFileSync(path.join(distDir, 'sitemap.xml'), xml, 'utf8');
           fs.writeFileSync(path.join(distDir, 'robots.txt'), robots, 'utf8');
-          console.log(`✅ sitemap.xml written with ${sitemapUrls.length} URLs\n`);
         },
       },
     ],

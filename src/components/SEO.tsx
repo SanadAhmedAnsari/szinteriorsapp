@@ -26,13 +26,10 @@ const ROUTE_NAMES: Record<string, string> = {
 };
 
 function buildBreadcrumb(pathname: string) {
-  const parentPath = pathname.startsWith('/projects/')
-    ? '/projects'
-    : pathname.startsWith('/journal/')
-      ? '/journal'
-      : pathname;
+  // Detail pages handle their own 3-level breadcrumbs
+  if (pathname.startsWith('/projects/') || pathname.startsWith('/journal/')) return null;
 
-  const pageName = ROUTE_NAMES[parentPath];
+  const pageName = ROUTE_NAMES[pathname];
   if (!pageName) return null;
 
   return {
@@ -40,7 +37,7 @@ function buildBreadcrumb(pathname: string) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: DOMAIN },
-      { '@type': 'ListItem', position: 2, name: pageName, item: `${DOMAIN}${parentPath}` },
+      { '@type': 'ListItem', position: 2, name: pageName, item: `${DOMAIN}${pathname}` },
     ],
   };
 }
