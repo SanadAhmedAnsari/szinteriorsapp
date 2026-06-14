@@ -79,7 +79,12 @@ export const generateSchema = (type: 'Organization' | 'Project' | 'Article', dat
       "@type": "InteriorDesignStudio",
       "name": "Apka Interior Wala",
       "url": "https://apkainteriorwala.com",
-      "logo": "https://apkainteriorwala.com/favicon.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://apkainteriorwala.com/favicon.png",
+        "width": 512,
+        "height": 512
+      },
       "image": [
         "https://apkainteriorwala.com/images/marble-kitchen.jpg",
         "https://apkainteriorwala.com/images/living-room-partition.jpg",
@@ -104,11 +109,7 @@ export const generateSchema = (type: 'Organization' | 'Project' | 'Article', dat
         "longitude": 77.4103
       },
       "hasMap": "https://maps.google.com/?q=Patwa+Market+Near+Bharat+Talkies+Bhopal",
-      "areaServed": [
-        { "@type": "City", "name": "Bhopal" },
-        { "@type": "City", "name": "Indore" },
-        { "@type": "AdministrativeArea", "name": "Madhya Pradesh" }
-      ],
+      "areaServed": ["Bhopal", "Indore", "Madhya Pradesh"],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
