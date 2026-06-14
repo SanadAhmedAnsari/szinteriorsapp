@@ -109,7 +109,28 @@ export const generateSchema = (type: 'Organization' | 'Project' | 'Article', dat
         "longitude": 77.4103
       },
       "hasMap": "https://maps.google.com/?q=Patwa+Market+Near+Bharat+Talkies+Bhopal",
-      "areaServed": ["Bhopal", "Indore", "Madhya Pradesh"],
+      "areaServed": [
+        "Arera Colony, Bhopal",
+        "MP Nagar, Bhopal",
+        "Koh-e-Fiza, Bhopal",
+        "Gulmohar, Bhopal",
+        "Hoshangabad Road, Bhopal",
+        "New Market, Bhopal",
+        "Shivaji Nagar, Bhopal",
+        "Bhopal Junction, Bhopal",
+        "Bawadiya Kala, Bhopal",
+        "Bagmughaliya, Bhopal",
+        "Baghsewaniya, Bhopal",
+        "Kolar, Bhopal",
+        "Katara Hills, Bhopal",
+        "Rohit Nagar, Bhopal",
+        "Salaiya, Bhopal",
+        "Badwai, Bhopal",
+        "Airport Road, Bhopal",
+        "Bairagarh, Bhopal",
+        "Indore",
+        "Madhya Pradesh"
+      ],
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
