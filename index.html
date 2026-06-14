@@ -27,7 +27,8 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "InteriorDesignStudio",
+        "@type": ["GeneralContractor", "HomeAndConstructionBusiness"],
+        "@id": "https://apkainteriorwala.com/#business",
         "name": "Apka Interior Wala",
         "legalName": "Apka Interior Wala",
         "url": "https://apkainteriorwala.com",
@@ -43,6 +44,9 @@
           "https://apkainteriorwala.com/images/bedroom-render.jpg"
         ],
         "description": "Premium interior design and construction firm in Bhopal. Modular kitchens, false ceilings, custom furniture, civil work, and turnkey interior solutions across Bhopal, Indore, and Madhya Pradesh.",
+        "foundingDate": "2018-05-28",
+        "slogan": "Crafting Spaces That Tell Your Story",
+        "openingHours": "Mo-Sa 10:00-19:00",
         "telephone": "+91-7893365987",
         "email": "info@apkainteriorwala.com",
         "priceRange": "₹₹",
@@ -84,17 +88,68 @@
           "Indore",
           "Madhya Pradesh"
         ],
+        "knowsAbout": [
+          "Interior Design",
+          "Space Planning",
+          "Modular Kitchen Design",
+          "False Ceiling Design",
+          "Custom Wardrobe Design",
+          "Aluminium Profile Partitions",
+          "Custom Furniture",
+          "Home Renovation",
+          "Turnkey Interior Solutions",
+          "Construction Management"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Interior Design Services in Bhopal",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Modular Kitchen Design",
+                "description": "Custom modular kitchens with premium materials for homes in Bhopal."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Wardrobe & Storage Design",
+                "description": "Hinged, sliding, and walk-in wardrobes custom-built for your space."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "False Ceiling Design",
+                "description": "POP and gypsum false ceilings with LED lighting for homes and offices in Bhopal."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Aluminium Profile Partition",
+                "description": "Sliding and fixed aluminium profile partitions with fluted glass for modern interiors."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Turnkey Interior Solutions",
+                "description": "End-to-end interior design and construction from concept to handover in Bhopal."
+              }
+            }
+          ]
+        },
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "https://schema.org/Monday",
-              "https://schema.org/Tuesday",
-              "https://schema.org/Wednesday",
-              "https://schema.org/Thursday",
-              "https://schema.org/Friday",
-              "https://schema.org/Saturday"
-            ],
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             "opens": "10:00",
             "closes": "19:00"
           }
@@ -114,10 +169,10 @@
         ],
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": "6",
-          "bestRating": "5",
-          "worstRating": "1"
+          "ratingValue": 4.8,
+          "reviewCount": 6,
+          "bestRating": 5,
+          "worstRating": 1
         }
       }
     </script>
