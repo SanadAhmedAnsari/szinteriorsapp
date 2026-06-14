@@ -49,6 +49,11 @@ export default function Privacy() {
         <meta name="robots" content="noindex, follow" />
         <meta name="description" content="Privacy Policy of Apka Interior Wala, Bhopal. Learn how we collect, use, and protect your personal information when you use our website or contact us." />
         <link rel="canonical" href="https://apkainteriorwala.com/privacy" />
+        <meta property="og:title" content="Privacy Policy | Apka Interior Wala Bhopal" />
+        <meta property="og:description" content="Privacy Policy of Apka Interior Wala, Bhopal. Learn how we collect, use, and protect your personal information when you use our website or contact us." />
+        <meta property="og:url" content="https://apkainteriorwala.com/privacy" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://apkainteriorwala.com/images/marble-kitchen.jpg" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

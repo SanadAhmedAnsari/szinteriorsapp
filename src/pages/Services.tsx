@@ -54,6 +54,27 @@ const services = [
   },
 ];
 
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: 'Interior Design Services in Bhopal',
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': 'https://apkainteriorwala.com/#business',
+  },
+  itemListElement: services.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Service',
+      name: s.title,
+      description: s.desc,
+      provider: { '@id': 'https://apkainteriorwala.com/#business' },
+      areaServed: 'Bhopal, Madhya Pradesh, India',
+    },
+  })),
+};
+
 export default function Services() {
   return (
     <div className="pb-32">
@@ -66,6 +87,7 @@ export default function Services() {
         <meta property="og:url" content="https://apkainteriorwala.com/services" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://apkainteriorwala.com/images/marble-kitchen.jpg" />
+        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
       </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-32 text-center">

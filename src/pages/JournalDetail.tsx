@@ -29,9 +29,10 @@ export default function JournalDetail() {
     publisher: {
       '@type': 'Organization',
       name: 'Apka Interior Wala',
-      logo: { '@type': 'ImageObject', url: 'https://apkainteriorwala.com/favicon.ico' },
+      logo: { '@type': 'ImageObject', url: 'https://apkainteriorwala.com/favicon.png' },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+    contentLocation: { '@type': 'Place', name: 'Bhopal, Madhya Pradesh, India' },
   };
 
   return (

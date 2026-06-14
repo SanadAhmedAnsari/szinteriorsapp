@@ -55,16 +55,6 @@ export default function ProjectDetail() {
     },
   ];
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map(({ question, answer }) => ({
-      '@type': 'Question',
-      name: question,
-      acceptedAnswer: { '@type': 'Answer', text: answer },
-    })),
-  };
-
   return (
     <div className="pb-32">
       <Helmet>
@@ -84,7 +74,6 @@ export default function ProjectDetail() {
         <meta name="twitter:description" content={`${project.description.slice(0, 130).trimEnd()}… See this ${project.category.toLowerCase()} project by Apka Interior Wala in ${project.location}.`} />
         <meta name="twitter:image" content={project.image} />
         <script type="application/ld+json">{JSON.stringify(projectSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',

@@ -41,7 +41,7 @@ const faqSchema = {
   })),
 };
 
-function FAQItem({ q, a }: { q: string; a: string }) {
+function FAQItem({ q, a, panelId }: { q: string; a: string; panelId: string }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border-b border-stone-100">
@@ -49,6 +49,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between py-6 text-left gap-6"
         aria-expanded={open}
+        aria-controls={panelId}
       >
         <span className="text-lg font-light text-stone-900">{q}</span>
         <ChevronRight
@@ -56,7 +57,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           className={`shrink-0 text-stone-400 transition-transform duration-300 ${open ? 'rotate-90' : ''}`}
         />
       </button>
-      <div className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-48 pb-6' : 'max-h-0'}`}>
+      <div id={panelId} className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-48 pb-6' : 'max-h-0'}`}>
         <p className="text-stone-600 leading-relaxed">{a}</p>
       </div>
     </div>
@@ -336,7 +337,7 @@ export default function Home() {
           </div>
           <div className="divide-y divide-stone-100 border-t border-stone-100">
             {faqItems.map((item, idx) => (
-              <FAQItem key={idx} q={item.q} a={item.a} />
+              <FAQItem key={idx} q={item.q} a={item.a} panelId={`faq-panel-${idx}`} />
             ))}
           </div>
         </div>

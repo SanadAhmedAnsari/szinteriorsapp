@@ -4,6 +4,25 @@ import { Quote, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { testimonials } from '../data/testimonials';
 
+const reviewSchema = {
+  '@context': 'https://schema.org',
+  '@graph': testimonials.map((t) => ({
+    '@type': 'Review',
+    itemReviewed: {
+      '@type': 'LocalBusiness',
+      '@id': 'https://apkainteriorwala.com/#business',
+    },
+    author: { '@type': 'Person', name: t.name },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: t.rating,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    reviewBody: t.content,
+  })),
+};
+
 export default function Testimonials() {
   return (
     <div className="pb-32">
@@ -16,6 +35,7 @@ export default function Testimonials() {
         <meta property="og:url" content="https://apkainteriorwala.com/testimonials" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://apkainteriorwala.com/images/living-room-partition.jpg" />
+        <script type="application/ld+json">{JSON.stringify(reviewSchema)}</script>
       </Helmet>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-20 text-center">

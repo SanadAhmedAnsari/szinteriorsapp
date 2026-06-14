@@ -52,6 +52,11 @@ export default function Terms() {
         <meta name="robots" content="noindex, follow" />
         <meta name="description" content="Terms of Service for Apka Interior Wala, Bhopal. Read the terms governing use of our website and interior design & construction services." />
         <link rel="canonical" href="https://apkainteriorwala.com/terms" />
+        <meta property="og:title" content="Terms of Service | Apka Interior Wala Bhopal" />
+        <meta property="og:description" content="Terms of Service for Apka Interior Wala, Bhopal. Read the terms governing use of our website and interior design &amp; construction services." />
+        <meta property="og:url" content="https://apkainteriorwala.com/terms" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://apkainteriorwala.com/images/marble-kitchen.jpg" />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 

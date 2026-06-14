@@ -103,6 +103,7 @@ export default function Navbar() {
                 className="text-stone-900 focus:outline-none"
                 aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
                 aria-expanded={isOpen}
+                aria-controls="mobile-nav-menu"
               >
                 {isOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -147,6 +148,7 @@ export default function Navbar() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
+              id="mobile-nav-menu"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
