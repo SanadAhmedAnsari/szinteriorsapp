@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { generateSchema, SEO_KEYWORDS } from '../utils/seoData';
+import { SEO_KEYWORDS } from '../utils/seoData';
 
 const DOMAIN = 'https://apkainteriorwala.com';
 const DEFAULT_OG_IMAGE = `${DOMAIN}/images/marble-kitchen.jpg`;
@@ -13,8 +13,6 @@ const seo = {
     'best interior, interior design, construction, bhopal, indore, thekedar, carpenter solution, false ceiling experts, best company for interior',
   ogImage: DEFAULT_OG_IMAGE,
 };
-
-const schema = generateSchema('Organization', {});
 
 const ROUTE_NAMES: Record<string, string> = {
   '/about': 'About Us',
@@ -72,8 +70,6 @@ export function SEO() {
       <meta name="twitter:title" content={seo.metaTitle} />
       <meta name="twitter:description" content={seo.metaDescription} />
       <meta name="twitter:image" content={seo.ogImage} />
-
-      <script type="application/ld+json">{JSON.stringify(schema)}</script>
 
       {breadcrumb && (
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>

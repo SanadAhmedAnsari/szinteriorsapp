@@ -75,7 +75,7 @@ export default function Home() {
     <div className="overflow-hidden">
       <Helmet>
         <title>Best Interior Designer in Bhopal | Apka Interior Wala</title>
-        <meta name="description" content="Apka Interior Wala — Bhopal's best interior design studio. Modular kitchens, wardrobes, false ceilings, custom furniture & aluminium partitions. 150+ projects. Free consultation." />
+        <meta name="description" content="Apka Interior Wala — Bhopal's best interior design studio. Modular kitchens, wardrobes, false ceilings, custom furniture & aluminium partitions. 150+ projects. Call +91 78933 65987 for a free consultation." />
         <link rel="canonical" href="https://apkainteriorwala.com" />
         <meta property="og:title" content="Best Interior Designer in Bhopal | Apka Interior Wala" />
         <meta property="og:description" content="Apka Interior Wala — Bhopal's best interior design studio. Modular kitchens, wardrobes, false ceilings, custom furniture & aluminium partitions. Free consultation." />
@@ -97,13 +97,13 @@ export default function Home() {
             referrerPolicy="no-referrer"
           />
         </div>
-        <div className="relative z-10 flex h-full items-center justify-center px-4 text-center pt-32 md:pt-40">
+        <div className="relative z-10 flex h-full items-center justify-center px-4 text-center pt-20 md:pt-28">
           <div className="max-w-4xl">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.4em] text-stone-400"
+              className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.4em] text-stone-400"
             >
               Excellence in Design & Construction
             </motion.span>
@@ -111,7 +111,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-8 text-5xl font-light leading-tight text-white md:text-7xl lg:text-8xl"
+              className="mb-5 text-5xl font-light leading-tight text-white md:text-7xl lg:text-8xl"
             >
               {homeContent.heroTitle}
             </motion.h1>
@@ -119,7 +119,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mx-auto mb-12 max-w-2xl text-lg text-stone-300 md:text-xl"
+              className="mx-auto mb-8 max-w-2xl text-lg text-stone-300 md:text-xl"
             >
               {homeContent.heroSubtitle}
             </motion.p>
