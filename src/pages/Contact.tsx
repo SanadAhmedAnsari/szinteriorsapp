@@ -11,6 +11,8 @@ const contactSchema = z.object({
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Contact number is required (min 10 digits)"),
   service: z.string().min(1, "Please select a service"),
+  budget: z.string().min(1, "Please select a budget range"),
+  spaceType: z.string().min(1, "Please select a space type"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
@@ -24,7 +26,7 @@ export default function Contact() {
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { service: "" },
+    defaultValues: { service: "", budget: "", spaceType: "" },
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -34,7 +36,7 @@ export default function Contact() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: import.meta.env.VITE_WEB3FORMS_KEY,
-          subject: `New enquiry from ${data.name} — ${data.service}`,
+          subject: `New enquiry from ${data.name} — ${data.service} | ${data.spaceType} | ${data.budget}`,
           from_name: "Apka Interior Wala Website",
           ...data,
         }),
@@ -88,6 +90,14 @@ export default function Contact() {
             className="mt-8 max-w-2xl mx-auto text-lg text-stone-500 leading-relaxed"
           >
             Whether you're planning a modular kitchen, false ceiling, full home renovation, or a commercial fit-out in Bhopal, our team is ready to assist. Get a free consultation and site visit — no commitment required.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="mt-4 text-sm font-semibold uppercase tracking-widest text-stone-400"
+          >
+            We respond within 2 hours
           </motion.p>
         </div>
 
@@ -202,6 +212,41 @@ export default function Contact() {
                   </select>
                   {errors.service && (
                     <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.service.message}</p>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-600">Budget Range *</label>
+                  <select
+                    {...register("budget")}
+                    className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled>Select your budget</option>
+                    <option value="₹1–2 Lakh">₹1–2 Lakh</option>
+                    <option value="₹2–5 Lakh">₹2–5 Lakh</option>
+                    <option value="₹5–10 Lakh">₹5–10 Lakh</option>
+                    <option value="₹10 Lakh+">₹10 Lakh+</option>
+                  </select>
+                  {errors.budget && (
+                    <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.budget.message}</p>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-stone-600">Type of Space *</label>
+                  <select
+                    {...register("spaceType")}
+                    className="w-full border-b border-stone-200 bg-transparent py-3 text-stone-900 focus:border-stone-900 focus:outline-none transition-colors appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled>Select space type</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Villa / Independent House">Villa / Independent House</option>
+                    <option value="Office / Commercial">Office / Commercial</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  {errors.spaceType && (
+                    <p className="text-[10px] text-red-500 uppercase tracking-widest">{errors.spaceType.message}</p>
                   )}
                 </div>
               </div>

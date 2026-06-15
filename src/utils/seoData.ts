@@ -76,9 +76,9 @@ export const generateSchema = (type: 'Organization' | 'Project' | 'Article', dat
   if (type === 'Organization') {
     return {
       ...baseSchema,
-      "@type": ["GeneralContractor", "HomeAndConstructionBusiness"],
+      "@type": ["GeneralContractor", "HomeAndConstructionBusiness", "ProfessionalService"],
       "@id": "https://apkainteriorwala.com/#business",
-      "name": "Apka Interior Wala",
+      "name": "Apka Interior Wala Design Studio",
       "url": "https://apkainteriorwala.com",
       "logo": {
         "@type": "ImageObject",
