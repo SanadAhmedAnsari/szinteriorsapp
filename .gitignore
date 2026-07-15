@@ -11,7 +11,4 @@ coverage/
 .firebase/
 lighthouse-report.json
 skills-lock.json
-scripts/fb-lead-agent/session.json
-scripts/fb-lead-agent/seen-posts.json
-scripts/fb-lead-agent/leads.json
-scripts/fb-lead-agent/node_modules/
+scripts/
