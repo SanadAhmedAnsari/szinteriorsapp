@@ -46,7 +46,6 @@ export default function Privacy() {
     <div className="bg-stone-50 min-h-screen pb-32 pt-12">
       <Helmet>
         <title>Privacy Policy | Apka Interior Wala Bhopal</title>
-        <meta name="robots" content="noindex, follow" />
         <meta name="description" content="Privacy Policy of Apka Interior Wala, Bhopal. Learn how we collect, use, and protect your personal information when you use our website or contact us." />
         <link rel="canonical" href="https://apkainteriorwala.com/privacy" />
         <meta property="og:title" content="Privacy Policy | Apka Interior Wala Bhopal" />
