@@ -3,10 +3,38 @@
   <head>
     <!-- Facebook Pixel Code -->
     <script>
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '902790049364105'); fbq('track', 'PageView');
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "902790049364105");
+      fbq("track", "PageView");
     </script>
     <noscript>
-      <img height="1" width="1" src="https://www.facebook.com/tr?id=902790049364105&ev=PageView&noscript=1"/>
+      <img
+        height="1"
+        width="1"
+        src="https://www.facebook.com/tr?id=902790049364105&ev=PageView&noscript=1"
+      />
     </noscript>
     <!-- End Facebook Pixel Code -->
     <meta charset="UTF-8" />
@@ -19,7 +47,12 @@
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://w.behold.so" />
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=50&w=1200&fm=avif" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=50&w=1200&fm=avif"
+      fetchpriority="high"
+    />
 
     <title>Best Interior Designer in Bhopal | Apka Interior Wala</title>
 
@@ -157,7 +190,14 @@
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
             "opens": "10:00",
             "closes": "19:00"
           }
